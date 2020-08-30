@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="/image/logo-big.ico" rel="shortcut icon" media="screen" type="image/x-icon" />
+    <link href="/lib/Content/Content/font-awesome.css" rel="stylesheet" />
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <title>联系方式录入·一起帮</title>
+</head>
+<body>
+    <div class="container">
+        <h2>  <i class="fa fa-envelope" aria-hidden="true"></i>联系方式录入</h2>
+        <hr />
+        <div class="row">
+            <form class="col-4">
+                <div class="form-group">
+                    <label class="font-weight-bold">QQ:</label>
+                    <input name="qq" type="text" class="form-control" placeholder="建议填写">
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">微信:</label>
+                    <input name="wechat" type="text" class="form-control" placeholder="建议填写">
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">电话:</label>
+                    <input name="telephone" type="text" class="form-control" placeholder="请谨慎考虑是否填写">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1" class="font-weight-bold">其他:</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="需要说明的情况，比如加QQ时验证问题的回答，否则别人加不了，这就尴尬了。以及你能接受的其他联系方式......"></textarea>
+                </div>
+                <input class="btn btn-primary" type="submit" value="提交">
+
+                <span class="text-primary ml-4"> <i class="fa fa-info-circle" aria-hidden="true"></i>成功激活后自动返回<a href="#">之前页面</a></span>
+            </form>
+            <aside class="col-5 offset-1">
+                <h3 class="text-primary"><i class="fa fa-question-circle" aria-hidden="true"></i>    说明</h3>
+                <ol style="line-height:30px;">
+                    <li>
+                        Email非常重要，可用于重置密码、接受用户消息（可设置取消）等，强烈建议填写
+                    </li>
+                    <li>Email填写之后系统稍后会发送一封确认邮件到该地址，请注意查收，建议将<span class="text-primary">system@17help.net</span>加入白名单，以避免被当做垃圾邮件过滤掉。</li>
+                    <li>因为联系方式会公开显示，我们不建议你填写电话号码，以免个人信息被泄露。</li>
+                    <li>所以我们推荐使用QQ/微信等网络通信方式。</li>
+                    <li>注意填写QQ作为联系方式时，不要忘了留下“添加好友”的验证条件</li>
+                </ol>
+            </aside>
+        </div>
+    </div>
+</body>
+</html>
