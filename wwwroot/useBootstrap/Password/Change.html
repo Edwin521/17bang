@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="/image/logo-big.ico" rel="shortcut icon" media="screen" type="image/x-icon" />
+    <title>修改密码·一起帮</title>
+    <link href="/lib/Content/Content/font-awesome.css" rel="stylesheet" />
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+</head> 
+<body>
+    <div class="container">
+        <h2> <i class="fa fa-lock"></i>   修改密码</h2>
+        <hr />
+        <div class="row">
+            <form class="col-4">
+                <div class="form-group">
+                    <label for="exampleInputPassword1" class="font-weight-bold">原密码：（* 必填）</label>
+                    <input type="password" class="form-control" placeholder="不少于4个字符" id="exampleInputPassword1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1" class="font-weight-bold">新密码：（* 必填）</label>
+                    <input type="password" class="form-control" placeholder="不少于4个字符" id="exampleInputPassword1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1" class="font-weight-bold">确认密码：（* 必填）</label>
+                    <input type="password" class="form-control"placeholder="请再输入一次密码" id="exampleInputPassword1">
+                </div>
+                <input class="btn btn-primary" type="submit" value="提交">
+                <input class="btn btn-light" type="reset" value="重填">
+            </form>
+            <aside class="col-5 offset-2">
+                <h3 class="text-primary"><i class="fa fa-question-circle"></i>    说明</h3>
+                <ol>
+                    <li>
+                        即使在已登录的状态下，也要再输入一次“原密码”，是出于安全性的考虑。
+                    </li>
+                </ol>
+            </aside>
+        </div>
+    </div>
+   
+</body>
+</html>
