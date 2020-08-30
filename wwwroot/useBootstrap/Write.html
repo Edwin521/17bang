@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="/image/logo-big.ico" rel="shortcut icon" media="screen" type="image/x-icon" />
+    <title>个人资料·一起帮</title>
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/lib/Content/Content/font-awesome.css" rel="stylesheet" />
+    <script src="../lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2><i class="fa fa-user-circle-o" aria-hidden="true"></i>个人资料</h2>
+        <hr />
+        <div class="row " style="line-height:40px;">
+            <form class="col-5">
+                <div>
+                    <label class="font-weight-bold">头像:（* 仅限jpg/png/gif）</label>
+                    <div class="custom-file">
+
+                        <input type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" data-browse="浏览" for="customFile">页面提交时上传文件</label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="font-weight-bold">性别：</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sex" id="inlineRadio1" value="male">
+                        <label class="form-check-label" for="inlineRadio1">男</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sex" id="inlineRadio2" value="female">
+                        <label class="form-check-label" for="inlineRadio2">女</label>
+                    </div>
+                </div>
+
+                <label class="font-weight-bold">生日：</label>
+                <div>
+                    <div class="input-group mb-3">
+
+                        <select class="custom-select" id="inputGroupSelect02" name="year">
+
+                            <option value="1995">1995</option>
+                            <option value="1996">1996</option>
+                            <option value="1997">1997</option>
+                            <option value="1998">1998</option>
+                            <option value="1999">1999</option>
+                            <option value="2000">2000</option>
+
+                        </select>
+                        <div class="input-group-append">
+                            <label class="input-group-text" for="inputGroupSelect02">年</label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect02" name="month">
+
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+
+                        </select>
+                        <div class="input-group-append">
+                            <label class="input-group-text" for="inputGroupSelect02">月</label>
+                        </div>
+
+                        <select class="custom-select" id="inputGroupSelect02" name="Constellation">
+                            <option>白羊座</option>
+                            <option>金牛座</option>
+                            <option>双子座</option>
+                            <option>巨蟹座</option>
+                            <option>狮子座</option>
+                            <option>处女座</option>
+                            <option>天秤座</option>
+                            <option>天蝎座</option>
+                            <option>射手座</option>
+                            <option>摩羯座</option>
+                            <option>水瓶座</option>
+                            <option>双鱼座</option>
+
+                        </select>
+                        <div class="input-group-append">
+                            <label class="input-group-text" for="inputGroupSelect02">星座</label>
+                        </div>
+                    </div>
+                    <label class="font-weight-bold">关键字：（* 使用空格分隔）</label>
+                    <div>
+
+                        <div class="btn-group">
+                            <button type="button" style="border:1px solid #ced4da;" class="btn ">---1级---</button>
+                            <button type="button" style="border:1px solid #ced4da; " class="btn  dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">编程开发语言</a>
+                                <a class="dropdown-item" href="#">工具语言</a>
+                                <a class="dropdown-item" href="#">顾问咨询</a>
+
+                                <a class="dropdown-item" href="#">操作系统</a>
+                            </div>
+                        </div>
+                        <div class="btn-group" style="margin-left:-4px">
+                            <button type="button" style="border:1px solid #ced4da;" class="btn ">---2级---</button>
+                            <button type="button" style="border:1px solid #ced4da; " class="btn  dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">C#</a>
+                                <a class="dropdown-item" href="#">JAVA</a>
+                                <a class="dropdown-item" href="#">JAVASCRIPT</a>
+                                <a class="dropdown-item" href="#">SQL</a>
+                                <a class="dropdown-item" href="#">CSS</a>
+                                <a class="dropdown-item" href="#">HTML</a>
+                                <a class="dropdown-item" href="#">C</a>
+                                <a class="dropdown-item" href="#">C++</a>
+                            </div>
+                            <input type="text" style="width:210px" class="form-control " placeholder="自定义关键词">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1" class="font-weight-bold">自我介绍:</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                        </div>
+                        <input class="btn btn-primary" type="submit" value="提交">
+                    </div>
+                   
+                </div>
+
+
+            </form>
+            <aside class="col-4 offset-1">
+                <h3 class="text-primary"><i class="fa fa-question-circle" aria-hidden="true"></i>说明</h3>
+                <ol style="line-height:30px;">
+                    <li>头像仅接受jpg/png/gif格式，大小不超过256KB。</li>
+                    <li>头像图片的建议宽度为300像素左右，过宽或过窄都有可能失真。</li>
+                    <li>自我介绍的字数不要超过255字。</li>
+
+                </ol>
+            </aside>
+        </div>
+    </div>
+
+    <script>
+            //$(".btn-danger").click(function () {
+            //    $('.dropdown-menu').dropdown("show");
+
+            //})
+
+
+    </script>
+</body>
+</html>
