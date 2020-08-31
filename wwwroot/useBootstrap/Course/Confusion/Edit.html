@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="/image/logo-big.ico" rel="shortcut icon" media="screen" type="image/x-icon" />
+    <link href="/lib/Content/Content/font-awesome.css" rel="stylesheet" />
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="/kindeditor/themes/default/default.css" rel="stylesheet" />
+
+
+
+    <script charset="utf-8" src="/kindeditor/kindeditor-all-min.js"></script>
+    <script charset="utf-8" src="/kindeditor/lang/zh-CN.js"></script>
+    <script>
+        var editor;
+        KindEditor.ready(function (K) {
+            editor = K.create('textarea[name="content"]', {
+                resizeType: 1,
+                allowPreviewEmoticons: false,
+                allowImageUpload: false,
+                items: [
+                    'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+                    'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+                    'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+            });
+        });
+    </script>
+    <title>疑难解答·督导班·一起帮</title>
+    <style>
+        .yellowBg {
+            background-color: #ffffe0;
+            border: 2px dashed #eee;
+            border-radius: 4px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        <h3><i class="fa fa-question-circle"></i>  疑难解答·督导班</h3>
+        <hr />
+        <div class="row">
+
+            <form class="col-8">
+                <div class="form-group">
+                    <label for="exampleInputPassword1" class="font-weight-bold"> 标题：（* 必填）</label>
+                    <input type="text" class="form-control" placeholder="简明扼要，不超过255字" id="exampleInputPassword1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1" class="font-weight-bold"> 描述：（* 必填）</label>
+                    <textarea name="content" style="width:730rem;height:400rem;">KindEditor</textarea>
+
+
+                </div>
+                <input class="btn btn-primary" type="submit" dis value="提交">
+                <input class="btn btn-link " type="submit" value="保存基本内容">
+            </form>
+            <aside class="col-3 offset-1">
+                <div class="yellowBg " style="padding:10px 10px 0 10px;line-height:30px;">
+                    <h4><i class="fa fa-list"></i>  新手任务</h4>
+                    <hr />
+                    <i class="fa fa-square-o" aria-hidden="true">  填写：<a href="#">联系方式</a></i>
+                    <i class="fa fa-square-o" aria-hidden="true">  激活：<a href="#">Emial</a></i>
+                    <i class="fa fa-square-o" aria-hidden="true">  邀请：<a href="#">我的小伙伴</a></i>
+                    <i class="fa fa-square-o" aria-hidden="true">  参加：<a href="#">新人测试</a></i>
+                    <i class="fa fa-square-o" aria-hidden="true">  发布：<a href="#">第一个求助</a></i>
+                    <i class="fa fa-square-o" aria-hidden="true">  尝试：<a href="#">第一次协助</a></i>
+                    <i class="fa fa-square-o" aria-hidden="true">  获得：<a href="#" class="text-warning">  <i class="fa fa-dollar"></i> 帮帮币</a></i>
+                </div>
+                <div style="padding:10px;line-height:30px;">
+                    <label class="font-weight-bold">头像：</label>
+                    <i class="fa fa-pencil-square-o text-primary"><a href="#">   修改</a></i><br />
+                    <lable class="font-weight-bold">用户：</lable>
+                    <a href="#">EDWIN</a><a href="#" class="text-secondary">①</a> <a href="#" class="ml-2"><i class="fa fa-pencil-square-o"></i>  修改</a><br />
+                    <lable class="font-weight-bold">性别：</lable>
+                    <span>男</span><br />
+                    <lable class="font-weight-bold">生日：</lable>
+                    <span>1996 年 6 月 巨蟹座</span><br />
+                    <lable class="font-weight-bold">关注：</lable><br />
+                    <lable class="font-weight-bold">自我介绍：</lable>
+                    <span>just do it</span>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
