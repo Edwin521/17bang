@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="/image/logo-big.ico" rel="shortcut icon" media="screen" type="image/x-icon" />
+    <link href="/lib/Content/Content/font-awesome.css" rel="stylesheet" />
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/kindeditor/themes/default/default.css" rel="stylesheet" />
+    <script src="/kindeditor/kindeditor-all-min.js"></script>
+    <script src="/kindeditor/lang/zh-CN.js"></script>
+    <title>我要协助·一起帮</title>
+    <style>
+        .yellowBg {
+            background-color: #ffffe0;
+            border: 2px dashed #eee;
+            border-radius: 4px 5px;
+        }
+    </style>
+    <script>
+        var editor;
+        KindEditor.ready(function (K) {
+            editor = K.create('textarea[name="content"]', {
+                resizeType: 1,
+                allowPreviewEmoticons: false,
+                allowImageUpload: false,
+                items: [
+                    'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+                    'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+                    'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container ">
+
+
+        <div class="row">
+
+            <form class="col-8" style="line-height:20px;">
+                <h2><i class="fa fa-question-circle"></i>  我要求助</h2>
+                <hr />
+                <div class="text-primary yellowBg">
+                    <p><i class="fa fa-info-circle"></i>  这是你第一次发布求助，求助发布成功系统会奖励你 20 <a href="#"><i class="fa fa-tint" aria-hidden="true"></i> 帮帮点</a></p>
+                    <p>
+                        <i class="fa fa-info-circle"></i> 你还没有<a>自由发布</a>权限，为了保证求助的质量，我们会帮助你检查完善该求助内容，然后再公开显示，请耐心等待。
+                        中途如有任何问题，工作人员会主动和你联系，请注意保持联系方式畅通。
+                    </p>
+                    <lable style="float:right;margin-top:20px;"><input type="checkbox" value="" />  需要远程协助</lable>
+                </div>
+                <div class="form-group " style="clear:both">
+                    <label for="exampleInputPassword1" class="font-weight-bold"> 标题：（* 必填）</label>
+                    <input type="text" class="form-control" placeholder="简明扼要，不超过255字" id="exampleInputPassword1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1" class="font-weight-bold"> 描述：（* 必填）</label>
+                    <textarea name="content" style="width:730rem;height:400rem;">KindEditor</textarea>
+                </div>
+                <label class="font-weight-bold">关键字：（* 使用空格分隔）</label><br />
+                <div class="btn-group">
+                    <button type="button" style="border:1px solid #ced4da;" class="btn ">---1级---</button>
+                    <button type="button" style="border:1px solid #ced4da; " class="btn  dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">编程开发语言</a>
+                        <a class="dropdown-item" href="#">工具语言</a>
+                        <a class="dropdown-item" href="#">顾问咨询</a>
+
+                        <a class="dropdown-item" href="#">操作系统</a>
+                    </div>
+                </div>
+                <div class="btn-group" style="margin-left:-4px">
+                    <button type="button" style="border:1px solid #ced4da;" class="btn ">---2级---</button>
+                    <button type="button" style="border:1px solid #ced4da; " class="btn  dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">C#</a>
+                        <a class="dropdown-item" href="#">JAVA</a>
+                        <a class="dropdown-item" href="#">JAVASCRIPT</a>
+                        <a class="dropdown-item" href="#">SQL</a>
+                        <a class="dropdown-item" href="#">CSS</a>
+                        <a class="dropdown-item" href="#">HTML</a>
+                        <a class="dropdown-item" href="#">C</a>
+                        <a class="dropdown-item" href="#">C++</a>
+                    </div>
+                    <input type="text" style="width:210px" class="form-control " placeholder="自定义关键词">
+                </div>
+                <br />
+                <br />
+                <label class="font-weight-bold">定向求助：（<a href="#">推介<i class="fa fa-question-circle"></i></a>）</label> <br />
+                <div class="input-group mb-3 ">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                    </div>
+
+                    <input type="text" class="form-control" placeholder="输入你想要求助的大神用户名" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <label style="display:block;" class="font-weight-bold mb-1">悬赏<a href="#" class="text-warning"><i class="fa fa-dollar "></i>帮帮币</a>：(<a href="#">现有<span class="text-warning">0</span>枚<i class="fa fa-refresh"></i></a>)</label> <br />
+                <div class="input-group mb-3 ">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-usd text-warning" aria-hidden="true"></i></span>
+                    </div>
+                    <input type="text" placeholder="正整数，建议10枚以上" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <div class="input-group-append">
+                        <span class="input-group-text">枚</span>
+
+                    </div>
+
+                </div>
+                <small class="float-right " style="margin-top:-13px;"><i class="fa fa-question-circle text-primary"></i>  <a href="#">如何获得“帮帮币”</a></small>
+                <input class="btn btn-primary" type="submit" value="发布">
+                <input class="btn btn-light" type="submit" value="保存基本内容">
+            </form>
+            <aside class="col-3 offset-1">
+                <div class="yellowBg " style="padding:10px 10px 0 10px;line-height:30px;">
+                    <h4><i class="fa fa-list"></i>  新手任务</h4>
+                    <hr />
+                    <i class="fa fa-square-o" aria-hidden="true">  填写：<a href="#">联系方式</a></i>
+                    <i class="fa fa-square-o" aria-hidden="true">  激活：<a href="#">Emial</a></i>
+                    <i class="fa fa-square-o" aria-hidden="true">  邀请：<a href="#">我的小伙伴</a></i>
+                    <i class="fa fa-square-o" aria-hidden="true">  参加：<a href="#">新人测试</a></i>
+                    <i class="fa fa-square-o" aria-hidden="true">  发布：<a href="#">第一个求助</a></i>
+                    <i class="fa fa-square-o" aria-hidden="true">  尝试：<a href="#">第一次协助</a></i>
+                    <i class="fa fa-square-o" aria-hidden="true">  获得：<a href="#" class="text-warning">  <i class="fa fa-dollar"></i> 帮帮币</a></i>
+                </div>
+                <div style="padding:10px;line-height:30px;">
+                    <label class="font-weight-bold">头像：</label>
+                    <i class="fa fa-pencil-square-o text-primary"><a href="#">   修改</a></i><br />
+                    <lable class="font-weight-bold">用户：</lable>
+                    <a href="#">EDWIN</a><a href="#" class="text-secondary">①</a> <a href="#" class="ml-2"><i class="fa fa-pencil-square-o"></i>  修改</a><br />
+                    <lable class="font-weight-bold">性别：</lable>
+                    <span>男</span><br />
+                    <lable class="font-weight-bold">生日：</lable>
+                    <span>1996 年 6 月 巨蟹座</span><br />
+                    <lable class="font-weight-bold">关注：</lable><br />
+                    <lable class="font-weight-bold">自我介绍：</lable>
+                    <span>just do it</span>
+                </div>
+            </aside>
+        </div>
+    </div>
+</body>
+</html>
