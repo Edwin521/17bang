@@ -1,0 +1,28 @@
+﻿2020年9月2日 面试题
+1-----为什么需要数据库？都有哪些主流的数据库？它们的特点分别是什么？分别对应的语言是什么？
+
+因为数据需要存放/查找等：
+
+Oracle：甲骨文公司开发，收费，功能强大，语法丰富，适用于各种大中小微机环境
+MySql：社区开源免费，后被甲骨文收购，但仍保留免费社区版。特点是可选择“引擎”
+SQL Server：微软公司开发，收费，可视化操作界面（Management Studio）强大，之前只能在windows上部署，现在已可以在Linux上部署使用。 
+
+ Oracle推出的被称为PL/SQL
+mysql还是叫mysql，
+SQL Server推出的，就叫做：T-SQL
+
+2-----Visual Studio的LocalDB 的特点是什么？
+
+
+    轻量级：不需要复杂的安装/配置/启动等
+    专为开发者（developer）设计，让开发者专注于开发
+
+
+固定定位 position:fixed     显示窗体屏幕                          会 
+
+绝对定位  position:absolute 最近一个定位的父元素，直到最外层元素 会
+	
+	
+
+
+相对定位  position:relative  本来应该在的位置                   不会
