@@ -52,11 +52,28 @@
         span.order-tag {
             margin-top: 4px;
         }
-        td{
-            text-align:left;
-            
+
+        td {
+            text-align: left;
         }
     </style>
+
+
+    <script>
+
+
+
+        $(function () {
+
+            function index() {
+                $('.name').css('color', '#03a9f4');  //默认值
+                setTimeout(" $('.name').css('color','#DAA520')", 100); //第一次闪烁
+
+            };
+            window.setInterval(index, 700); //让index 多久循环一次
+
+        })
+    </script>
 </head>
 <body>
     <div class="container">
@@ -256,7 +273,11 @@
     </div>
 
     <script>
+
+
+
         $(function () {
+            
             function index() {
                 $('.name').css('color', '#03a9f4');  //默认值
                 setTimeout(" $('.name').css('color','#DAA520')", 100); //第一次闪烁
