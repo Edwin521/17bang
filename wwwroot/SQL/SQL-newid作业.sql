@@ -14,16 +14,36 @@ insert keyword ([data]) values (N'职场');
 insert keyword ([data]) values (N'HTML');
 select *from keyword;
 --给User表中添加一个GUID的Id列，并存入若干条数据
+insert into 表名 (字段名) values (newid())
 begin tran
+create table user1(
+id nvarchar(50)
+)
 
-INSERT [user]( id) VALUES(NEWID())
+INSERT [user1]( id) VALUES(NEWID())
 rollback
 --Problem表已有Id列，如何给该列加上IDENTITY属性？ 
----再建立一个新列，把这个列加上identity属性，关闭identity，然后把原来的id列内容复制过来，再删除原来的id列，再把identity打开，改掉这个列的列名。
+---
 
-alter table problem
---DROP COLUMN [ID];
-ADD  [id] int IDENTITY not null ;
+CREATE TABLE USER2(
+username NVARCHAR(20) ,
+[password] NVARCHAR(20),
+invitedby NVARCHAR(20) ,
+id2 INT IDENTITY PRIMARY KEY,
 
+)
+SELECT *FROM USER2
+DROP TABLE USER2
+SET IDENTITY_INSERT USER2 On;
+
+
+ INSERT INTO USER2 SELECT * FROM [user]
+--drop column  id2;
+
+
+
+
+UPDATE USER2 SET ID2 = id;
 
 select * from problem;
+

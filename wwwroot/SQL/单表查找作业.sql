@@ -23,7 +23,7 @@
     --    查找并统计出每个作者的：求助数量、悬赏总金额和平均值
     SELECT Author as '作者', Count(title) as '求助数量',Sum(reward) as '悬赏总金额',AVG(reward) as '平均值' from problem
     Group By Author
-    order by Author ASC
+   
     SELECT*FROM problem;
     --    找出平均悬赏值少于10的作者并按平均值从小到大排序
     SELECT Author,AVG(reward)AS average from problem    
@@ -40,7 +40,9 @@
 
 
      --SELECT *FROM NewProblem
-
+     begin tran
+     drop  table NewProblem;
+     commit
     --使用INSERT SELECT, 将Problem中Reward为NULL的行再次插入到NewProblem中
 
 
