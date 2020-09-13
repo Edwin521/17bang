@@ -56,3 +56,28 @@ NULL这个值表示UNKNOWN(未知):它不表示“”(空字符串)。假设您�
 使用 GO 来分隔SQL语句。GO并不是一条SQL语句，而是一个对SQL Server的客户端（比如VS的new query窗口）有效的命令。
 客户端检测到 GO，就会以GO为分隔符，将SQL语句分隔成若干批发送给SQL Server，由SQL Server分批处理
 
+9-----运算符的优先级是怎样的？
+10-----结果集为空和结果集为null的区别是什么？
+11---任何数和null的比较，（总是为假），如果进行运算，（其结果总是为null）。那如何判断一个值是不是null？（用 is null）
+12----一个表中只能有一个identity列，identity的值可以不连续，即使没有成功插入，identity值也会增加，id一但生成，不能更改，即删除一条数据，identity不会被压缩，
+SQL sever 为保证identity不重复，会在某些情况下自动大幅增加identity的值。
+13---你觉得在数据库的约束的修改中，需要注意一些什么问题？
+如果是在表上添加新列，可以像刚建表时一样，直接指定该列的约束。  ALTER TABLE Student ADD Score DECIMAL(3,1) DEFAULT(18)
+但是除了not null 约束以外，给表上已有列添加约束，就不能直接使用alter column，比如这样写就不行， alter table students alter column age int default(18);
+必须使用 add constraint;
+比如 alter table students
+add constraint pk_students_id primary key(id);////最后（）里面写要加约束的列名
+primary,unique,check写法都一样，都是最后在（）里面写上要加约束的列名，
+而default约束写法不同，
+ALTER TABLE Student
+ADD CONSTRAINT DF_Age DEFAULT 18 FOR Age; -- 注意写法的差异是在最后写for**;**代表列名
+
+
+14----是不是建立了索引，查询时就一定会使用索引？为什么
+不一定，这与具体的执行计划相关，执行计划会自动计算使用索引和不使用用索引哪个的成本更低，从而根据结果选择最优的方式执行
+
+15----在什么时候应该建立索引，什么时候不应该建立索引？什么时候建立聚集索引，什么时候建立非聚集索引？
+什么时候应该建立索引：当某些数据字段需要频繁的查询时，
+不宜建立索引：表记录少的时候，经常增删改的表，过滤性不好的不适合建立索引。
+什么时候应该建立聚集索引：使用聚集索引的最大好处就是能够根据查询要求，迅速缩小查询范围，避免全表扫描。
+什么时候应该建立非聚集索引：
