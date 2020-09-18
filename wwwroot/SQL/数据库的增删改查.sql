@@ -94,3 +94,15 @@ DELETE Student WHERE Id > 3
 ---------------------------------------------------------
 
 --exists 检查集合,如果结果集有值,返回真,否则，返回假。
+----------------------------------------------------------------------
+--添加外键约束
+ALTER TABLE STUDENTS --修改表
+ADD CONSTRAINT FK_TEACHER_ID--添加约束，指定约束名称，外键建议以fk开头，后跟表和列名
+FOREIGN KEY (TEACHERID)--约束类型：外键，且外键列为teacherid
+REFERENCES TEACHER(ID)--外键表为teacher，作为外键使用的列为teacher上的id
+--在建表的时候，直接在列后面添加，为了方便演示，我们要创建一个major表：
+CREATE TABLE major(
+id int not null primary key ,
+[name] nvarchar(30),
+TaughtBy int constraint fk_teacher_id foreign key(TeacherId) references teacher(id)
+)

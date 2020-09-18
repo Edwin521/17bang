@@ -37,7 +37,7 @@ DROP TABLE USER2
 SET IDENTITY_INSERT USER2 On;
 
 
- INSERT INTO USER2 SELECT * FROM [user]
+ INSERT INTO USER2(username,[password],invitedby,id2) SELECT [user](username,[password],invitedby,id2) FROM [user]
 --drop column  id2;
 
 
