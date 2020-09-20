@@ -138,30 +138,82 @@ CREATE TABLE [dbo].[problem] (
 SELECT *FROM problem
 SELECT *FROM [USER]
 
+ALTER TABLE [USER]
+Add ProblemId int;
+
+
+ALTER TABLE [USER]
+ADD CONSTRAINT FK_problem_ID
+FOREIGN KEY (ProblemId)
+REFERENCES problem(ID)
+
+ALTER TABLE [problem]
+ADD CONSTRAINT PK_Id PRIMARY KEY(Id);
+
+
+
+
 --   某用户发布一篇求助，
+
+SELECT *FROM [USER]
+
+INSERT [problem]VALUES(N'CSS',N'CSS怎么使文字垂直居中',1,20,2020/9/2,3,12)
+INSERT [USER] VALUES (N'张三',4932,N'这是一个描述',NULL,3)
 
 --   将该求助的作者改成另外一个用户
 
+UPDATE problem SET  AuthorId =5 WHERE ID=3
+
 --   删除该用户
 
---   求助列表：新建Keyword表，和Problem形成n:n关联（含约束）。用SQL语句演示：
+DELETE [USER] WHERE ID=5
+ --   求助列表：新建Keyword表，和Problem形成n:n关联（含约束）。用SQL语句演示：
+
+
 SELECT *FROM Keyword 
 SELECT *FROM problem
 
 
 CREATE TABLE Keyword(
-ID INT NOT NULL,
-
+ID INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+KWORD NVARCHAR (30),
 
 )
 
+CREATE TABLE KeywordToProblem(
+ KeywordId INT CONSTRAINT FK_K2P_KeywordId FOREIGN KEY REFERENCES Keyword(ID),
+  ProblemId INT CONSTRAINT FK_K2P_ProblemId FOREIGN KEY REFERENCES Problem(ID),
+)
+
+
+
+keyword int constraint fk_k2P_keyword foreign key references keyword(id)
+SELECT * FROM KeywordToProblem
+
+
 --   查询获得：某求助使用了多少关键字，某关键字被多少求助使用
-
+SELECT count(KeywordId) N'使用次数',KeywordId FROM KeywordToProblem WHERE KeywordId=2
+GROUP BY KeywordId
 --   \发布了一个使用了若干个关键字的求助
+SELECT*FROM problem
+SELECT*FROM Keyword
+INSERT problem VALUES (N'程序员生涯',N'选择哪种语言',1,23,2020-9-27,4,5)
 
+INSERT KeywordToProblem VALUES(1,4)
+INSERT KeywordToProblem VALUES(2,4)
+SELECT *FROM KeywordToProblem
 --   该求助不再使用某个关键字
-
+DELETE KeywordToProblem WHERE ProblemId=2 AND KeywordId=1;
+SELECT *FROM KeywordToProblem
 --   删除该求助
+DELETE KeywordToProblem WHERE ProblemId=2
+DELETE  Problem WHERE ID=2
 
+
+SELECT *FROM KeywordToProblem
+SELECT *FROM Keyword
 --   删除某关键字
+DELETE KeywordToProblem WHERE KeywordId=2 ;
+DELETE   Keyword WHERE ID=2
+
 
