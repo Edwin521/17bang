@@ -105,4 +105,10 @@ CREATE TABLE major(
 id int not null primary key ,
 [name] nvarchar(30),
 TaughtBy int constraint fk_teacher_id foreign key(TeacherId) references teacher(id)
-)
+
+
+----------------------------子查询------
+--删除除学生表中重复的的成绩
+
+    DELETE STUDENT 
+    WHERE ID NOT IN ( SELECT MAX(ID) FROM STUDENT GROUP BY SCORE)
