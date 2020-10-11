@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\17bang\\lzbTest\\lzbTest.csproj": {}
+    "D:\\17bang\\LZBC#\\LZBC#.csproj": {}
   },
   "projects": {
-    "D:\\17bang\\lzbTest\\lzbTest.csproj": {
+    "D:\\17bang\\LZBC#\\LZBC#.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\17bang\\lzbTest\\lzbTest.csproj",
-        "projectName": "lzbTest",
-        "projectPath": "D:\\17bang\\lzbTest\\lzbTest.csproj",
+        "projectUniqueName": "D:\\17bang\\LZBC#\\LZBC#.csproj",
+        "projectName": "LZBC#",
+        "projectPath": "D:\\17bang\\LZBC#\\LZBC#.csproj",
         "packagesPath": "C:\\Users\\Think\\.nuget\\packages\\",
-        "outputPath": "D:\\17bang\\lzbTest\\obj\\",
+        "outputPath": "D:\\17bang\\LZBC#\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Think\\AppData\\Roaming\\NuGet\\NuGet.Config",
