@@ -20,7 +20,9 @@ namespace _17bang
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    //webBuilder.UseStartup<Startup>();
+
+                    Console.WriteLine(  3+2);
                 });
     }
 }

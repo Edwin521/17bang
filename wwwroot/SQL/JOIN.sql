@@ -19,7 +19,7 @@ BEGIN TRAN
    -- 3 用一句SELECT显示出用户和他的邀请人用户名
  SELECT*FROM [USER]
  SELECT *FROM [Profile]
- UPDATE  [USER] SET [INVITEDBY] =3 WHERE [NAME] =N'廖光银' 
+
 
  
    SELECT O.[NAME] 用户,I.[INVITEDBY] 邀请人  FROM [USER] O
@@ -31,9 +31,17 @@ BEGIN TRAN
 
    SELECT *FROM Keyword
    ALTER TABLE Keyword
-   --ADD [upper]  NVARCHAR(30)
-   ADD UpAndLevel NVARCHAR(30)
+   ADD [upLever] int
+   
+   SELECT K3.KWORD 关键字,K2.KWORD 上一级,K1.KWORD 再上一级
+   FROM Keyword K1
+   RIGHT JOIN Keyword K2
+      ON K1.ID=K2.[upLever]
+	  RIGHT JOIN Keyword K3
+   ON K2.ID=K3.[upLever]
 
+
+  
    --     2然后用一个SELECT语句查出所有普通关键字的上一级、以及上上一级的关键字名称，比如：
 
    -- 1-17bang中除了求助（Problem），还有意见建议（Suggest）和文章（Article），他们都包含Title、Content、PublishTime和Auhthor四个字段，但是：
@@ -75,14 +83,24 @@ BEGIN TRAN
    SELECT *FROM Article
    SELECT *FROM problem
 
-   SELECT *FROM [USER] U
-   JOIN 
-   Article A
-   JOIN
-   Suggest S
-   JOIN
-   problem P
-   ON 
-   U.ID=A.AUTHORID
-   U.ID=S.AUTHORID
-   U.ID=P.AuthorId;
+
+   ALTER TABLE problem
+   ALTER COLUMN  publishdatetime NVARCHAR(MAX)
+
+
+
+   
+
+   SELECT A.TITLE,A.CONTENT ,PUBLISHTIME FROM Article A     
+   UNION 
+   SELECT S.TITLE,S.CONTENT ,PUBLISHTIME FROM Suggest S   
+    UNION 
+   SELECT  P.title,P.content,PUBLISHTIME FROM    problem P  
+   ORDER BY PUBLISHTIME DESC
+    
+   
+ 
+
+
+
+   
