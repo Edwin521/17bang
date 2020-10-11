@@ -1,0 +1,4 @@
+D:\17bang\lzbTest\obj\Release\netcoreapp3.1\lzbTest.csprojAssemblyReference.cache
+D:\17bang\lzbTest\obj\Release\netcoreapp3.1\lzbTest.AssemblyInfoInputs.cache
+D:\17bang\lzbTest\obj\Release\netcoreapp3.1\lzbTest.AssemblyInfo.cs
+D:\17bang\lzbTest\obj\Release\netcoreapp3.1\lzbTest.csproj.CoreCompileInputs.cache
