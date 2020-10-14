@@ -1,0 +1,13 @@
+D:\17bang\LZBC#\bin\Debug\netcoreapp3.1\LZBC#.exe
+D:\17bang\LZBC#\bin\Debug\netcoreapp3.1\LZBC#.deps.json
+D:\17bang\LZBC#\bin\Debug\netcoreapp3.1\LZBC#.runtimeconfig.json
+D:\17bang\LZBC#\bin\Debug\netcoreapp3.1\LZBC#.runtimeconfig.dev.json
+D:\17bang\LZBC#\bin\Debug\netcoreapp3.1\LZBC#.dll
+D:\17bang\LZBC#\bin\Debug\netcoreapp3.1\LZBC#.pdb
+D:\17bang\LZBC#\obj\Debug\netcoreapp3.1\LZBC#.csprojAssemblyReference.cache
+D:\17bang\LZBC#\obj\Debug\netcoreapp3.1\LZBC#.AssemblyInfoInputs.cache
+D:\17bang\LZBC#\obj\Debug\netcoreapp3.1\LZBC#.AssemblyInfo.cs
+D:\17bang\LZBC#\obj\Debug\netcoreapp3.1\LZBC#.csproj.CoreCompileInputs.cache
+D:\17bang\LZBC#\obj\Debug\netcoreapp3.1\LZBC#.dll
+D:\17bang\LZBC#\obj\Debug\netcoreapp3.1\LZBC#.pdb
+D:\17bang\LZBC#\obj\Debug\netcoreapp3.1\LZBC#.genruntimeconfig.cache

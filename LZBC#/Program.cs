@@ -4,6 +4,8 @@ namespace test2
 {
     class Program
     {
+        private static int num;
+
         static void Main(string[] args)
         {
 
@@ -98,23 +100,193 @@ namespace test2
             //并输出共有多少名同学。
 
 
-            string[] students = new string[5];
-            students[4] = "刘伟-刘光头";
-            students[1] = "龚廷义-小可爱";
-            students[2] = "周丁浩-小帅哥";
-            students[0] = "李智博-理智";
-            students[3] = "廖光银-廖兄";
+            //string[] students = new string[5];
+            //students[4] = "刘伟-刘光头";
+            //students[1] = "龚廷义-小可爱";
+            //students[2] = "周丁浩-小帅哥";
+            //students[0] = "李智博-理智";
+            //students[3] = "廖光银-廖兄";
 
-            string [,] stacklist = new string [3, 3];
-            stacklist[0, 0] = "刘伟-刘光头";
-            stacklist[1, 0] = "龚廷义-小可爱";
-            stacklist[1, 1] = "周丁浩-小帅哥";
-            stacklist[1, 2] = "李智博-理智";
-            stacklist[2, 0] = "廖光银-廖兄";
-            Console.WriteLine(stacklist.Length);
-            Console.WriteLine(stacklist.Rank);
-            Console.WriteLine(stacklist[1,2]);
+            //string[,] stacklist = new string[3, 3];
+            //stacklist[0, 0] = "刘伟-刘光头";
+            //stacklist[1, 0] = "龚廷义-小可爱";
+            //stacklist[1, 1] = "周丁浩-小帅哥";
+            //stacklist[1, 2] = "李智博-理智";
+            //stacklist[2, 0] = "廖光银-廖兄";
+            //Console.WriteLine(stacklist.Length);
+            //Console.WriteLine(stacklist.Rank);
+            //Console.WriteLine(stacklist[1,2]);
 
+
+
+            //分别用for循环和while循环输出：1,2,3,4,5 和 1,3,5,7,9
+            //for循环
+            //for (int i = 1; i < 6; i++)
+            //{
+            //    Console.WriteLine(i);
+            //}
+
+            //for (int i = 1; i < 10;i+=2)
+            //{
+            //    Console.WriteLine(i);
+            //}
+
+
+
+            //while循环
+            //int i = 1;
+            //while (i<6)
+            //{
+            //    Console.WriteLine(i);
+            //    i++;
+            //}
+
+            //int i = 1;
+            //while (i<10)
+            //{
+            //    Console.WriteLine(i);
+            //    i +=2;
+            //}
+
+            //用for循环输出存储在一维 / 二维数组里的源栈所有同学姓名 / 昵称
+            //for (int i = 0; i < students.Length; i++)
+            //{
+            //    Console.WriteLine(students[i]);
+            //}
+
+            //for (int i = 0; i < stacklist.Length; i++)
+            //{
+
+
+            //    for (int j = 0; j <3; j++)
+            //    {
+            //        Console.WriteLine(stacklist[j, i]);
+
+            //    }
+            //}
+
+            //让电脑计算并输出：99 + 97 + 95 + 93 + ...+1的值
+            //int j = 0;
+            //for (int i = 1; i < 100; i += 2)
+            //{
+            //    Console.WriteLine(i);
+            //    j += i;
+
+            //}
+
+            //Console.WriteLine(j);
+
+            //将源栈同学的成绩存入一个double数组中，用循环找到最高分和最低分
+            //最高分
+            //double[] scores = { 98, 78, 85.5 ,67,89,98.3};
+            // double max = 0;
+            //for (int i = 0; i < scores.Length; i++)
+            //{
+            //    if (scores[i]>max)
+            //    {
+            //        max = scores[i];
+            //    }//else nothing
+            //}
+
+            //Console.WriteLine(max);
+
+
+            //最低分
+            //double[] scores = { 98, 78, 85.5, 67, 89, 98.3 };
+            //double min = 100;//这个值很关键
+            //for (int i = 0; i < scores.Length; i++)
+            //{
+            //    if (scores[i] < min)
+            //    {
+            //        min = scores[i];
+            //    }//else nothing
+            //}
+
+            //Console.WriteLine(min);
+
+
+            //找到100以内的所有质数（只能被1和它自己整除的数） 
+            //int[] prime = { };
+            //for (int i = 0; i < 10; i++)
+            //{
+
+
+            //    for (int j = 2; j < i / 2 + 1; j++)
+            //    {
+
+            //        if (i % j != 0)
+            //        {
+            //            prime[i] = i;
+
+
+            //        }
+
+            //    }
+            //}
+            //for (int i = 0; i < prime.Length; i++)
+            //{
+            //    Console.WriteLine(prime[i]);
+            //}
+            ////猜数字
+            //Console.WriteLine("hello.word!"); 
+            //Console.WriteLine("请输入一个不超过1000的自然数");
+
+
+            //for (int i = 1; i<11; i++)
+            //{
+            //    int num = Convert.ToInt32(Console.ReadLine());
+            //    if (num!=55)
+            //    {
+            //        if (num>55)
+            //        {
+            //            Console.WriteLine($"太大了吆!还剩{10-i}次");
+            //            continue;
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine($"太小了呢!还剩{10-i}次");
+            //            continue;
+            //        }
+
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine($"恭喜你,答对了!只用了{i}次呢,棒棒的！");
+            //        break;
+            //    }
+            //}
+            ////设立并显示一个多维数组的值，元素值等于下标之和。Console.Write()
+            ///
+
+            //int[][] nums = new int[2, 3];
+            //int[,] nums={  { 0,1, 2, 3 },  { 1, 2, 3, 4 }, { 2, 3, 4, 5 } };
+
+
+            //for (int i = 0; i < nums.Length; i++)
+            //{
+
+            //    for (int j = 0; j < nums.Length;j++)
+            //    {
+
+            //        Console.WriteLine(nums[i, j]);
+
+            //    }
+            //}
+            ////输入一个字符串，输出其字母颠倒后的结果。如：yuanzhan -> nahznauy //没写好
+
+
+            int[] arr = { 1, 2, 3, 4, 5, 6 };
+            int[] newArr = { };
+            for (int i = arr.Length-1; i >0; i--)
+            {
+                newArr[newArr.Length] = arr[i];
+               
+            }
+
+            //for (int i = 0; i < newArr.Length; i++)
+            //{
+            //    Console.WriteLine(newArr[i]);
+            //}
 
         }
     }
