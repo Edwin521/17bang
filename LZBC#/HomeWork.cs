@@ -2,9 +2,9 @@
 
 namespace test2
 {
-    class Program
+    class HomeWork
     {
-        private static int num;
+
 
         static void Main(string[] args)
         {
@@ -178,8 +178,8 @@ namespace test2
 
             //将源栈同学的成绩存入一个double数组中，用循环找到最高分和最低分
             //最高分
-            //double[] scores = { 98, 78, 85.5 ,67,89,98.3};
-            // double max = 0;
+            //double[] scores = { 98, 78, 85.5, 67, 89, 98.3 };
+            //// double max = 0;
             //for (int i = 0; i < scores.Length; i++)
             //{
             //    if (scores[i]>max)
@@ -204,30 +204,63 @@ namespace test2
 
             //Console.WriteLine(min);
 
+            ///一次写完取最大值和最小值
+            ///
+            //double max = scores[0],
+            //       min = scores[0];
+            //for (int i = 0; i < scores.Length; i++)
+            //{
+            //    if (scores[i]> max )
+            //    {
+            //        max = scores[i];
+            //    }//else nothing
+            //    if (scores[i]<min)
+            //    {
+            //        min = scores[i];
+            //    }//else 
+            //}
+
+            //Console.WriteLine($"最大成绩是：{max},最小成绩是：{min}");
+
+
+
 
             //找到100以内的所有质数（只能被1和它自己整除的数） 
-            //int[] prime = { };
-            //for (int i = 0; i < 10; i++)
+
+            //for (int i = 2; i < 10; i++)
             //{
 
-
-            //    for (int j = 2; j < i / 2 + 1; j++)
+            //    for (int j = 2; j < i; j++)
             //    {
 
-            //        if (i % j != 0)
+            //        if (i % j == 0)
             //        {
-            //            prime[i] = i;
+            //            break;
 
 
+            //        }//else nothing
+            //        if (i - 1 == j)
+            //        {
+            //            Console.WriteLine(i);
             //        }
 
             //    }
             //}
-            //for (int i = 0; i < prime.Length; i++)
-            //{
-            //    Console.WriteLine(prime[i]);
-            //}
-            ////猜数字
+
+            ///生成一个元素，从小到大排列的数组；
+            ///
+            Random ran = new Random();
+            int[] arr = new int[10];
+            arr[0] = ran.Next(50);//随机第一个数字
+            Console.WriteLine(arr[0]);
+            for (int i = 1; i < 10; i++)
+            {
+                arr[i] = arr[i - 1] + ran.Next(50);
+                Console.WriteLine(arr[i] + ",");
+            }
+
+            ////猜数字，限制次数10
+            ///比如要猜的数字为55；
             //Console.WriteLine("hello.word!"); 
             //Console.WriteLine("请输入一个不超过1000的自然数");
 
@@ -255,7 +288,7 @@ namespace test2
             //        break;
             //    }
             //}
-            ////设立并显示一个多维数组的值，元素值等于下标之和。Console.Write()
+            ////设立并显示一个多维数组的值，元素值等于下标之和。Console.Write()//没写完
             ///
 
             //int[][] nums = new int[2, 3];
@@ -275,18 +308,47 @@ namespace test2
             ////输入一个字符串，输出其字母颠倒后的结果。如：yuanzhan -> nahznauy //没写好
 
 
-            int[] arr = { 1, 2, 3, 4, 5, 6 };
-            int[] newArr = { };
-            for (int i = arr.Length-1; i >0; i--)
-            {
-                newArr[newArr.Length] = arr[i];
-               
-            }
+            //int[] arr = { 1, 2, 3, 4, 5, 6 };
+            //int[] newArr = { };
+            //for (int i = arr.Length-1; i >0; i--)
+            //{
+            //    newArr[newArr.Length] = arr[i];
+
+            //}
 
             //for (int i = 0; i < newArr.Length; i++)
             //{
             //    Console.WriteLine(newArr[i]);
             //}
+
+            ///二分查找写出来
+            ///
+
+            //int[] arr = { 1, 2, 3, 4, 5, 6 ,7};
+            //int left = 0, right = arr.Length - 1, result = 0;
+            //int num = 7;
+            //while (arr[result] != num)
+            //{
+            //    int middle = (left + right) / 2;
+            //    if (arr[middle] > num)
+            //    {
+            //        right = middle - 1;
+            //    }
+            //    else if (arr[middle] < num)
+            //    {
+            //        left = middle + 1;
+            //    }
+            //    else
+            //    {
+            //        result = middle;
+            //        break;
+            //    }
+            //}
+            //Console.WriteLine("下标位置为："+result);
+
+
+
+
 
         }
     }
