@@ -249,15 +249,15 @@ namespace test2
 
             ///生成一个元素，从小到大排列的数组；
             ///
-            Random ran = new Random();
-            int[] arr = new int[10];
-            arr[0] = ran.Next(50);//随机第一个数字
-            Console.WriteLine(arr[0]);
-            for (int i = 1; i < 10; i++)
-            {
-                arr[i] = arr[i - 1] + ran.Next(50);
-                Console.WriteLine(arr[i] + ",");
-            }
+            //Random ran = new Random();
+            //int[] arr = new int[10];
+            //arr[0] = ran.Next(50);//随机第一个数字
+            //Console.WriteLine(arr[0]);
+            //for (int i = 1; i < 10; i++)
+            //{
+            //    arr[i] = arr[i - 1] + ran.Next(50);
+            //    Console.WriteLine(arr[i] + ",");
+            //}
 
             ////猜数字，限制次数10
             ///比如要猜的数字为55；
@@ -348,8 +348,86 @@ namespace test2
 
 
 
+            //计算得到源栈同学的平均成绩（精确到两位小数），方法名GetAverage()
 
+            //static double GetAverage(double sumScores, int amount)
+            //{
+            //    return sumScores / amount;
+            //}
+
+            //GetAverage(1200, 43);
+            //Console.WriteLine(GetAverage(1200, 43));
+
+
+            ///完成“猜数字”游戏，方法名GuessMe()：
+            /////随机生成一个大于0小于1000的整数
+            //用户输入一个猜测值，系统进行判断，告知用户猜测的数是“大了”，还是“小了”
+            //没猜中可以继续猜，但最多不能超过10次
+            //如果5次之内猜中，输出：你真牛逼！
+            //如果8次之内猜中，输出：不错嘛！
+            //10次还没猜中，输出：(～￣(OO)￣)ブ
+
+            ////猜数字，限制次数10
+            ///比如要猜的数字为55；
+            GuessMe(12);
+
+
+            static void GuessMe(int input)
+            {
+
+                int num = new Random().Next(1000);
+                Console.WriteLine(num);
+
+                for (int i = 1; i < 11; i++)
+                {
+                    input = Convert.ToInt32(Console.ReadLine());
+                    if (input != num)
+                    {
+                        if (input > num)
+                        {
+                            Console.WriteLine($"太大了吆!还剩{10 - i}次");
+                            continue;
+                        }
+
+                        else if (i == 10)
+                        {
+                            Console.WriteLine("～￣(OO)￣");
+                            break;
+                        }
+
+                        else
+                        {
+                            Console.WriteLine($"太小了呢!还剩{10 - i}次");
+                            continue;
+                        }
+
+
+
+                    }
+                    else
+                    {
+                        if (i <= 5)
+                        {
+                            Console.WriteLine("你真牛逼");
+                            break;
+                        }
+                        else if (i <= 8)
+                        {
+                            Console.WriteLine("不错嘛");
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("太笨了你！");
+                            break;
+                        }
+
+                    }
+                }
+
+            }
 
         }
+
     }
 }

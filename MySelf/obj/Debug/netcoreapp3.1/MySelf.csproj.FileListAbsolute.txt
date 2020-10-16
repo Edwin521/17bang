@@ -1,0 +1,13 @@
+D:\17bang\MySelf\bin\Debug\netcoreapp3.1\MySelf.exe
+D:\17bang\MySelf\bin\Debug\netcoreapp3.1\MySelf.deps.json
+D:\17bang\MySelf\bin\Debug\netcoreapp3.1\MySelf.runtimeconfig.json
+D:\17bang\MySelf\bin\Debug\netcoreapp3.1\MySelf.runtimeconfig.dev.json
+D:\17bang\MySelf\bin\Debug\netcoreapp3.1\MySelf.dll
+D:\17bang\MySelf\bin\Debug\netcoreapp3.1\MySelf.pdb
+D:\17bang\MySelf\obj\Debug\netcoreapp3.1\MySelf.AssemblyInfoInputs.cache
+D:\17bang\MySelf\obj\Debug\netcoreapp3.1\MySelf.AssemblyInfo.cs
+D:\17bang\MySelf\obj\Debug\netcoreapp3.1\MySelf.csproj.CoreCompileInputs.cache
+D:\17bang\MySelf\obj\Debug\netcoreapp3.1\MySelf.dll
+D:\17bang\MySelf\obj\Debug\netcoreapp3.1\MySelf.pdb
+D:\17bang\MySelf\obj\Debug\netcoreapp3.1\MySelf.genruntimeconfig.cache
+D:\17bang\MySelf\obj\Debug\netcoreapp3.1\MySelf.csprojAssemblyReference.cache
