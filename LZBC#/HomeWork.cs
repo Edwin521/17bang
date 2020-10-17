@@ -3,11 +3,273 @@
 namespace test2
 {
     class HomeWork
+
+
+
     {
+        /// <summary>
+        /// 找出两个数字之间的素数
+        /// </summary>
+        /// <param name="start">开始的参数</param>
+        /// <param name="end">结束的参数</param>
+        static void findPrimeNum(int start,int end )
+        {
+            for (int i = start; i < end; i++)
+            {
+
+                for (int j = 2; j < i; j++)
+                {
+
+                    if (i % j == 0)
+                    {
+                        break;
+
+
+                    }//else nothing
+                    if (i - 1 == j)
+                    {
+                        Console.WriteLine(i);
+                    }
+
+                }
+            }
+
+        }
+
+
+
+        /// <summary>
+        /// 传进去一个数组，找出数组中的最大值和最小值。
+        /// </summary>
+        /// <param name="scores">传入一个double类型的数组</param>
+        /// <returns>返回一个字符串显示最大值和最小值</returns>
+        static string getMax(double[] scores)
+        {
+            double max = scores[0], min = scores[0];
+
+
+            for (int i = 1; i < scores.Length; i++)
+            {
+                if (scores[i] > max)
+                {
+                    max = scores[i];
+
+                }
+                // else nothing
+                if (scores[i] < min)
+                {
+                    max = scores[i];
+
+                }
+            }
+            return $"最大值是{max},最小值是{min}";
+        }
+        //计算得到源栈同学的平均成绩（精确到两位小数），方法名GetAverage()
+
+        static double GetAverage(double sumScores, int amount)
+        {
+            return sumScores / amount;
+        }
+
+
+
+
+        ///完成“猜数字”游戏，方法名GuessMe()：
+        /////随机生成一个大于0小于1000的整数
+        ////用户输入一个猜测值，系统进行判断，告知用户猜测的数是“大了”，还是“小了”
+        ////没猜中可以继续猜，但最多不能超过10次
+        ////如果5次之内猜中，输出：你真牛逼！
+        ////如果8次之内猜中，输出：不错嘛！
+        ////10次还没猜中，输出：(～￣(OO)￣)ブ
+
+        ////猜数字，限制次数10
+
+
+        static void GuessMe(int input)
+        {
+
+
+            int num = new Random().Next(1000);
+            Console.WriteLine("随机数是：" + num);
+
+            for (int i = 1; i < 11; i++)
+            {
+                input = Convert.ToInt32(Console.ReadLine());
+                if (input != num)
+                {
+                    if (input > num)
+                    {
+                        Console.WriteLine($"太大了吆!还剩{10 - i}次");
+                        continue;
+                    }
+
+                    else if (i == 10)
+                    {
+                        Console.WriteLine("～￣(OO)￣");
+                        break;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine($"太小了呢!还剩{10 - i}次");
+                        continue;
+                    }
+
+
+
+                }
+                else
+                {
+                    if (i <= 5)
+                    {
+                        Console.WriteLine("你真牛逼");
+                        break;
+                    }
+                    else if (i <= 8)
+                    {
+                        Console.WriteLine("不错嘛");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("太笨了你！");
+                        break;
+                    }
+
+                }
+            }
+
+        }
+
+        ///封装函数 
+        //求和
+        ///
+        static int getSum(int num1, int num2)
+        {
+            return num1 + num2;
+        }
+
+        ///求乘积
+        static int getProduct(int num1, int num2)
+        {
+            return num1 * num2;
+        }
+
+        ///求差
+        static double differencing(double num1, double num2)
+        {
+            return num1 - num2;
+        }
+
+
+        ///求商
+        static double QUOTIENT(double num1, double num2)
+        {
+            return num1 / num2;
+        }
+
+
+        //封装登录
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="authCode"></param>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        static string logOn(string authCode, string userName, string password)
+        {
+            Console.WriteLine($"请输入验证码{authCode}");
+
+
+            if (Console.ReadLine() == authCode)
+            {
+                Console.WriteLine($"请输入用户名{userName}");
+
+                if (Console.ReadLine() == userName)
+                {
+                    Console.WriteLine($"请输入密码{password}");
+
+                    if (Console.ReadLine() == password)
+                    {
+
+                        return "true";
+                    }
+                    else
+                    {
+
+                        return "false-用户名或密码错误";
+                    }
+                }
+                else
+                {
+
+                    return "false-用户名不存在";
+                }
+            }
+            else
+            {
+
+
+                return "false-验证码错误";
+
+            }
+        }
+
+
+        /// <summary>
+        /// 设立并显示一个多维数组的值，元素值等于下标之和。
+        /// </summary>
+        static void twoDimensional()
+        {
+            int[,] sum = new int[8, 5];
+            for (int i = 0; i < sum.GetLength(0); i++)
+            {
+                for (int j = 0; j < sum.GetLength(1); j++)
+                {
+                    sum[i, j] = i + j;
+                }
+            }
+
+            for (int k = 0; k < sum.GetLength(0); k++)
+            {
+                for (int l = 0; l < sum.GetLength(1); l++)
+                {
+                    Console.Write(sum[k, l] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+
+
+
 
 
         static void Main(string[] args)
         {
+            ///调用函数
+            findPrimeNum(10,30);
+            /// Console.WriteLine(getMax(new double[] { 23.1, 44, 32, 13 })); 
+            //getMax(new double[] { 23.1, 44, 32, 13 });
+            //twoDimensional();//数组下标
+            //GetAverage(1200, 43);//平均成绩
+            //Console.WriteLine(GetAverage(1200, 43));
+
+            // Console.WriteLine(logOn("123", "234", "345"));//登录
+            //GuessMe(12);//猜数字
+
+            ///  //getSum(1, 2);
+            //Console.WriteLine(getSum(1, 2));
+            //getProduct(2, 3);
+            //Console.WriteLine(getProduct(2, 3));
+            //differencing(23, 21);
+            //Console.WriteLine(differencing(23, 21));
+            //QUOTIENT(4, 3);
+            //Console.WriteLine(QUOTIENT(6,2.4));
+
+
 
             ///C#作业
             //const string greet = "123";
@@ -62,16 +324,16 @@ namespace test2
 
 
             //Console.WriteLine("请输入验证码（1234）");
-            //var outcode1= Console.ReadLine();
+            //var outcode1 = Console.ReadLine();
 
             //if (outcode1 == "1234")
             //{
             //    Console.WriteLine("请输入用户名(edwin)");
-            //    var outcode2=  Console.ReadLine();
+            //    var outcode2 = Console.ReadLine();
             //    if (outcode2 == "edwin")
             //    {
             //        Console.WriteLine("请输入密码（4567）");
-            //        var outcode3=Console.ReadLine();
+            //        var outcode3 = Console.ReadLine();
             //        if (outcode3 == "4567")
             //        {
             //            Console.WriteLine("恭喜！登录成功");
@@ -291,8 +553,23 @@ namespace test2
             ////设立并显示一个多维数组的值，元素值等于下标之和。Console.Write()//没写完
             ///
 
-            //int[][] nums = new int[2, 3];
-            //int[,] nums={  { 0,1, 2, 3 },  { 1, 2, 3, 4 }, { 2, 3, 4, 5 } };
+            //int[,] sum = new int[8, 5];
+            //for (int i = 0; i < sum.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < sum.GetLength(1); j++)
+            //    {
+            //        sum[i, j] = i + j;
+            //    }
+            //}
+
+            //for (int k = 0; k < sum.GetLength(0); k++)
+            //{
+            //    for (int l = 0; l < sum.GetLength(1); l++)
+            //    {
+            //        Console.Write(sum[k, l]+" ");
+            //    }
+            //    Console.WriteLine();
+            //}
 
 
             //for (int i = 0; i < nums.Length; i++)
@@ -308,23 +585,25 @@ namespace test2
             ////输入一个字符串，输出其字母颠倒后的结果。如：yuanzhan -> nahznauy //没写好
 
 
-            //int[] arr = { 1, 2, 3, 4, 5, 6 };
-            //int[] newArr = { };
-            //for (int i = arr.Length-1; i >0; i--)
-            //{
-            //    newArr[newArr.Length] = arr[i];
+            int[] arr = { 1, 2, 3, 4, 5, 6 };
+            int[] newArr = new int[5];
+            for (int i = arr.Length - 1; i > 0; i--)
+            {
+                newArr[newArr.Length] = arr[i];
 
-            //}
+            }
 
-            //for (int i = 0; i < newArr.Length; i++)
-            //{
-            //    Console.WriteLine(newArr[i]);
-            //}
+
+            for (int i = 0; i < newArr.Length; i++)
+            {
+                Console.WriteLine(newArr[i]);
+
+            }
 
             ///二分查找写出来
             ///
 
-            //int[] arr = { 1, 2, 3, 4, 5, 6 ,7};
+            //int[] arr = { 1, 2, 3, 4, 5, 6, 7 };
             //int left = 0, right = arr.Length - 1, result = 0;
             //int num = 7;
             //while (arr[result] != num)
@@ -344,90 +623,16 @@ namespace test2
             //        break;
             //    }
             //}
-            //Console.WriteLine("下标位置为："+result);
+            //Console.WriteLine("下标位置为：" + result);
 
 
 
-            //计算得到源栈同学的平均成绩（精确到两位小数），方法名GetAverage()
-
-            //static double GetAverage(double sumScores, int amount)
-            //{
-            //    return sumScores / amount;
-            //}
-
-            //GetAverage(1200, 43);
-            //Console.WriteLine(GetAverage(1200, 43));
-
-
-            ///完成“猜数字”游戏，方法名GuessMe()：
-            /////随机生成一个大于0小于1000的整数
-            //用户输入一个猜测值，系统进行判断，告知用户猜测的数是“大了”，还是“小了”
-            //没猜中可以继续猜，但最多不能超过10次
-            //如果5次之内猜中，输出：你真牛逼！
-            //如果8次之内猜中，输出：不错嘛！
-            //10次还没猜中，输出：(～￣(OO)￣)ブ
-
-            ////猜数字，限制次数10
-            ///比如要猜的数字为55；
-            GuessMe(12);
-
-
-            static void GuessMe(int input)
-            {
-
-                int num = new Random().Next(1000);
-                Console.WriteLine(num);
-
-                for (int i = 1; i < 11; i++)
-                {
-                    input = Convert.ToInt32(Console.ReadLine());
-                    if (input != num)
-                    {
-                        if (input > num)
-                        {
-                            Console.WriteLine($"太大了吆!还剩{10 - i}次");
-                            continue;
-                        }
-
-                        else if (i == 10)
-                        {
-                            Console.WriteLine("～￣(OO)￣");
-                            break;
-                        }
-
-                        else
-                        {
-                            Console.WriteLine($"太小了呢!还剩{10 - i}次");
-                            continue;
-                        }
 
 
 
-                    }
-                    else
-                    {
-                        if (i <= 5)
-                        {
-                            Console.WriteLine("你真牛逼");
-                            break;
-                        }
-                        else if (i <= 8)
-                        {
-                            Console.WriteLine("不错嘛");
-                            break;
-                        }
-                        else
-                        {
-                            Console.WriteLine("太笨了你！");
-                            break;
-                        }
-
-                    }
-                }
-
-            }
 
         }
+
 
     }
 }

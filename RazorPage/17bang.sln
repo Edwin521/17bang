@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "17bang", "17bang.csproj", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LZBC#", "..\LZBC#\LZBC#.csproj", "{360E59D7-0838-4281-82A5-FBFD4D3B9E88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySelf", "..\MySelf\MySelf.csproj", "{A4FB803D-26D1-4CFA-A79A-AA9743FCF5FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySelf", "..\MySelf\MySelf.csproj", "{A4FB803D-26D1-4CFA-A79A-AA9743FCF5FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
