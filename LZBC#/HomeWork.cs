@@ -65,13 +65,28 @@ namespace test2
             return $"最大值是{max},最小值是{min}";
         }
         //计算得到源栈同学的平均成绩（精确到两位小数），方法名GetAverage()
-
-        static double GetAverage(double sumScores, int amount)
+        /// <summary>
+        /// 传入一个成绩数组，返回成绩的平均值，并且保留两位小数。
+        /// </summary>
+        /// <param name="scores">班级的成绩</param>
+        /// <returns>返回一个告知平均成绩的字符串</returns>
+        static string GetAverage(double[] scores)
         {
-            return sumScores / amount;
+            double sum = 0;
+            double avg;
+            for (int i = 0; i < scores.Length; i++)
+            {
+
+                sum += scores[i];
+
+            }
+            avg = sum / scores.Length;
+          
+            avg = Math.Round((sum / scores.Length), 2);
+            return $"班级的平均成绩为{avg}";
         }
 
-
+        
 
 
         ///完成“猜数字”游戏，方法名GuessMe()：
@@ -249,8 +264,11 @@ namespace test2
 
         static void Main(string[] args)
         {
+
+
             ///调用函数
-            findPrimeNum(10,30);
+            Console.WriteLine(GetAverage(new double[] { 23.45, 12.3, 34.5 })); 
+            //findPrimeNum(10,30);//找质数
             /// Console.WriteLine(getMax(new double[] { 23.1, 44, 32, 13 })); 
             //getMax(new double[] { 23.1, 44, 32, 13 });
             //twoDimensional();//数组下标
