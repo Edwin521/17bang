@@ -12,8 +12,9 @@ namespace test2
         /// </summary>
         /// <param name="start">开始的参数</param>
         /// <param name="end">结束的参数</param>
-        static void findPrimeNum(int start,int end )
+        static int[] findPrimeNum(int start, int end)
         {
+
             for (int i = start; i < end; i++)
             {
 
@@ -23,8 +24,6 @@ namespace test2
                     if (i % j == 0)
                     {
                         break;
-
-
                     }//else nothing
                     if (i - 1 == j)
                     {
@@ -32,6 +31,7 @@ namespace test2
                     }
 
                 }
+
             }
 
         }
@@ -43,9 +43,9 @@ namespace test2
         /// </summary>
         /// <param name="scores">传入一个double类型的数组</param>
         /// <returns>返回一个字符串显示最大值和最小值</returns>
-        static string getMax(double[] scores)
+        static double getMax(double[] scores)
         {
-            double max = scores[0], min = scores[0];
+            double max = scores[0];
 
 
             for (int i = 1; i < scores.Length; i++)
@@ -56,13 +56,27 @@ namespace test2
 
                 }
                 // else nothing
-                if (scores[i] < min)
+
+            }
+            return max;
+        }
+
+
+        static double getMin(double[] scores)
+        {
+            double min = scores[0];
+            for (int i = 1; i < scores.Length; i++)
+            {
+                if (scores[i] > min)
                 {
-                    max = scores[i];
+                    min = scores[i];
 
                 }
+                // else nothing
+
             }
-            return $"最大值是{max},最小值是{min}";
+            return min;
+
         }
         //计算得到源栈同学的平均成绩（精确到两位小数），方法名GetAverage()
         /// <summary>
@@ -70,7 +84,7 @@ namespace test2
         /// </summary>
         /// <param name="scores">班级的成绩</param>
         /// <returns>返回一个告知平均成绩的字符串</returns>
-        static string GetAverage(double[] scores)
+        static double GetAverage(double[] scores)
         {
             double sum = 0;
             double avg;
@@ -81,12 +95,12 @@ namespace test2
 
             }
             avg = sum / scores.Length;
-          
+
             avg = Math.Round((sum / scores.Length), 2);
-            return $"班级的平均成绩为{avg}";
+            return avg;
         }
 
-        
+
 
 
         ///完成“猜数字”游戏，方法名GuessMe()：
@@ -112,16 +126,17 @@ namespace test2
                 input = Convert.ToInt32(Console.ReadLine());
                 if (input != num)
                 {
+
+
+                    if (i == 10)
+                    {
+                        Console.WriteLine("～￣(OO)￣");
+                        break;
+                    }
                     if (input > num)
                     {
                         Console.WriteLine($"太大了吆!还剩{10 - i}次");
                         continue;
-                    }
-
-                    else if (i == 10)
-                    {
-                        Console.WriteLine("～￣(OO)￣");
-                        break;
                     }
 
                     else
@@ -138,18 +153,19 @@ namespace test2
                     if (i <= 5)
                     {
                         Console.WriteLine("你真牛逼");
-                        break;
+
                     }
                     else if (i <= 8)
                     {
                         Console.WriteLine("不错嘛");
-                        break;
+
                     }
                     else
                     {
                         Console.WriteLine("太笨了你！");
-                        break;
+
                     }
+                    break;
 
                 }
             }
@@ -267,7 +283,7 @@ namespace test2
 
 
             ///调用函数
-            Console.WriteLine(GetAverage(new double[] { 23.45, 12.3, 34.5 })); 
+            Console.WriteLine(GetAverage(new double[] { 23.45, 12.3, 34.5 }));
             //findPrimeNum(10,30);//找质数
             /// Console.WriteLine(getMax(new double[] { 23.1, 44, 32, 13 })); 
             //getMax(new double[] { 23.1, 44, 32, 13 });

@@ -5,43 +5,51 @@ namespace MySelf
     class Program
     {
 
-        static string GetAverage(double[] scores)
+        static int[] findPrimeNum(int start, int end)
         {
-            double sum = 0;
-            double avg;
-            for (int i = 0; i < scores.Length; i++)
+            int[] Array = new int[20];
+            for (int i = start; i < end; i++)
             {
-
-                sum += scores[i];
-
+                for (int j = 2; j < i; j++)
+                {
+                    if (i % j == 0)
+                    {
+                        break;
+                    }//else nothing
+                    if (i - 1 == j)
+                    {
+                        Array[i] = i;
+                    }
+                }
             }
-            avg = Math.Round((sum / scores.Length),2);
+          
 
-            return $"班级的平均成绩为{avg}";
         }
 
 
 
 
-        static void Main(string[] args) {
+        static void Main(string[] args)
+        {
+
+            //findPrimeNum(10, 30);
 
             //double result = Math.Round(0.3333, 2);
             //Console.WriteLine(result);
 
-            Console.WriteLine(GetAverage(new double[] { 23.45, 12.3, 34.5 })); 
+
+
+
+
+
+
+
+
 
 
 
 
         }
-
-
-
-
-
-
-
-
     }
 }
 
