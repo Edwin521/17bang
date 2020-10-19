@@ -7,6 +7,91 @@ namespace test2
 
 
     {
+
+
+
+        //实现二分查找，方法名BinarySeek(int[] numbers, int target)：
+
+        //传入一个有序（从大到小/从小到大）数组和数组中要查找的元素
+        //如果找到，返回该元素所在的下标；否则，返回-1
+
+        //递归方法实现
+        static int BinarySeek(int[] numbers, int left, int right, int targer)
+        {
+            int mid = (left + right) / 2;//中间索引
+            if (left > right)
+                return -1;
+            else
+            {
+                if (numbers[mid] == targer)
+                    return mid;
+                else if (numbers[mid] > targer)
+                    return BinarySeek(numbers, left, mid - 1, targer);
+                else
+                    return BinarySeek(numbers, mid + 1, right, targer);
+            }
+        }
+
+        //while方法实现
+        static int BinarySeek2(int[] numbers,  int targer)
+        {
+            int left=0, right =numbers.Length-1;
+            while (left < right)
+            {
+                int middle = (left + right) / 2;
+                if (targer == numbers[middle])
+                {
+                    return middle;
+                }
+                else if (targer > numbers[middle])
+                {
+                    left = middle + 1;
+                }
+                else if (targer < numbers[middle])
+                {
+                    right = middle - 1;
+                }
+            }
+            return -1;
+        }
+
+
+
+
+
+        //定义一个生成数组的方法：int[] GetArray()，其元素随机生成从小到大排列。利用可选参数控制：
+
+        //最小值min（默认为1）
+        //相邻两个元素之间的最大差值gap（默认为5）
+        //元素个数length（默认为10个）
+        static int[] GetArray(int min = 1, int gap = 5, int length = 10)
+        {
+            Random ran = new Random();
+            int[] arr = new int[length];
+            arr[0] = min;//随机第一个数字
+            Console.WriteLine(arr[0]);
+            for (int i = 1; i < length; i++)
+            {
+                arr[i] = arr[i - 1] + ran.Next(gap);
+                Console.WriteLine(arr[i] + ",");
+            }
+            return arr;
+        }
+
+
+
+
+
+
+        //利用ref调用Swap()方法交换两个同学的床位号
+        static void Swap(ref int students1, ref int students2)
+        {
+            int temp = students1;
+            students1 = students2;
+            students2 = temp;
+        }
+
+
         /// <summary>
         /// 找出两个数字之间的素数
         /// </summary>
@@ -117,20 +202,20 @@ namespace test2
         static void GuessMe()
         {
 
-      
+
             int num = new Random().Next(1000);
             Console.WriteLine("随机数是：" + num);
 
             for (int i = 1; i < 11; i++)
             {
-                
+
                 if (int.TryParse(Console.ReadLine(), out int input))
                 {
-                  
+
                     if (input != num)
                     {
 
-                        
+
                         if (i == 10)
                         {
                             Console.WriteLine("～￣(OO)￣");
@@ -147,7 +232,7 @@ namespace test2
                             Console.WriteLine($"太小了呢!还剩{10 - i}次");
                             continue;
                         }
-                        
+
                     }
                     else
                     {
@@ -169,7 +254,7 @@ namespace test2
                         break;
 
                     }
-                    
+
                 }
                 else
                 {
@@ -218,7 +303,7 @@ namespace test2
         /// <param name="userName"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        static string logOn(string authCode, string userName, string password)
+        static bool logOn(string authCode, string userName, string password,   out  string output)
         {
             Console.WriteLine($"请输入验证码{authCode}");
 
@@ -233,26 +318,29 @@ namespace test2
 
                     if (Console.ReadLine() == password)
                     {
-
-                        return "true";
+                        output = "恭喜你，登录成功";
+                        return true;
                     }
                     else
                     {
-
-                        return "false-用户名或密码错误";
+                        output = "false-用户名或密码错误";
+                        return false;
                     }
                 }
                 else
                 {
+                   output= "false-用户名不存在";
+                    return false;
+                    
 
-                    return "false-用户名不存在";
                 }
             }
             else
             {
 
-
-                return "false-验证码错误";
+                
+                output= "false-验证码错误";
+                return false;
 
             }
         }
@@ -292,7 +380,23 @@ namespace test2
 
 
             ///调用函数
-            GuessMe();
+//            string num;
+//            if (logOn("12", "13", "14", out num)
+//)
+//            {
+//                Console.WriteLine(num);
+//            }
+//            else
+//            {
+//                Console.WriteLine(num);
+
+//            }
+
+
+            //Console.WriteLine(BinarySeek(new int[] { 1, 3, 5, 6, 8, 12, 24 }, 0, 7, 12));
+            Console.WriteLine(BinarySeek2(new int[] { 1, 3, 5, 6, 8, 12, 24, 34,75 },75 ));
+            //GetArray(12, 12, 12);
+            //GuessMe();
             //Console.WriteLine(GetAverage(new double[] { 23.45, 12.3, 34.5 }));
             //findPrimeNum(10,30);//找质数
             /// Console.WriteLine(getMax(new double[] { 23.1, 44, 32, 13 })); 
@@ -629,20 +733,6 @@ namespace test2
             ////输入一个字符串，输出其字母颠倒后的结果。如：yuanzhan -> nahznauy //没写好
 
 
-            int[] arr = { 1, 2, 3, 4, 5, 6 };
-            int[] newArr = new int[5];
-            for (int i = arr.Length - 1; i > 0; i--)
-            {
-                newArr[newArr.Length] = arr[i];
-
-            }
-
-
-            for (int i = 0; i < newArr.Length; i++)
-            {
-                Console.WriteLine(newArr[i]);
-
-            }
 
             ///二分查找写出来
             ///
