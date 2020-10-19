@@ -12,7 +12,7 @@ namespace test2
         /// </summary>
         /// <param name="start">开始的参数</param>
         /// <param name="end">结束的参数</param>
-        static int[] findPrimeNum(int start, int end)
+        static void findPrimeNum(int start, int end)
         {
 
             for (int i = start; i < end; i++)
@@ -114,60 +114,69 @@ namespace test2
         ////猜数字，限制次数10
 
 
-        static void GuessMe(int input)
+        static void GuessMe()
         {
 
-
+      
             int num = new Random().Next(1000);
             Console.WriteLine("随机数是：" + num);
 
             for (int i = 1; i < 11; i++)
             {
-                input = Convert.ToInt32(Console.ReadLine());
-                if (input != num)
+                
+                if (int.TryParse(Console.ReadLine(), out int input))
                 {
-
-
-                    if (i == 10)
+                  
+                    if (input != num)
                     {
-                        Console.WriteLine("～￣(OO)￣");
-                        break;
-                    }
-                    if (input > num)
-                    {
-                        Console.WriteLine($"太大了吆!还剩{10 - i}次");
-                        continue;
-                    }
 
+                        
+                        if (i == 10)
+                        {
+                            Console.WriteLine("～￣(OO)￣");
+                            break;
+                        }
+                        if (input > num)
+                        {
+                            Console.WriteLine($"太大了吆!还剩{10 - i}次");
+                            continue;
+                        }
+
+                        else
+                        {
+                            Console.WriteLine($"太小了呢!还剩{10 - i}次");
+                            continue;
+                        }
+                        
+                    }
                     else
                     {
-                        Console.WriteLine($"太小了呢!还剩{10 - i}次");
-                        continue;
+                        if (i <= 5)
+                        {
+                            Console.WriteLine("你真牛逼");
+
+                        }
+                        else if (i <= 8)
+                        {
+                            Console.WriteLine("不错嘛");
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("你有点笨噢！");
+
+                        }
+                        break;
+
                     }
-
-
-
+                    
                 }
                 else
                 {
-                    if (i <= 5)
-                    {
-                        Console.WriteLine("你真牛逼");
-
-                    }
-                    else if (i <= 8)
-                    {
-                        Console.WriteLine("不错嘛");
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("太笨了你！");
-
-                    }
-                    break;
-
+                    Console.WriteLine("输入错误，请输入1-1000的自然数");
+                    continue;
                 }
+
             }
 
         }
@@ -283,7 +292,8 @@ namespace test2
 
 
             ///调用函数
-            Console.WriteLine(GetAverage(new double[] { 23.45, 12.3, 34.5 }));
+            GuessMe();
+            //Console.WriteLine(GetAverage(new double[] { 23.45, 12.3, 34.5 }));
             //findPrimeNum(10,30);//找质数
             /// Console.WriteLine(getMax(new double[] { 23.1, 44, 32, 13 })); 
             //getMax(new double[] { 23.1, 44, 32, 13 });
