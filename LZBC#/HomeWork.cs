@@ -296,17 +296,13 @@ namespace test2
 
         //封装登录
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="authCode"></param>
-        /// <param name="userName"></param>
-        /// <param name="password"></param>
-        /// <returns></returns>
+        ///用户依次由控制台输入：验证码、用户名和密码： 如果验证码输入错误，直接输出：“*验证码错误”；
+        // 如果用户名不存在，直接输出：“*用户名不存在”；
+        // 如果用户名或密码错误，输出：“*用户名或密码错误”
+        // 以上全部正确无误，输出：“恭喜！登录成功！”
         static bool logOn(string authCode, string userName, string password,   out  string output)
         {
             Console.WriteLine($"请输入验证码{authCode}");
-
 
             if (Console.ReadLine() == authCode)
             {
@@ -323,16 +319,15 @@ namespace test2
                     }
                     else
                     {
-                        output = "false-用户名或密码错误";
+                        output = "用户名或密码错误";
                         return false;
                     }
                 }
                 else
                 {
-                   output= "false-用户名不存在";
+                   output= "用户名不存在";
                     return false;
-                    
-
+                 
                 }
             }
             else
@@ -380,17 +375,32 @@ namespace test2
 
 
             ///调用函数
-//            string num;
-//            if (logOn("12", "13", "14", out num)
-//)
-//            {
-//                Console.WriteLine(num);
-//            }
-//            else
-//            {
-//                Console.WriteLine(num);
+            ///
+            string output;
+            LZBC.user.Register("1234", "2345", "3456",  "4567", "6789",out output);
+            if (LZBC.user.Register("1234", "2345", "3456", "4567", "6789", out output))
+            {
+                Console.WriteLine(output);
+            }
+            else
+            {
+                Console.WriteLine(output);
+            }
 
-//            }
+           
+
+
+            //            string num;
+            //            if (logOn("12", "13", "14", out num)
+            //)
+            //            {
+            //                Console.WriteLine(num);
+            //            }
+            //            else
+            //            {
+            //                Console.WriteLine(num);
+
+            //            }
 
 
             //Console.WriteLine(BinarySeek(new int[] { 1, 3, 5, 6, 8, 12, 24 }, 0, 7, 12));
@@ -767,6 +777,14 @@ namespace test2
 
         }
 
+        private static void Register(string v1, string v2, string v3, string v4, string v5, out string output)
+        {
+            throw new NotImplementedException();
+        }
 
+        private static void Register(string v1, string v2, string v3, string v4, string v5, string v6, out string output)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
