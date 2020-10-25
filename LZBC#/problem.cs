@@ -5,16 +5,29 @@ using System.Text;
 namespace LZBC
 {
     //求助版块，定义一个类Problem，包含字段：标题（Title）、正文（Body）、悬赏（Reward）、发布时间（PublishDateTime）和作者（Author），和方法Publish()
-    class Class1
+    public class problem
     {
-        private string Title;
-        private string Body;
-        private int Reward;
-        private DateTime PublishDateTime;
-        private string Author;
-
-        public bool Publish()
+        private string _title { get; set; }
+        private string _body { get; set; }
+        private int _reward; //problem.Reward不能为负数
+        public int _Reward
         {
+            get { return _reward; }
+            set
+            {
+                if (value<0)
+                {
+                    Console.WriteLine("悬赏数不能为负数");
+                    return;
+                }
+            }
         }
+
+        private DateTime _publishDateTime { get; set; }
+        private int _author { get; set; }
+
+        //public bool Publish( )
+        //{
+        //}
     }
 }

@@ -372,20 +372,20 @@ namespace test2
 
         static void Main(string[] args)
         {
-
+           
 
             ///调用函数
             ///
-            string output;
-            LZBC.user.Register("1234", "2345", "3456",  "4567", "6789",out output);
-            if (LZBC.user.Register("1234", "2345", "3456", "4567", "6789", out output))
-            {
-                Console.WriteLine(output);
-            }
-            else
-            {
-                Console.WriteLine(output);
-            }
+            //string output;
+            //LZBC.user.Register("1234", "2345", "3456",  "4567", "6789",out output);
+            //if (LZBC.user.Register("1234", "2345", "3456", "4567", "6789", out output))
+            //{
+            //    Console.WriteLine(output);
+            //}
+            //else
+            //{
+            //    Console.WriteLine(output);
+            //}
 
            
 
@@ -404,7 +404,7 @@ namespace test2
 
 
             //Console.WriteLine(BinarySeek(new int[] { 1, 3, 5, 6, 8, 12, 24 }, 0, 7, 12));
-            Console.WriteLine(BinarySeek2(new int[] { 1, 3, 5, 6, 8, 12, 24, 34,75 },75 ));
+            //Console.WriteLine(BinarySeek2(new int[] { 1, 3, 5, 6, 8, 12, 24, 34,75 },75 ));
             //GetArray(12, 12, 12);
             //GuessMe();
             //Console.WriteLine(GetAverage(new double[] { 23.45, 12.3, 34.5 }));
