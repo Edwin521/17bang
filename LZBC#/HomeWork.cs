@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LZBC;
+using System;
 
 namespace test2
 {
@@ -372,7 +373,12 @@ namespace test2
 
         static void Main(string[] args)
         {
-           
+            problem lzb = new problem();
+            lzb[1] = "123";
+            lzb[2] = "456";
+            lzb[3] = "789";
+            lzb[0] = "22";
+            Console.WriteLine(lzb[2]);
 
             ///调用函数
             ///
@@ -387,7 +393,7 @@ namespace test2
             //    Console.WriteLine(output);
             //}
 
-           
+
 
 
             //            string num;

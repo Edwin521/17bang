@@ -13,7 +13,7 @@ namespace LZBC
     //一起帮的求助可以有多个（最多10个）关键字，请为其设置索引器，以便于我们通过其整数下标进行读写。设计一种方式，保证：
     //每一个Problem对象一定有Body赋值
     //每一个User对象一定有Name和Password赋值
-    class helpMoneny
+    public class helpMoneny
     {
         private DateTime time { get; set; }
         private int useable { get; set; }

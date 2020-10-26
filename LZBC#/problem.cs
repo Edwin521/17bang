@@ -15,7 +15,7 @@ namespace LZBC
             get { return _reward; }
             set
             {
-                if (value<0)
+                if (value < 0)
                 {
                     Console.WriteLine("悬赏数不能为负数");
                     return;
@@ -25,6 +25,17 @@ namespace LZBC
 
         private DateTime _publishDateTime { get; set; }
         private int _author { get; set; }
+
+        //一起帮的求助可以有多个（最多10个）关键字，请为其设置索引器，以便于我们通过其整数下标进行读写。
+
+        private string[] _keywords = new string[10];
+        public string this[int index]
+        {
+            set { _keywords[index - 1] = value; }
+            get { return _keywords[index - 1]; }
+        }
+
+       
 
         //public bool Publish( )
         //{
