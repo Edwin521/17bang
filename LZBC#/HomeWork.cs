@@ -373,12 +373,21 @@ namespace test2
 
         static void Main(string[] args)
         {
-            problem lzb = new problem();
-            lzb[1] = "123";
-            lzb[2] = "456";
-            lzb[3] = "789";
-            lzb[0] = "22";
-            Console.WriteLine(lzb[2]);
+            //problem lzb = new problem();
+            //lzb[1] = "123";
+            //lzb[2] = "456";
+            //lzb[3] = "789";
+            //lzb[0] = "22";
+            //Console.WriteLine(lzb[2]);
+
+            problem lzb = new problem("lzb");
+
+            problem lw = new problem("");
+
+            User zdh = new User("空","ki");
+            Console.WriteLine(zdh.Name);
+   
+            Console.WriteLine(zdh.Password);
 
             ///调用函数
             ///
