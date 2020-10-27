@@ -21,7 +21,7 @@ namespace LZBC
         {
         }
 
-        private int _reward; //problem.Reward不能为负数
+        private  int _reward; //problem.Reward不能为负数
         public int _Reward
         {
             get { return _reward; }
@@ -42,20 +42,29 @@ namespace LZBC
 
         private string[] _keywords =new string[10];
 
-        //public problem( int length)
-        //{
-        //    _keywords = new string[length];
-        //}
+       
         public string this[int index]
         {
             set { _keywords[index - 1] = value; }
             get { return _keywords[index - 1]; }
         }
 
-       
+        //考虑求助（Problem）的以下方法/属性，哪些适合实例，哪些适合静态，然后添加到类中：
+
+        ///求助中
+
+        //Publish()：发布一篇求助，并将其保存到数据库
+        //Load(int Id)：根据Id从数据库获取一条求助
+        //Delete(int Id)：根据Id删除某个求助
+        //repoistory：可用于在底层实现上述方法和数据库的连接操作等
+
+
+
 
         //public bool Publish( )
         //{
         //}
+        public void Load(int Id) { }
+        public void Delete(int Id) { }
     }
 }

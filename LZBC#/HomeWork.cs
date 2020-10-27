@@ -34,9 +34,9 @@ namespace test2
         }
 
         //while方法实现
-        static int BinarySeek2(int[] numbers,  int targer)
+        static int BinarySeek2(int[] numbers, int targer)
         {
-            int left=0, right =numbers.Length-1;
+            int left = 0, right = numbers.Length - 1;
             while (left < right)
             {
                 int middle = (left + right) / 2;
@@ -301,7 +301,7 @@ namespace test2
         // 如果用户名不存在，直接输出：“*用户名不存在”；
         // 如果用户名或密码错误，输出：“*用户名或密码错误”
         // 以上全部正确无误，输出：“恭喜！登录成功！”
-        static bool logOn(string authCode, string userName, string password,   out  string output)
+        static bool logOn(string authCode, string userName, string password, out string output)
         {
             Console.WriteLine($"请输入验证码{authCode}");
 
@@ -326,16 +326,16 @@ namespace test2
                 }
                 else
                 {
-                   output= "用户名不存在";
+                    output = "用户名不存在";
                     return false;
-                 
+
                 }
             }
             else
             {
 
-                
-                output= "false-验证码错误";
+
+                output = "false-验证码错误";
                 return false;
 
             }
@@ -373,6 +373,16 @@ namespace test2
 
         static void Main(string[] args)
         {
+           // FactoryContext lzb = new FactoryContext();
+            FactoryContext a = FactoryContext.foo();
+            FactoryContext b = FactoryContext.foo();
+            MimicStack.MimicStack.Push(123);
+            MimicStack.MimicStack.Push(124);
+            MimicStack.MimicStack.Push(123);
+
+           /* FactoryContext a = new FactoryContext();*////构造函数设为私有后，新new的时候就会报错
+
+
             //problem lzb = new problem();
             //lzb[1] = "123";
             //lzb[2] = "456";
@@ -384,9 +394,9 @@ namespace test2
 
             problem lw = new problem("");
 
-            User zdh = new User("空","ki");
+            User zdh = new User("空", "ki");
             Console.WriteLine(zdh.Name);
-   
+
             Console.WriteLine(zdh.Password);
 
             ///调用函数
