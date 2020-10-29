@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MimicStack
+namespace LZBC
 {
 
     // 自己实现一个模拟栈（MimicStack）类，入栈出栈数据均为int类型，包含如下功能：
@@ -12,30 +12,43 @@ namespace MimicStack
     //    (1)如果压入的数据已超过栈的深度（最大容量），提示“栈溢出”
     //    (2)如果已弹出所有数据，提示“栈已空”
 
-    class MimicStack
+    public class MimicStack
     {
 
-        public static int [] stack = new int[10];
-        int top = 0;//最上边
-        int bottom = 0;//最下边
-        public void pop()
+        public  int[] container;
+        public MimicStack(int length)
         {
-
+            container = new int[length];
+        }
+         int top = 0;//最上边
+        //const int bottom = 0;//最下边
+        public int pop()
+        {
+            if (top!=0)
+            {
+                top--;
+                return container[top];
+            }
+            else
+            {
+                return -1;//栈已空
+            }
 
         }
-       internal static void Push(int value)
+        public  void Push(params int [] value)
         {
 
-
-
-            for (int i = 0; i < stack.Length; i++)
+            if (top<=container.Length-1)
             {
-                if (stack[i] == null)
-                {
-                    stack[i] = value;
-                    return;
-                }
+                container[top] = value.Length;
+                top+=value.Length;
             }
+            else
+            {
+                Console.WriteLine("stack Overflow");
+            }
+
+
 
 
 

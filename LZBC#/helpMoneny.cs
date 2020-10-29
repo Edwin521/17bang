@@ -15,14 +15,14 @@ namespace LZBC
     //设计一种方式，保证：
     //每一个Problem对象一定有Body赋值
     //每一个User对象一定有Name和Password赋值
-    public class helpMoneny
+    public class helpMoneny:Entity
     {
-        private DateTime time { get; set; }
-        private int useable { get; set; }
-        private int freeza { get; set; }
-        private string kind { get; set; }
-        private int change { get; set; }
-        private string notes { get; set; }
+       public DateTime time { get; set; }
+       public int useable { get; set; }
+       public int freeza { get; set; }
+       public string kind { get; set; }
+       public int change { get; set; }
+       public string notes { get; set; }
 
 
 

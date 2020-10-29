@@ -13,7 +13,9 @@ namespace LZBC
 
     //每一个User对象一定有Name和Password赋值
 
-    public class User
+
+    //让User类无法被继承
+    sealed public class User : Entity
     {
 
         private string _name;
@@ -30,10 +32,14 @@ namespace LZBC
         {
             set       //如果user.Name为“admin”，输入时修改为“系统管理员”
             {
-                if (value== "admin")
+                if (value == "admin")
                 {
                     _name = "系统管理员";
-                    return;
+
+                }
+                else
+                {
+                    _name = value;
                 }
             }
             get
@@ -48,24 +54,32 @@ namespace LZBC
         public string Password
         {
             set { _password = value; } //user.Password在类的外部只能改不能读
-            get { return _password; }
+            //get { return _password; }
         }
 
 
-        private User _invitedBy { get; set; }
-        private string _inviteCode { get; set; }
-        private string authCode { get; set; }
+        public User _InvitedBy { get; set; }
+        public string _InviteCode { get; set; }
 
-        //public  bool Register(User user)
+        public int HelpMoney { get; set;  }
+        public int HelpDot { get; set; }
+        public int HelpBean { get; set; }
+
+        //public void Register(User user)
         //{
-        //    if (user._Name=="lzb")
+        //    if (user._Name == "lzb")
         //    {
         //        return true;
         //    }
-        //    if (user._InvitedBy._Name=="lls")
+        //    if (user._InvitedBy._Name == "lls")
         //    {
 
         //    }
+        //}
+
+        //public  void login()
+        //{
+
         //}
 
 

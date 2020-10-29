@@ -11,8 +11,8 @@ namespace Repoistory
 {
     class Repoistory
     {
-        internal const string version = "21";
-        private static string connection;
+        internal const int version = 3;
+        private static string connection { get; }
 
     }
 }

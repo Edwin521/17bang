@@ -373,14 +373,21 @@ namespace test2
 
         static void Main(string[] args)
         {
-           // FactoryContext lzb = new FactoryContext();
-            FactoryContext a = FactoryContext.foo();
-            FactoryContext b = FactoryContext.foo();
-            MimicStack.MimicStack.Push(123);
-            MimicStack.MimicStack.Push(124);
-            MimicStack.MimicStack.Push(123);
 
-           /* FactoryContext a = new FactoryContext();*////构造函数设为私有后，新new的时候就会报错
+            Suggest lzb = new Suggest();
+            Console.WriteLine(lzb._kind);
+            Article lz = new Article();
+            Console.WriteLine(lz._kind);
+
+
+            // FactoryContext lzb = new FactoryContext();
+            //FactoryContext a = FactoryContext.foo();
+            //FactoryContext b = FactoryContext.foo();
+            //MimicStack.MimicStack.Push(123);
+            //MimicStack.MimicStack.Push(124);
+            //MimicStack.MimicStack.Push(123);
+
+            /* FactoryContext a = new FactoryContext();*////构造函数设为私有后，新new的时候就会报错
 
 
             //problem lzb = new problem();
@@ -390,14 +397,14 @@ namespace test2
             //lzb[0] = "22";
             //Console.WriteLine(lzb[2]);
 
-            problem lzb = new problem("lzb");
+            //problem lzb = new problem("lzb");
 
-            problem lw = new problem("");
+            //problem lw = new problem("");
 
-            User zdh = new User("空", "ki");
-            Console.WriteLine(zdh.Name);
+            //User zdh = new User("空", "ki");
+            //Console.WriteLine(zdh.Name);
 
-            Console.WriteLine(zdh.Password);
+            //Console.WriteLine(zdh.Password);
 
             ///调用函数
             ///
