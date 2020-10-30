@@ -374,10 +374,29 @@ namespace test2
         static void Main(string[] args)
         {
 
-            Suggest lzb = new Suggest();
-            Console.WriteLine(lzb._kind);
-            Article lz = new Article();
-            Console.WriteLine(lz._kind);
+            //Console.WriteLine(time.GetDate(new DateTime(2020,2,27), 3)); 
+            //Console.WriteLine(time.GetDate(new DateTime(2020,2,27), 1)); 
+            //Console.WriteLine(time.GetDate(new DateTime(2020,12,30), 1)); 
+            //Console.WriteLine(time.GetDate(new DateTime(2020,1,1), 1));
+
+            //Console.WriteLine(time.GetDateofmondy(2021)); 
+            //Console.WriteLine(time.GetDateofmondy(2022)); 
+            //Console.WriteLine(time.GetDateofmondy(2023)); 
+            //Console.WriteLine(time.GetDateofmondy(2024)); 
+
+            time.GetWeeks(new DateTime(2020, 1, 6) );
+
+
+            //用代码证明struct定义的类型是值类型
+            //bed dream = new bed();
+            //dream = null;///值类型不能赋值为null
+            //User lzb = new User("lzb","123");
+            //lzb = null;///同样的由class定义的引用类型就可以赋值为null
+
+            //Suggest lzb = new Suggest();
+            //Console.WriteLine(lzb._kind);
+            //Article lz = new Article();
+            //Console.WriteLine(lz._kind);
 
 
             // FactoryContext lzb = new FactoryContext();

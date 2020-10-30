@@ -22,12 +22,12 @@ namespace LZBC
             UserName.HelpDot++;
         }
 
-        internal override void publish()
-        {
-            helpMoneny--;//消耗一个帮帮币
+        //internal override void publish()
+        //{
+        //    helpMoneny--;//消耗一个帮帮币
 
-            Console.WriteLine("存入到数据库");
-        }
+        //    Console.WriteLine("存入到数据库");
+        //}
 
     }
 }
