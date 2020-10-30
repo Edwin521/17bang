@@ -62,6 +62,14 @@ namespace LZBC
                 dateTime = dateTime.AddDays(7);
 
             }
+            //这个是不跨年的
+            //for (int i = 1; i <= 51; i++)
+            //{
+
+            //    Console.WriteLine($"第{i}周，{dateTime.ToString("yyyy年MM月dd日")}--{dateTime.AddDays(6).ToString("yyyy年MM月dd日")}");
+            //    dateTime = dateTime.AddDays(7);
+
+            //}
         }
 
 
