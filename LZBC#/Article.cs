@@ -12,11 +12,13 @@ namespace LZBC
 
         }
         public string[] Comment { get; set; }
-        public void Praise( User UserName) //赞和踩都会增减作者及评价者的帮帮点。
+        public void PraiseBy( User UserName) //赞和踩都会增减作者及评价者的帮帮点。
         {
+            UserName.HelpDot++;
+            Author.HelpDot++;
             
         } 
-        public void tread(User UserName)
+        public void treadBy(User UserName)
         {
             Author.HelpDot--;
             UserName.HelpDot++;

@@ -15,16 +15,16 @@ namespace LZBC
     public class MimicStack
     {
 
-        public  int[] container;
+        private int[] container;
         public MimicStack(int length)
         {
             container = new int[length];
         }
-         int top = 0;//最上边
+        int top = 0;//最上边
         //const int bottom = 0;//最下边
         public int pop()
         {
-            if (top!=0)
+            if (top != 0)
             {
                 top--;
                 return container[top];
@@ -35,26 +35,28 @@ namespace LZBC
             }
 
         }
-        public  void Push(params int [] value)
+        public void Push(int element)
         {
-
-            if (top<=container.Length-1)
+            if (top <= container.Length - 1)
             {
-                container[top] = value.Length;
-                top+=value.Length;
+                container[top] = element;
+                top++;
             }
             else
             {
                 Console.WriteLine("stack Overflow");
             }
-
-
-
-
-
-
-
-
         }
+
+        public void Push( params int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                Push(array[i]);
+            }
+        }
+
+
+
     }
 }

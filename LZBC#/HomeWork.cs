@@ -374,6 +374,12 @@ namespace test2
         static void Main(string[] args)
         {
 
+
+            ISendMessage lzb = new User("lzb","123");///调用显示接口
+            User lls = new User("lls", "333");
+
+            lzb.Send(lls);
+
             //Console.WriteLine(time.GetDate(new DateTime(2020,2,27), 3)); 
             //Console.WriteLine(time.GetDate(new DateTime(2020,2,27), 1)); 
             //Console.WriteLine(time.GetDate(new DateTime(2020,12,30), 1)); 
@@ -384,7 +390,18 @@ namespace test2
             //Console.WriteLine(time.GetDateofmondy(2023)); 
             //Console.WriteLine(time.GetDateofmondy(2024)); 
 
-            time.GetWeeks(new DateTime(2020, 1, 6) );
+            //time.GetWeeks(new DateTime(2020, 1, 6) );
+
+
+            //TokenManager lzb = new TokenManager();
+            //lzb._token = lzb._token | Token.Admin;///存入权限身份
+            //lzb._token = lzb._token ^ Token.Blogger;//剥夺权限身份
+
+
+            //Console.WriteLine((lzb._token & Token.Newbie) == Token.Newbie);//查看是否存在这个权限
+
+
+
 
 
             //用代码证明struct定义的类型是值类型

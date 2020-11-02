@@ -15,10 +15,29 @@ namespace LZBC
 
 
     //让User类无法被继承
-    sealed public class User : Entity
+    sealed public class User : Entity,ISendMessage,IChat
     {
 
         private string _name;
+       
+        private string _password;
+
+
+
+        public string Password
+        {
+            set { _password = value; } //user.Password在类的外部只能改不能读
+            //get { return _password; }
+        }
+
+
+        public User _InvitedBy { get; set; }
+        public string _InviteCode { get; set; }
+
+        public int HelpMoney { get; set;  }
+        public int HelpDot { get; set; }
+        public int HelpBean { get; set; }
+
         private User()
         {
 
@@ -47,23 +66,6 @@ namespace LZBC
                 return _name;
             }
         }
-        private string _password;
-
-
-
-        public string Password
-        {
-            set { _password = value; } //user.Password在类的外部只能改不能读
-            //get { return _password; }
-        }
-
-
-        public User _InvitedBy { get; set; }
-        public string _InviteCode { get; set; }
-
-        public int HelpMoney { get; set;  }
-        public int HelpDot { get; set; }
-        public int HelpBean { get; set; }
 
         //public void Register(User user)
         //{
@@ -83,8 +85,9 @@ namespace LZBC
         //}
 
 
-
-
+        void ISendMessage.Send( User receiver) { }
+        void IChat.Send(User receiver) { }
+   
 
 
 
