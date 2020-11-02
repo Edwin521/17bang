@@ -13,17 +13,23 @@ namespace LZBC
     {
         private Token _tokens { get; set; }
 
-        public Token Add(Token Token)
+        public void Add(Token Token)
         {
-
-            return this._tokens | Token;
+            if ((this._tokens & Token) != Token)
+            {
+                this._tokens = this._tokens | Token;
+            }
+            //else nothing 
 
         }
 
-        public Token Remove(Token Token)
+        public void Remove(Token Token)
         {
-
-            return this._tokens ^ Token;
+            if ((this._tokens & Token) == Token)
+            {
+                this._tokens = this._tokens ^ Token;
+            }
+            //else nothing
 
         }
 

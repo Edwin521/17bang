@@ -2,26 +2,13 @@
 
 namespace MySelf
 {
-    class Program
+   public class human
     {
-
-
-
-        static void grow(ref student student)
-
-        {
-            student = new student();
-            student.age++;
-        }
-
+        public  double age { get; set; }
 
         static void Main(string[] args)
         {
 
-            student lzb = new student();
-            lzb.age = 20;
-            grow(ref  lzb);
-            Console.WriteLine(lzb.age);
 
             //findPrimeNum(10, 30);
 
@@ -33,22 +20,12 @@ namespace MySelf
             //lzb.age = 18;
             //student clone = lzb;
             //clone.age = 20;
-            //Console.WriteLine(lzb.age);
+         
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        public  int  grow( int age)
+        {
+            return age++;
         }
     }
 }
