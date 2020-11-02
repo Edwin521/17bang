@@ -22,13 +22,13 @@ namespace LZBC
         public User Author { get; set; }
         private DateTime _createTime { get; set; }
         private DateTime _PublishTime;
-            public DateTime PublishTime
+        public DateTime PublishTime
         {
             get { return _createTime; }
         }
 
-        public void Publish() { }
-      
+        public virtual void Publish() { }
+        public string title { get; set; }
 
     }
 }

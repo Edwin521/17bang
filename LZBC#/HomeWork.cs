@@ -374,11 +374,22 @@ namespace test2
         static void Main(string[] args)
         {
 
+            Article js = new Article
+            {
+                title = "title1",
+                Author = new User("lzb", "333")
+            };
 
-            ISendMessage lzb = new User("lzb","123");///调用显示接口
-            User lls = new User("lls", "333");
+            User lls = new User("lls", "123");
+            js.AgreedBy(lls);
 
-            lzb.Send(lls);
+            new Article().AgreedBy(new User("lls", "1234"));
+
+
+            //ISendMessage lzb = new User("lzb","123");///调用显示接口
+            //User lls = new User("lls", "333");
+
+            //lzb.Send(lls);
 
             //Console.WriteLine(time.GetDate(new DateTime(2020,2,27), 3)); 
             //Console.WriteLine(time.GetDate(new DateTime(2020,2,27), 1)); 

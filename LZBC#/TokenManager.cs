@@ -11,25 +11,25 @@ namespace LZBC
 
     class TokenManager
     {
-        public Token _token { get; set; }
+        private Token _tokens { get; set; }
 
-        public void Add(Token Token)
+        public Token Add(Token Token)
         {
 
-           return new TokenManager()._token|Token.Newbie
-        }
-
-        public void Remove(Token Token)
-        {
-
-
+            return this._tokens | Token;
 
         }
 
-        public void Has(Token Token)
+        public Token Remove(Token Token)
         {
 
+            return this._tokens ^ Token;
 
+        }
+
+        public bool Has(Token Token)
+        {
+            return (this._tokens & Token) == Token;
 
         }
 
