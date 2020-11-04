@@ -3,7 +3,7 @@ using System;
 
 namespace test2
 {
-    class HomeWork
+    public class HomeWork
 
 
 
@@ -25,16 +25,30 @@ namespace test2
             else
             {
                 if (numbers[mid] == targer)
+                {
                     return mid;
+                }
+
                 else if (numbers[mid] > targer)
+                {
                     return BinarySeek(numbers, left, mid - 1, targer);
+                }
+
                 else
+                {
                     return BinarySeek(numbers, mid + 1, right, targer);
+                }
+
             }
         }
 
+        public static object getMax(double[] vs)
+        {
+            throw new NotImplementedException();
+        }
+
         //while方法实现
-        static int BinarySeek2(int[] numbers, int targer)
+        public static int BinarySeek(int[] numbers, int targer)
         {
             int left = 0, right = numbers.Length - 1;
             while (left < right)
@@ -98,29 +112,35 @@ namespace test2
         /// </summary>
         /// <param name="start">开始的参数</param>
         /// <param name="end">结束的参数</param>
-        static void findPrimeNum(int start, int end)
+        public static int[] findPrimeNum(int start, int end)
         {
-
+            int[] array = new int[end - start];
             for (int i = start; i < end; i++)
             {
 
                 for (int j = 2; j < i; j++)
                 {
-
                     if (i % j == 0)
                     {
                         break;
                     }//else nothing
                     if (i - 1 == j)
                     {
-                        Console.WriteLine(i);
+                        for (int k = 0; k < end - start; k++)
+                        {
+                            array[k] = i;
+                        }
                     }
-
                 }
-
             }
-
+            return array;
         }
+
+
+        ///判断一个数是不是质数
+        ///
+
+       
 
 
 
@@ -129,7 +149,7 @@ namespace test2
         /// </summary>
         /// <param name="scores">传入一个double类型的数组</param>
         /// <returns>返回一个字符串显示最大值和最小值</returns>
-        static double getMax(double[] scores)
+        public static double GetMax(double[] scores)
         {
             double max = scores[0];
 
@@ -200,23 +220,17 @@ namespace test2
         ////猜数字，限制次数10
 
 
-        static void GuessMe()
+        public static void GuessMe()
         {
-
-
             int num = new Random().Next(1000);
             Console.WriteLine("随机数是：" + num);
 
             for (int i = 1; i < 11; i++)
             {
-
                 if (int.TryParse(Console.ReadLine(), out int input))
                 {
-
                     if (input != num)
                     {
-
-
                         if (i == 10)
                         {
                             Console.WriteLine("～￣(OO)￣");
@@ -227,13 +241,11 @@ namespace test2
                             Console.WriteLine($"太大了吆!还剩{10 - i}次");
                             continue;
                         }
-
                         else
                         {
                             Console.WriteLine($"太小了呢!还剩{10 - i}次");
                             continue;
                         }
-
                     }
                     else
                     {
@@ -255,17 +267,25 @@ namespace test2
                         break;
 
                     }
-
                 }
                 else
                 {
                     Console.WriteLine("输入错误，请输入1-1000的自然数");
                     continue;
                 }
-
             }
 
         }
+
+
+
+        public static void GuessMe(int num)
+        {
+
+
+
+        }
+
 
         ///封装函数 
         //求和
@@ -333,11 +353,8 @@ namespace test2
             }
             else
             {
-
-
                 output = "false-验证码错误";
                 return false;
-
             }
         }
 
@@ -374,16 +391,25 @@ namespace test2
         static void Main(string[] args)
         {
 
-            Article js = new Article
-            {
-                title = "title1",
-                Author = new User("lzb", "333")
-            };
 
-            User lls = new User("lls", "123");
-            js.AgreedBy(lls);
+            Console.WriteLine(HomeWork.findPrimeNum(1, 10));
 
-            new Article().AgreedBy(new User("lls", "1234"));
+            TokenManager tokenManager = new TokenManager();
+            User user = new User("lls", "1234");
+            Console.WriteLine(user.ToString());
+
+            Console.WriteLine(user);
+
+            //Article js = new Article
+            //{
+            //    title = "title1",
+            //    Author = new User("lzb", "333")
+            //};
+
+            //User lls = new User("lls", "123");
+            //js.AgreedBy(lls);
+
+            //new Article().AgreedBy(new User("lls", "1234"));
 
 
             //ISendMessage lzb = new User("lzb","123");///调用显示接口
@@ -396,12 +422,13 @@ namespace test2
             //Console.WriteLine(time.GetDate(new DateTime(2020,12,30), 1)); 
             //Console.WriteLine(time.GetDate(new DateTime(2020,1,1), 1));
 
-            //Console.WriteLine(time.GetDateofmondy(2021)); 
+            //Console.WriteLine(time.GetDateofmondy(2021));
             //Console.WriteLine(time.GetDateofmondy(2022)); 
             //Console.WriteLine(time.GetDateofmondy(2023)); 
             //Console.WriteLine(time.GetDateofmondy(2024)); 
 
-            //time.GetWeeks(new DateTime(2020, 1, 6) );
+
+            //time.GetWeeks(new DateTime(2020, 1, 6));
 
 
             //TokenManager lzb = new TokenManager();

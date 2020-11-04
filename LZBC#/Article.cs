@@ -8,9 +8,9 @@ namespace LZBC
     public class Article : Content, IEstimate
     {
 
-        //User类中添加一个Tokens属性，类型为TokenManager
+    
 
-        public TokenManager Tokens { get; set; } = Token.Admin;
+     
         public Article() : base("文章")///构造函数加上基类的构造函数实现new一个对象的时候他的属性自动赋值
         {
 

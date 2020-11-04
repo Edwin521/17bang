@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LZBC#\LZBC#.csproj" />
-    <ProjectReference Include="..\MySelf\MySelf.csproj" />
   </ItemGroup>
 
 </Project>

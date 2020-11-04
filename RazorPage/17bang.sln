@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySelf", "..\MySelf\MySelf.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTestProject1", "..\NUnitTestProject1\NUnitTestProject1.csproj", "{F9F567A5-9433-418D-AFA9-C8D51F8871B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLinkNodeTest", "..\DLinkNodeTest\DLinkNodeTest.csproj", "{0E4FDB90-FE7F-4E20-A1BE-DC25354AC17F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F9F567A5-9433-418D-AFA9-C8D51F8871B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9F567A5-9433-418D-AFA9-C8D51F8871B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9F567A5-9433-418D-AFA9-C8D51F8871B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E4FDB90-FE7F-4E20-A1BE-DC25354AC17F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E4FDB90-FE7F-4E20-A1BE-DC25354AC17F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E4FDB90-FE7F-4E20-A1BE-DC25354AC17F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E4FDB90-FE7F-4E20-A1BE-DC25354AC17F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

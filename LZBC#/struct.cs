@@ -42,7 +42,6 @@ namespace LZBC
                 if (dateTime.DayOfWeek == DayOfWeek.Monday)
                 {
                     return dateTime;
-
                 }
                 else
                 {
@@ -54,10 +53,9 @@ namespace LZBC
 
         public static void GetWeeks(DateTime dateTime)
         {
-
+        
             for (int i = 1; i <= 52; i++)
             {
-
                 Console.WriteLine($"第{i}周，{dateTime.ToString("yyyy年MM月dd日")}--{dateTime.AddDays(6).ToString("yyyy年MM月dd日")}");
                 dateTime = dateTime.AddDays(7);
 
