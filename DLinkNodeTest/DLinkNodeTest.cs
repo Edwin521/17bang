@@ -58,5 +58,27 @@ namespace DLinkNodeTest
         }
 
 
+        [Test]
+        public void AddBeforeTest()
+        {
+
+
+        }
+
+        [Test]
+        public void DeleteNodeTest()
+        {
+
+
+        }
+
+        [Test]
+        public void SwapTest()
+        {
+
+
+        }
+
+
     }
 }
