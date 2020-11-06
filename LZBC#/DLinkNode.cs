@@ -69,7 +69,7 @@ namespace LZBC
 
         }
 
-        public void Swap(DLinkNode node1, DLinkNode node2)///交换两个节点
+        public void Swap(DLinkNode node)///交换两个节点
         {
             ////1.如果两个节点都是处于末端的节点
             ///2，一个节点是处在末端，另一个节点处在中间
@@ -77,39 +77,30 @@ namespace LZBC
             ///4，两个节点都处在中间不相邻
             ///   [1]   3   [2] 
 
-            if ((node1.Previous == null) && (node2.Next == null))//如果两个节点都是处于末端的节点
+            if ((this.Previous == null) && (node.Next == null))//如果两个节点都是处于末端的节点
             {
-                this.Previous = this.Next;
-                this.Next = this.Previous;
-                node2.Next = this;
-                node1.Previous = this;
-                node1.Next = null;
-                node2.Previous = null;
+                this.Previous = node.Previous;
+                node.Next = this.Next;
+                node.Next.Previous = this;
+                this.Next.Previous = node;
+
 
 
             }
-            if ((node1.Previous != null) && (node2.Next == null))//一个节点在末端，一个节点在中间 0 [1] 3 [2]
+            if ((this.Previous == null) && (node.Next != null))//一个节点在末端，一个节点在中间 0 [1] 3 [2]
             {
-                this.Next = this.Previous;
-                this.Previous = this.Next;
-                node2.Next = this;
-                node1.Previous = this;
-                node1.Next = null;
-                node2.Previous = node1.Previous;
-                node1.Previous.Next = node2;
+                this.Next = node.Next;
+                node.Next = this.Next;
+                this.Previous = node;
+                node.Next = this;
+                node.Next.Previous = this;
+                node.Previous = null;
+
   
             }
-            if ((node1.Previous!=null)&&(node2.Next!=null)) //两个节点都处在中间且相邻  [0]  [1] [2] [3]
+            if ((this.Previous!=null)&&(node.Next!=null)) //两个节点都处在中间且相邻  [0]  [1] [2] [3]
             {
-                node2.Previous = this;
-                node2.Next = this.Next;
-
-                node1.Next = node2.Next;
-                node2.Previous = this.Next.Next;
-                
-                node1 = node2.Next.Previous;
-                this.Next = node2;
-
+               
             }
 
         }

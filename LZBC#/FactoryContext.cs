@@ -12,7 +12,7 @@ namespace LZBC
 
 
     //2--让类只能创建一个实例
-    class FactoryContext
+    class FactoryContext 
     {
 
        private FactoryContext()//创建构造器，并把访问权限声明为私有的,此时，我们再次进行实例化那么编译器就会报错

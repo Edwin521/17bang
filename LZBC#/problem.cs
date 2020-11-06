@@ -7,7 +7,7 @@ namespace LZBC
     //求助版块，定义一个类Problem，包含字段：标题（Title）、正文（Body）、悬赏（Reward）、发布时间（PublishDateTime）和作者（Author），和方法Publish()
 
 
-    public class problem
+    public class Problem
     {
         public string _title { get; set; }
         private string _body { get; set; }
@@ -15,12 +15,12 @@ namespace LZBC
         public DateTime _publishDateTime { get; set; }
         public int _author { get; set; }
 
-        public problem(string body) //每一个Problem对象一定有Body赋值
+        public Problem(string body) //每一个Problem对象一定有Body赋值
         {
             _body = body;
         }
 
-        private problem()
+        private Problem()
         {
         }
 

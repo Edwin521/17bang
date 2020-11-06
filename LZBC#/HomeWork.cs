@@ -139,8 +139,29 @@ namespace test2
 
         ///判断一个数是不是质数
         ///
+        public static bool IsPrimeNum(int num)
+        {
 
-       
+
+            if (num < 2)
+                return false;
+            if (num == 2 || num == 3)
+            {
+                return true;
+            }
+            for (int i = 2; i < num - 1; i++)
+            {
+                if (num % i == 0)
+                {
+                    return false;
+                }
+                //else nothing 
+            }
+            Console.WriteLine(num.ToString() + "是素数");
+            return true;
+
+        }
+
 
 
 
@@ -817,7 +838,7 @@ namespace test2
             ////设立并显示一个多维数组的值，元素值等于下标之和。Console.Write()//没写完
             ///
 
-            //int[,] sum = new int[8, 5];
+            //int[,] sum = new int[3, 5];
             //for (int i = 0; i < sum.GetLength(0); i++)
             //{
             //    for (int j = 0; j < sum.GetLength(1); j++)
@@ -830,7 +851,7 @@ namespace test2
             //{
             //    for (int l = 0; l < sum.GetLength(1); l++)
             //    {
-            //        Console.Write(sum[k, l]+" ");
+            //        Console.WriteLine(sum[k, l] + " ");
             //    }
             //    Console.WriteLine();
             //}

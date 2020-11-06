@@ -45,11 +45,28 @@ namespace NUnitTestProject1
 
 
         [Test] //找到100以内的所有质数
-        public void FindPrimeNumTest()
+        public void FindPrimeNumTest()//返回一个数组怎么比较？
         {
 
             //Assert.AreEqual( new int[] { 2, 3, 5, 7 }, HomeWork.findPrimeNum(1, 10));
             //Assert.AreEqual(true, HomeWork.IsPrimeNum(3));
+        }
+
+
+        [Test] //判断一个数是不是质数
+        public void IsPrimeNumTest()
+        {
+
+            Assert.IsTrue(HomeWork.IsPrimeNum(71));
+            Assert.IsFalse(HomeWork.IsPrimeNum(0));
+            Assert.IsTrue(HomeWork.IsPrimeNum(23));
+            Assert.IsTrue(HomeWork.IsPrimeNum(29));
+            Assert.IsFalse(HomeWork.IsPrimeNum(20));
+            Assert.IsFalse(HomeWork.IsPrimeNum(100));
+            Assert.IsFalse(HomeWork.IsPrimeNum(1));
+            Assert.IsFalse(HomeWork.IsPrimeNum(-1));
+            Assert.IsFalse(HomeWork.IsPrimeNum(-8));
+
         }
 
         [Test]
