@@ -14,21 +14,39 @@ namespace LZBC
 
     public class Content
     {
-        protected internal string _kind { get; set; }
+        //确保文章的标题不能为null值，也不能为一个或多个空字符组成的字符串，而且如果标题前后有空格，也予以删除
+        private string _title;
+        public string Title
+        {
+            
+            get { return _title; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    Console.WriteLine("标题输入有误，请您重新输入");
+                    return;
+                }
+                else
+                {
+                    _title = value.Trim();
+                }
+            }
+        }
+        public String KeyWord { get; set; }
+        public string Main { get; set; }
+        protected internal string kind { get; set; }
         public Content(string kind)
         {
-            _kind = kind;
+            this.kind = kind;
         }
         public User Author { get; set; }
-        private DateTime _createTime { get; set; }
-        private DateTime _PublishTime;
-        public DateTime PublishTime
-        {
-            get { return _createTime; }
-        }
+        private DateTime CreateTime { get; set; }
+
+        public DateTime PublishTime => CreateTime;
 
         public virtual void Publish() { }
-        public string title { get; set; }
+
 
     }
 }
