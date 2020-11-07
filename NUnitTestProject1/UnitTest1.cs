@@ -35,11 +35,11 @@ namespace NUnitTestProject1
         public void GetMaxTest()
         {
 
-            Assert.AreEqual(55555, HomeWork.GetMax(new double[] { 0, 2, 12, 34, 12, 55555, -0.1, -23 }));
-            Assert.AreEqual(34, HomeWork.GetMax(new double[] { 12, 12, 34, 12, -90, -67.89 }));
-            Assert.AreEqual(34, HomeWork.GetMax(new double[] { 12, 12, 34, 12, -12 }));
-            Assert.AreEqual(34, HomeWork.GetMax(new double[] { 12, 12, 34, 12, -100, -12.99 }));
-            Assert.AreEqual(99.9, HomeWork.GetMax(new double[] { -1, -2, 0, 12, 12, 34, 12, 99.9 }));
+            Assert.AreEqual(55555, Program.GetMax(new double[] { 0, 2, 12, 34, 12, 55555, -0.1, -23 }));
+            Assert.AreEqual(34, Program.GetMax(new double[] { 12, 12, 34, 12, -90, -67.89 }));
+            Assert.AreEqual(34, Program.GetMax(new double[] { 12, 12, 34, 12, -12 }));
+            Assert.AreEqual(34, Program.GetMax(new double[] { 12, 12, 34, 12, -100, -12.99 }));
+            Assert.AreEqual(99.9, Program.GetMax(new double[] { -1, -2, 0, 12, 12, 34, 12, 99.9 }));
          
         }
 
@@ -57,15 +57,15 @@ namespace NUnitTestProject1
         public void IsPrimeNumTest()
         {
 
-            Assert.IsTrue(HomeWork.IsPrimeNum(71));
-            Assert.IsFalse(HomeWork.IsPrimeNum(0));
-            Assert.IsTrue(HomeWork.IsPrimeNum(23));
-            Assert.IsTrue(HomeWork.IsPrimeNum(29));
-            Assert.IsFalse(HomeWork.IsPrimeNum(20));
-            Assert.IsFalse(HomeWork.IsPrimeNum(100));
-            Assert.IsFalse(HomeWork.IsPrimeNum(1));
-            Assert.IsFalse(HomeWork.IsPrimeNum(-1));
-            Assert.IsFalse(HomeWork.IsPrimeNum(-8));
+            Assert.IsTrue(Program.IsPrimeNum(71));
+            Assert.IsFalse(Program.IsPrimeNum(0));
+            Assert.IsTrue(Program.IsPrimeNum(23));
+            Assert.IsTrue(Program.IsPrimeNum(29));
+            Assert.IsFalse(Program.IsPrimeNum(20));
+            Assert.IsFalse(Program.IsPrimeNum(100));
+            Assert.IsFalse(Program.IsPrimeNum(1));
+            Assert.IsFalse(Program.IsPrimeNum(-1));
+            Assert.IsFalse(Program.IsPrimeNum(-8));
 
         }
 
@@ -84,11 +84,11 @@ namespace NUnitTestProject1
         [Test] //¶þ·Ö²éÕÒ
         public void BinarySeekTest()
         {
-            Assert.AreEqual(3, HomeWork.BinarySeek(new int[] { 2, 3, 5, 6, 19, 29, 12 }, 6));
-            Assert.AreEqual(1, HomeWork.BinarySeek(new int[] { 2, 3, 5, 6, 19, 29,666}, 3));
-            Assert.AreEqual(1, HomeWork.BinarySeek(new int[] { 2, 3, 5, 6, 19, 29 ,30}, 3));
-            Assert.AreEqual(1, HomeWork.BinarySeek(new int[] { -1,2, 3, 5, 6, 19, 29 ,30}, 2));
-            Assert.AreEqual(-1, HomeWork.BinarySeek(new int[] { -1,2, 3, 5, 6, 19, 29 ,30}, 78));
+            Assert.AreEqual(3, Program.BinarySeek(new int[] { 2, 3, 5, 6, 19, 29, 12 }, 6));
+            Assert.AreEqual(1, Program.BinarySeek(new int[] { 2, 3, 5, 6, 19, 29,666}, 3));
+            Assert.AreEqual(1, Program.BinarySeek(new int[] { 2, 3, 5, 6, 19, 29 ,30}, 3));
+            Assert.AreEqual(1, Program.BinarySeek(new int[] { -1,2, 3, 5, 6, 19, 29 ,30}, 2));
+            Assert.AreEqual(-1, Program.BinarySeek(new int[] { -1,2, 3, 5, 6, 19, 29 ,30}, 78));
           
 
         }

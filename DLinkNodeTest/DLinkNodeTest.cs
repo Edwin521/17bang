@@ -31,12 +31,15 @@ namespace DLinkNodeTest
         [Test]
         public void AddAfterTest()
         {
-            ////1 2
-            //Assert.IsNull(node1.Previous);
-            //Assert.AreEqual(node2, node1.Next);
 
-            //Assert.AreEqual(node1, node2.Previous);
-            //Assert.IsNull(node2.Next);
+            DLinkNode node5 = new DLinkNode();
+            AddAfter(node5);
+            //1 2
+            Assert.IsNull(node4.Previous);
+            Assert.AreEqual(node5, node1.Next);
+
+            Assert.AreEqual(node4, node2.Previous);
+            Assert.IsNull(node2.Next);
             // 1  2 [3]
             Assert.IsNull(node3.Next);
             Assert.AreEqual(node2, node3.Previous);
