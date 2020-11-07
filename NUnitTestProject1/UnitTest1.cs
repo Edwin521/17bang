@@ -1,3 +1,4 @@
+using LZBC;
 using MySelf;
 using NUnit.Framework;
 using System;
@@ -35,12 +36,12 @@ namespace NUnitTestProject1
         public void GetMaxTest()
         {
 
-            Assert.AreEqual(55555, Program.GetMax(new double[] { 0, 2, 12, 34, 12, 55555, -0.1, -23 }));
-            Assert.AreEqual(34, Program.GetMax(new double[] { 12, 12, 34, 12, -90, -67.89 }));
-            Assert.AreEqual(34, Program.GetMax(new double[] { 12, 12, 34, 12, -12 }));
-            Assert.AreEqual(34, Program.GetMax(new double[] { 12, 12, 34, 12, -100, -12.99 }));
-            Assert.AreEqual(99.9, Program.GetMax(new double[] { -1, -2, 0, 12, 12, 34, 12, 99.9 }));
-         
+            Assert.AreEqual(55555, HomeWork.GetMax(new double[] { 0, 2, 12, 34, 12, 55555, -0.1, -23 }));
+            Assert.AreEqual(34, HomeWork.GetMax(new double[] { 12, 12, 34, 12, -90, -67.89 }));
+            Assert.AreEqual(34, HomeWork.GetMax(new double[] { 12, 12, 34, 12, -12 }));
+            Assert.AreEqual(34, HomeWork.GetMax(new double[] { 12, 12, 34, 12, -100, -12.99 }));
+            Assert.AreEqual(99.9, HomeWork.GetMax(new double[] { -1, -2, 0, 12, 12, 34, 12, 99.9 }));
+
         }
 
 
@@ -81,22 +82,11 @@ namespace NUnitTestProject1
         }
 
 
-        [Test] //二分查找
-        public void BinarySeekTest()
-        {
-            Assert.AreEqual(3, Program.BinarySeek(new int[] { 2, 3, 5, 6, 19, 29, 12 }, 6));
-            Assert.AreEqual(1, Program.BinarySeek(new int[] { 2, 3, 5, 6, 19, 29,666}, 3));
-            Assert.AreEqual(1, Program.BinarySeek(new int[] { 2, 3, 5, 6, 19, 29 ,30}, 3));
-            Assert.AreEqual(1, Program.BinarySeek(new int[] { -1,2, 3, 5, 6, 19, 29 ,30}, 2));
-            Assert.AreEqual(-1, Program.BinarySeek(new int[] { -1,2, 3, 5, 6, 19, 29 ,30}, 78));
-          
-
-        }
 
         [Test]
         public void PopTest() //栈的压入弹出
         {
-            
+
 
         }
 

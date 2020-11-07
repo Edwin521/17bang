@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LZBC
 {
-    class HomeWork
+   public class HomeWork
     {
 
 

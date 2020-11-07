@@ -38,12 +38,13 @@ namespace LZBC
         protected internal string kind { get; set; }
         public Content(string kind)
         {
+            CreateTime = DateTime.Now;
             this.kind = kind;
         }
         public User Author { get; set; }
-        private DateTime CreateTime { get; set; }
+        public DateTime CreateTime { get; private set; }
 
-        public DateTime PublishTime => CreateTime;
+        public DateTime PublishTime { get; protected set; }
 
         public virtual void Publish() { }
 

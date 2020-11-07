@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "LZBC#/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/LZBC#.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LZBC#.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "LZBC#/1.0.0": {
+      "type": "project",
+      "path": "../LZBC#/LZBC#.csproj",
+      "msbuildProject": "../LZBC#/LZBC#.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "LZBC# >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Think\\.nuget\\packages\\": {}
@@ -32,7 +51,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Think\\Source\\Repos\\17bang2\\LZBC#\\LZBC#.csproj": {
+              "projectPath": "C:\\Users\\Think\\Source\\Repos\\17bang2\\LZBC#\\LZBC#.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -34,10 +34,12 @@ namespace LZBC
 
         public override void Publish()
         {
+            PublishTime = DateTime.Now;
             Author.HelpMoney--;//消耗一个帮帮币g
 
             Console.WriteLine("存入到数据库");
         }
+
 
     }
 }

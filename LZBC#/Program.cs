@@ -1,5 +1,6 @@
 ﻿using LZBC;
 using System;
+using System.Reflection;
 
 namespace test2
 {
@@ -123,14 +124,35 @@ namespace test2
         }
 
 
-       
-
+        //封装一个方法，可以修改Content的CreateTime和PublishTime
+        public void AlterCreateTime( Content content ,DateTime dateTime)
+        {
+            typeof(Content)
+               .GetProperty("CreateTime", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(content, dateTime);
+            Console.WriteLine();
+        }
+        public void AlterPublishTime(Content content, DateTime dateTime)
+        {
+            typeof(Content)
+               .GetProperty("PublishTime", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(content, dateTime);
+            Console.WriteLine();
+        }
 
 
 
 
         static void Main(string[] args)
         {
+            //封装一个方法，可以修改Content的CreateTime和PublishTime
+            DateTime lw = new DateTime(2023, 3, 4);
+
+            Content article = new Content("文章");
+            article.GetType()
+                .GetProperty("CreateTime", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(article, lw);
+            Console.WriteLine();
+
+
+
 
 
             //Console.WriteLine(Program.findPrimeNum(1, 10));
@@ -276,7 +298,7 @@ namespace test2
 
 
 
-        
+
 
 
 
@@ -286,14 +308,6 @@ namespace test2
 
         }
 
-        private static void Register(string v1, string v2, string v3, string v4, string v5, out string output)
-        {
-            throw new NotImplementedException();
-        }
 
-        private static void Register(string v1, string v2, string v3, string v4, string v5, string v6, out string output)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
