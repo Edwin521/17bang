@@ -15,27 +15,74 @@ namespace LZBC
 
 
     //让User类无法被继承
-    sealed public class User : Entity,ISendMessage,IChat
+    sealed public class User : Entity, ISendMessage, IChat
     {
         //User类中添加一个Tokens属性，类型为TokenManager
         public TokenManager Tokens { get; set; }
+        //设计一个适用的机制，能确保用户（User）的昵称（Name）不能含有admin、17bang、管理员等敏感词
+        //??是不是得专门有个类来装这些敏感词汇，当敏感词较多的时候就得用，较少的时候可以不用吧。
         private string _name;
-       
+        public string name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                if (value.Contains("admin") || value.Contains("17bang") || value.Contains("管理员"))
+                {
+                    Console.WriteLine("请您不要输入带有特殊意义的敏感字符");
+                }
+                else
+                {
+                    _name = value;
+                }
+
+            }
+        }
+
         private string _password;
 
 
+        //确保用户（User）的密码（Password）：
+
+        //长度不低于6
+        //必须由大小写英语单词、数字和特殊符号（~!@#$%^&*()_+）组成
 
         public string Password
         {
-            set { _password = value; } //user.Password在类的外部只能改不能读
-            //get { return _password; }
+            set
+            {
+                string UsableList = "1234567890abcdefghrjklmnopqrstuvwxyzABCDEFGHRJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+";
+                if (value.Length < 6)
+                {
+                    Console.WriteLine("输入的密码长度不能小于6");
+                    return;
+                }
+                if (true)
+                {
+                    for (int i = 0; i < value.Length; i++)
+                    {
+                        if (!UsableList.Contains(value[i]))//输入的密码其中有不是规定的字符
+                        {
+                            Console.WriteLine("密码必须由大小写英语单词、数字和特殊符号（~!@#$%^&*()_+）组成");
+                            return;
+                        }
+                    }
+                }
+
+                _password = value;
+
+            }
+
         }
 
 
         public User _InvitedBy { get; set; }
         public string _InviteCode { get; set; }
 
-        public int HelpMoney { get; set;  }
+        public int HelpMoney { get; set; }
         public int HelpDot { get; set; }
         public int HelpBean { get; set; }
 
@@ -86,9 +133,9 @@ namespace LZBC
         //}
 
 
-        void ISendMessage.Send( User receiver) { }
+        void ISendMessage.Send(User receiver) { }
         void IChat.Send(User receiver) { }
-   
+
 
 
 
