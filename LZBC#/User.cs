@@ -95,7 +95,7 @@ namespace LZBC
             }
             return false;
         }
-        LinkedList<T>
+  
         public bool IsPassword2(string Password)
         {
             string UsableList2 = "abcdefghrjklmnopqrstuvwxyz";

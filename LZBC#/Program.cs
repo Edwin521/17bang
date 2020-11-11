@@ -38,25 +38,6 @@ namespace test2
             return true;
 
         }
-
-
-
-
-
-
-
-
-        ///完成“猜数字”游戏，方法名GuessMe()：
-        /////随机生成一个大于0小于1000的整数
-        ////用户输入一个猜测值，系统进行判断，告知用户猜测的数是“大了”，还是“小了”
-        ////没猜中可以继续猜，但最多不能超过10次
-        ////如果5次之内猜中，输出：你真牛逼！
-        ////如果8次之内猜中，输出：不错嘛！
-        ////10次还没猜中，输出：(～￣(OO)￣)ブ
-
-        ////猜数字，限制次数10
-
-
         public static void GuessMe()
         {
             int num = new Random().Next(1000);
@@ -116,12 +97,15 @@ namespace test2
 
 
 
-        public static void GuessMe(int num)
-        {
 
 
 
-        }
+
+
+
+
+
+
 
 
         //封装一个方法，可以修改Content的CreateTime和PublishTime
@@ -138,12 +122,28 @@ namespace test2
             Console.WriteLine();
         }
 
-       
+        //实现GetCount(string container, string target)方法，可以统计出container中有多少个target
 
+        public static int GetCount(string container, string target)
+        {
+            int num = 0;
+            for (int i = 0; i < container.Length; i++)
+            {
+                if (target.Contains(container[i]))
+                {
+                    num++;
+                }
+                //else continue 
+               
+            }
+            return num;
+        }
 
         static void Main(string[] args)
         {
 
+            Console.WriteLine(GetCount("1112345", "1"));  
+            Console.WriteLine(GetCount("11123451", "1"));  
             //封装一个方法，可以修改Content的CreateTime和PublishTime
             //DateTime lw = new DateTime(2023, 3, 4);
 
@@ -297,7 +297,7 @@ namespace test2
             //QUOTIENT(4, 3);
             //Console.WriteLine(QUOTIENT(6,2.4));
 
-         
+
 
 
 
