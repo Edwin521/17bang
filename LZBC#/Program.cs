@@ -133,15 +133,20 @@ namespace test2
         }
         //不使用string自带的Join()方法，定义一个mimicJoin()方法，能将若干字符串用指定的分隔符连接起来，
         //比如：mimicJoin("-","a","b","c","d")，其运行结果为：a-b-c-d
-        public static string mimicJoin(string connector,string string1 ,string string2,string string3)
+        public static string mimicJoin(string connector, string[] strings)
         {
-            return string1 + string2.Insert(0, connector) + string3.Insert(0, connector);
+            string result="";
+            for (int i = 0; i < strings.Length; i++)
+            {
+                result += strings[i].Insert(0, connector);
+            }
+            return result.Remove(0,1);
 
         }
 
         static void Main(string[] args)
         {
-            Console.WriteLine(mimicJoin("-","1","2","3"));
+            Console.WriteLine(mimicJoin("-", new string[] {"众所周知", "飞哥", "的", "颜值","是","一百分" }));
             Console.WriteLine(GetCount("13212*212-212", "212"));
             Console.WriteLine(GetCount("111234512", "12"));
             //封装一个方法，可以修改Content的CreateTime和PublishTime
