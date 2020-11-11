@@ -1,6 +1,7 @@
 ﻿using LZBC;
 using System;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace test2
 {
@@ -126,24 +127,16 @@ namespace test2
 
         public static int GetCount(string container, string target)
         {
-            int num = 0;
-            for (int i = 0; i < container.Length; i++)
-            {
-                if (target.Contains(container[i]))
-                {
-                    num++;
-                }
-                //else continue 
-               
-            }
-            return num;
+         
+           return Regex.Matches(container, target).Count;
+          
         }
 
         static void Main(string[] args)
         {
 
-            Console.WriteLine(GetCount("1112345", "1"));  
-            Console.WriteLine(GetCount("11123451", "1"));  
+            Console.WriteLine(GetCount("13212*212-212", "212"));
+            Console.WriteLine(GetCount("111234512", "12"));  //6
             //封装一个方法，可以修改Content的CreateTime和PublishTime
             //DateTime lw = new DateTime(2023, 3, 4);
 
