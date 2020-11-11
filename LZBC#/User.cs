@@ -16,7 +16,7 @@ namespace LZBC
 
 
     //让User类无法被继承
-    public sealed class User : Entity, ISendMessage, IChat
+    public sealed class User : Entity<User>, ISendMessage, IChat
     {
         //User类中添加一个Tokens属性，类型为TokenManager
         public TokenManager Tokens { get; set; }

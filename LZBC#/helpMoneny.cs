@@ -15,7 +15,7 @@ namespace LZBC
     //设计一种方式，保证：
     //每一个Problem对象一定有Body赋值
     //每一个User对象一定有Name和Password赋值
-    public class HelpMoneny:Entity
+    public class HelpMoneny:Entity<int>
     {
        public DateTime time { get; set; }
        public int useable { get; set; }

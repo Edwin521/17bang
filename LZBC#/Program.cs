@@ -2,7 +2,7 @@
 using System;
 using System.Reflection;
 using System.Text.RegularExpressions;
-
+using System.Collections;
 namespace test2
 {
     public class Program
@@ -135,20 +135,24 @@ namespace test2
         //比如：mimicJoin("-","a","b","c","d")，其运行结果为：a-b-c-d
         public static string mimicJoin(string connector, string[] strings)
         {
-            string result="";
+            string result = "";
             for (int i = 0; i < strings.Length; i++)
             {
                 result += strings[i].Insert(0, connector);
             }
-            return result.Remove(0,1);
+            return result.Remove(0, 1);
 
         }
 
         static void Main(string[] args)
+
         {
-            Console.WriteLine(mimicJoin("-", new string[] {"众所周知", "飞哥", "的", "颜值","是","一百分" }));
-            Console.WriteLine(GetCount("13212*212-212", "212"));
-            Console.WriteLine(GetCount("111234512", "12"));
+            Console.WriteLine(HomeWork<int>.BinarySeek(new System.Collections.Generic.List<int> { 1, 5, 76, 8, 9, 0, 43, 6, 3, 5 }, 0));
+
+            ///字符串
+            //Console.WriteLine(mimicJoin("-", new string[] {"众所周知", "飞哥", "的", "颜值","是","一百分" }));
+            //Console.WriteLine(GetCount("13212*212-212", "212"));
+            //Console.WriteLine(GetCount("111234512", "12"));
             //封装一个方法，可以修改Content的CreateTime和PublishTime
             //DateTime lw = new DateTime(2023, 3, 4);
 

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LZBC
 {
-   public class HomeWork
+    public class HomeWork<T>
     {
 
 
@@ -13,53 +13,31 @@ namespace LZBC
         //传入一个有序（从大到小/从小到大）数组和数组中要查找的元素
         //如果找到，返回该元素所在的下标；否则，返回-1
 
-        //递归方法实现
-        static int BinarySeek(int[] numbers, int left, int right, int targer)
-        {
-            int mid = (left + right) / 2;//中间索引
-            if (left > right)
-                return -1;
-            else
-            {
-                if (numbers[mid] == targer)
-                {
-                    return mid;
-                }
-
-                else if (numbers[mid] > targer)
-                {
-                    return BinarySeek(numbers, left, mid - 1, targer);
-                }
-
-                else
-                {
-                    return BinarySeek(numbers, mid + 1, right, targer);
-                }
-
-            }
-        }
+       
 
         public static object getMax(double[] vs)
         {
             throw new NotImplementedException();
         }
 
-        //while方法实现
-        public static int BinarySeek(int[] numbers, int targer)
+        //while方法实现   用泛型改造二分查找、堆栈和双向链表
+        public static int BinarySeek(List<T> numbers, T targer)
         {
-            int left = 0, right = numbers.Length - 1;
+            int left = 0, right = numbers.Count;
             while (left < right)
             {
                 int middle = (left + right) / 2;
-                if (targer == numbers[middle])
+                int v = string.Compare(numbers[middle].ToString(), targer.ToString());
+
+                if (v == 0)
                 {
                     return middle;
                 }
-                else if (targer > numbers[middle])
+                else if (v > 0)
                 {
                     left = middle + 1;
                 }
-                else if (targer < numbers[middle])
+                else if (v < 0)
                 {
                     right = middle - 1;
                 }
