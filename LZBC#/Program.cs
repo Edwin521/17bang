@@ -125,7 +125,7 @@ namespace test2
 
 
         //封装一个方法，可以修改Content的CreateTime和PublishTime
-        public void AlterCreateTime( Content content ,DateTime dateTime)
+        public void AlterCreateTime(Content content, DateTime dateTime)
         {
             typeof(Content)
                .GetProperty("CreateTime", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(content, dateTime);
@@ -138,18 +138,19 @@ namespace test2
             Console.WriteLine();
         }
 
-
+       
 
 
         static void Main(string[] args)
         {
-            //封装一个方法，可以修改Content的CreateTime和PublishTime
-            DateTime lw = new DateTime(2023, 3, 4);
 
-            Content article = new Content("文章");
-            article.GetType()
-                .GetProperty("CreateTime", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(article, lw);
-            Console.WriteLine();
+            //封装一个方法，可以修改Content的CreateTime和PublishTime
+            //DateTime lw = new DateTime(2023, 3, 4);
+
+            //Content article = new Content("文章");
+            //article.GetType()
+            //    .GetProperty("CreateTime", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(article, lw);
+            //Console.WriteLine();
 
 
 
@@ -157,11 +158,11 @@ namespace test2
 
             //Console.WriteLine(Program.findPrimeNum(1, 10));
 
-            TokenManager tokenManager = new TokenManager();
-            User user = new User("lls", "1234");
-            Console.WriteLine(user.ToString());
+            //TokenManager tokenManager = new TokenManager();
+            //User user = new User("lls", "1234");
+            //Console.WriteLine(user.ToString());
 
-            Console.WriteLine(user);
+            //Console.WriteLine(user);
 
             //Article js = new Article
             //{
@@ -296,7 +297,7 @@ namespace test2
             //QUOTIENT(4, 3);
             //Console.WriteLine(QUOTIENT(6,2.4));
 
-
+         
 
 
 

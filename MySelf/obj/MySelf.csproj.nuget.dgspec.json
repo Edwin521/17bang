@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\22893\\Source\\Repos\\17bang\\MySelf\\MySelf.csproj": {}
+    "C:\\Users\\Think\\Source\\Repos\\17bang2\\MySelf\\MySelf.csproj": {}
   },
   "projects": {
-    "C:\\Users\\22893\\Source\\Repos\\17bang\\LZBC#\\LZBC#.csproj": {
+    "C:\\Users\\Think\\Source\\Repos\\17bang2\\LZBC#\\LZBC#.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\22893\\Source\\Repos\\17bang\\LZBC#\\LZBC#.csproj",
+        "projectUniqueName": "C:\\Users\\Think\\Source\\Repos\\17bang2\\LZBC#\\LZBC#.csproj",
         "projectName": "LZBC#",
-        "projectPath": "C:\\Users\\22893\\Source\\Repos\\17bang\\LZBC#\\LZBC#.csproj",
-        "packagesPath": "C:\\Users\\22893\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\22893\\Source\\Repos\\17bang\\LZBC#\\obj\\",
+        "projectPath": "C:\\Users\\Think\\Source\\Repos\\17bang2\\LZBC#\\LZBC#.csproj",
+        "packagesPath": "C:\\Users\\Think\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Think\\Source\\Repos\\17bang2\\LZBC#\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\22893\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Think\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +37,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "System.Collections": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,24 +58,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\22893\\Source\\Repos\\17bang\\MySelf\\MySelf.csproj": {
+    "C:\\Users\\Think\\Source\\Repos\\17bang2\\MySelf\\MySelf.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\22893\\Source\\Repos\\17bang\\MySelf\\MySelf.csproj",
+        "projectUniqueName": "C:\\Users\\Think\\Source\\Repos\\17bang2\\MySelf\\MySelf.csproj",
         "projectName": "MySelf",
-        "projectPath": "C:\\Users\\22893\\Source\\Repos\\17bang\\MySelf\\MySelf.csproj",
-        "packagesPath": "C:\\Users\\22893\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\22893\\Source\\Repos\\17bang\\MySelf\\obj\\",
+        "projectPath": "C:\\Users\\Think\\Source\\Repos\\17bang2\\MySelf\\MySelf.csproj",
+        "packagesPath": "C:\\Users\\Think\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Think\\Source\\Repos\\17bang2\\MySelf\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\22893\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Think\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -85,8 +85,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\22893\\Source\\Repos\\17bang\\LZBC#\\LZBC#.csproj": {
-                "projectPath": "C:\\Users\\22893\\Source\\Repos\\17bang\\LZBC#\\LZBC#.csproj"
+              "C:\\Users\\Think\\Source\\Repos\\17bang2\\LZBC#\\LZBC#.csproj": {
+                "projectPath": "C:\\Users\\Think\\Source\\Repos\\17bang2\\LZBC#\\LZBC#.csproj"
               }
             }
           }
@@ -114,7 +114,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

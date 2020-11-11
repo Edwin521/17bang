@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "7GCMPhSnLkX/hrauSaGDFkdbkKcwfcIEMY5SYi9WOPPVrX5N/oRobn21yDaUFFrhRsoj0VCv8DeXD0FzeNQ/eQ==",
+  "dgSpecHash": "q6KYkd2oikqvfD441SjcB8PlE3ZTL0r/H7oSSG81d0pqgxEmz/beo7JeBeKRGqZ7WkFkb/G11IebksNAuNBCYA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\22893\\Source\\Repos\\17bang\\MySelf\\MySelf.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Think\\Source\\Repos\\17bang2\\MySelf\\MySelf.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Think\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Think\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\Think\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
+    "C:\\Users\\Think\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512"
+  ],
   "logs": []
 }
