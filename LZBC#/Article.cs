@@ -7,7 +7,8 @@ namespace LZBC
 
     public class Article : Content, IEstimate
     {
-
+       // 一篇文章可以有多个评论
+        public IList<string> Comment { get; set; }
     
 
      
@@ -18,7 +19,7 @@ namespace LZBC
 
         public int AgreeAmount { get; set; }
         public int DisagreeAmount { get; set; }
-        public string[] Comment { get; set; }
+       
         public void AgreedBy(User voter) //赞和踩都会增减作者及评价者的帮帮点。
         {
             voter.HelpDot++;

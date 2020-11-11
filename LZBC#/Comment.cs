@@ -4,7 +4,23 @@ using System.Text;
 
 namespace LZBC
 {
-    class Comment
+//    观察一起帮的文章板块，以此为蓝本，补充（如果还没有的话）声明：
+
+//    评论（Comment）类
+//    评价（Appraise）类：包括“赞（Agree）”和“踩（Disagree）”
+//    关键字（Keyword）类
+
+//并构建以下关系：
+
+//    一篇文章可以有多个评论
+//    一个评论必须有一个它所评论的文章
+//    每个文章和评论都有一个评价
+//    一篇文章可以有多个关键字，一个关键字可以对应多篇文章
+
+   public class Comment
     {
+
+        public int Agree { get; set; }
+        public int Disagree { get; set; }
     }
 }
