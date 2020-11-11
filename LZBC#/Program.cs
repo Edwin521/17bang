@@ -3,6 +3,7 @@ using System;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Collections;
+using System.Collections.Generic;
 namespace test2
 {
     public class Program
@@ -145,9 +146,28 @@ namespace test2
         }
 
         static void Main(string[] args)
-
         {
-            Console.WriteLine(HomeWork<int>.BinarySeek(new System.Collections.Generic.List<int> { 1, 5, 76, 8, 9, 0, 43, 6, 3, 5 }, 0));
+            Appraise nice = new Appraise { Content = "你写的非常好" };
+
+            Comment good = new Comment { Content = "很好" };
+            Article idea = new Article { Title = "好的idea如何产生" };
+
+            idea.Comment = new List<Comment> { good} ;
+            good.Article = idea;
+
+            //一个文章有多个关键字，一个关键字也可以对应多个文章
+
+            Keyword java = new Keyword { Content = "java的应用" };
+            Keyword c = new Keyword { Content = "c的应用" };
+            Keyword css = new Keyword { Content = "css的应用" };
+            Keyword jquery = new Keyword { Content = "jquery的应用" };
+
+            Article it = new Article { Title = "it学习" };
+            it.keywords = new List<Keyword> { java, c, css };
+            idea.keywords = new List<Keyword> { jquery, css };
+            //一个关键字也可以对应多个文章
+            css.Articles = new List<Article> { it, idea };
+            //Console.WriteLine(HomeWork<int>.BinarySeek(new System.Collections.Generic.List<int> { 1, 5, 76, 8, 9, 0, 43, 6, 3, 5 }, 0));
 
             ///字符串
             //Console.WriteLine(mimicJoin("-", new string[] {"众所周知", "飞哥", "的", "颜值","是","一百分" }));
