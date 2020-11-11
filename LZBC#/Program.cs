@@ -127,16 +127,23 @@ namespace test2
 
         public static int GetCount(string container, string target)
         {
-         
-           return Regex.Matches(container, target).Count;
-          
+
+            return Regex.Matches(container, target).Count;
+
+        }
+        //不使用string自带的Join()方法，定义一个mimicJoin()方法，能将若干字符串用指定的分隔符连接起来，
+        //比如：mimicJoin("-","a","b","c","d")，其运行结果为：a-b-c-d
+        public static string mimicJoin(string connector,string string1 ,string string2,string string3)
+        {
+            return string1 + string2.Insert(0, connector) + string3.Insert(0, connector);
+
         }
 
         static void Main(string[] args)
         {
-
+            Console.WriteLine(mimicJoin("-","1","2","3"));
             Console.WriteLine(GetCount("13212*212-212", "212"));
-            Console.WriteLine(GetCount("111234512", "12"));  //6
+            Console.WriteLine(GetCount("111234512", "12"));
             //封装一个方法，可以修改Content的CreateTime和PublishTime
             //DateTime lw = new DateTime(2023, 3, 4);
 
