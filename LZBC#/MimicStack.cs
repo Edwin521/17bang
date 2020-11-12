@@ -12,14 +12,14 @@ namespace LZBC
     //    (1)如果压入的数据已超过栈的深度（最大容量），提示“栈溢出”
     //    (2)如果已弹出所有数据，提示“栈已空”
 
-    public class MimicStack
+    public class MimicStack<T>
     {
-
-        private int[] container;
-        public MimicStack(int length)
-        {
-            container = new int[length];
-        }
+        //泛型改造栈
+        private List<T> container;
+        //public MimicStack(int length)
+        //{
+        //    container = new int[length];
+        //}
         int top = 0;//最上边
         //const int bottom = 0;//最下边
         public int pop()
@@ -27,7 +27,7 @@ namespace LZBC
             if (top != 0)
             {
                 top--;
-                return container[top];
+                return Convert.ToInt32(container[top]) ;
             }
             else
             {
@@ -35,9 +35,9 @@ namespace LZBC
             }
 
         }
-        public void Push(int element)
+        public void Push(T element)
         {
-            if (top <= container.Length - 1)
+            if (top <= container.Count - 1)
             {
                 container[top] = element;
                 top++;
@@ -48,9 +48,9 @@ namespace LZBC
             }
         }
 
-        public void Push( params int[] array)
+        public void Push(List<T>  array)
         {
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < array.Count; i++)
             {
                 Push(array[i]);
             }
