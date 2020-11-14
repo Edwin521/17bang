@@ -7,108 +7,7 @@ using System.Collections.Generic;
 namespace test2
 {
     public class Program
-
-
-
     {
-
-
-
-
-
-        ///判断一个数是不是质数
-        ///
-        public static bool IsPrimeNum(int num)
-        {
-
-
-            if (num < 2)
-                return false;
-            if (num == 2 || num == 3)
-            {
-                return true;
-            }
-            for (int i = 2; i < num - 1; i++)
-            {
-                if (num % i == 0)
-                {
-                    return false;
-                }
-                //else nothing 
-            }
-            Console.WriteLine(num.ToString() + "是素数");
-            return true;
-
-        }
-        public static void GuessMe()
-        {
-            int num = new Random().Next(1000);
-            Console.WriteLine("随机数是：" + num);
-
-            for (int i = 1; i < 11; i++)
-            {
-                if (int.TryParse(Console.ReadLine(), out int input))
-                {
-                    if (input != num)
-                    {
-                        if (i == 10)
-                        {
-                            Console.WriteLine("～￣(OO)￣");
-                            break;
-                        }
-                        if (input > num)
-                        {
-                            Console.WriteLine($"太大了吆!还剩{10 - i}次");
-                            continue;
-                        }
-                        else
-                        {
-                            Console.WriteLine($"太小了呢!还剩{10 - i}次");
-                            continue;
-                        }
-                    }
-                    else
-                    {
-                        if (i <= 5)
-                        {
-                            Console.WriteLine("你真牛逼");
-
-                        }
-                        else if (i <= 8)
-                        {
-                            Console.WriteLine("不错嘛");
-
-                        }
-                        else
-                        {
-                            Console.WriteLine("你有点笨噢！");
-
-                        }
-                        break;
-
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("输入错误，请输入1-1000的自然数");
-                    continue;
-                }
-            }
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         //封装一个方法，可以修改Content的CreateTime和PublishTime
         public void AlterCreateTime(Content content, DateTime dateTime)
@@ -145,14 +44,44 @@ namespace test2
 
         }
 
+        // 声明一个方法GetWater()，该方法接受ProvideWater作为参数，
+        //并能将ProvideWater的返回值输出
+        public static int GetWater(ProvideWater Provider)
+        {
+            Person person = new Person();
+            return Provider(person);
+        }
+
+        public static int AssignToDlg(Person person)
+        {
+            return person.weight--;
+        }
+
+
+
+
         static void Main(string[] args)
         {
+            //方法给委托赋值
+            ProvideWater provideWater = new ProvideWater(AssignToDlg);
+         
+            //匿名方法给委托赋值
+            ProvideWater provideWater2 = delegate (Person person)
+            {
+                return person.weight--;
+            };
+            // lambda表达式给委托赋值
+            ProvideWater provideWater3 = p => p.weight--;
+
+            Console.WriteLine(GetWater(provideWater3));
+
+///////////////////////////////////////////////////////////////////////
             Appraise nice = new Appraise { Content = "你写的非常好" };
 
             Comment good = new Comment { Content = "很好" };
             Article idea = new Article { Title = "好的idea如何产生" };
 
-            idea.Comment = new List<Comment> { good} ;
+            idea.Comment = new List<Comment> { good };
             good.Article = idea;
 
             //一个文章有多个关键字，一个关键字也可以对应多个文章
@@ -337,7 +266,6 @@ namespace test2
 
 
         }
-
 
     }
 }

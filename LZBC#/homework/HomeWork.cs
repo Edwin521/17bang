@@ -7,13 +7,93 @@ namespace LZBC
     public class HomeWork<T>
     {
 
+        ///判断一个数是不是质数
+        ///
+        public static bool IsPrimeNum(int num)
+        {
+
+
+            if (num < 2)
+                return false;
+            if (num == 2 || num == 3)
+            {
+                return true;
+            }
+            for (int i = 2; i < num - 1; i++)
+            {
+                if (num % i == 0)
+                {
+                    return false;
+                }
+                //else nothing 
+            }
+            Console.WriteLine(num.ToString() + "是素数");
+            return true;
+
+        }
+        public static void GuessMe()
+        {
+            int num = new Random().Next(1000);
+            Console.WriteLine("随机数是：" + num);
+
+            for (int i = 1; i < 11; i++)
+            {
+                if (int.TryParse(Console.ReadLine(), out int input))
+                {
+                    if (input != num)
+                    {
+                        if (i == 10)
+                        {
+                            Console.WriteLine("～￣(OO)￣");
+                            break;
+                        }
+                        if (input > num)
+                        {
+                            Console.WriteLine($"太大了吆!还剩{10 - i}次");
+                            continue;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"太小了呢!还剩{10 - i}次");
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        if (i <= 5)
+                        {
+                            Console.WriteLine("你真牛逼");
+
+                        }
+                        else if (i <= 8)
+                        {
+                            Console.WriteLine("不错嘛");
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("你有点笨噢！");
+
+                        }
+                        break;
+
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("输入错误，请输入1-1000的自然数");
+                    continue;
+                }
+            }
+
+        }
 
         //实现二分查找，方法名BinarySeek(int[] numbers, int target)：
 
         //传入一个有序（从大到小/从小到大）数组和数组中要查找的元素
         //如果找到，返回该元素所在的下标；否则，返回-1
 
-       
+
 
         public static object getMax(double[] vs)
         {

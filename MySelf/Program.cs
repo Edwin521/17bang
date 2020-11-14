@@ -21,16 +21,16 @@ namespace MySelf
         }
     }
 
-
+   
 
     class students : IEnumerable///实现IEnumerable接口就可以躲过编译时检查，不报错，但运行时会报错
     {                            ///不写后面这个接口名也没事，只要在类中实现了GetEnumerator()方法就可以了
-     
+
 
         public class StudentsEnumerator : IEnumerator  ///类中类实现返回一个
         {
-            public object[] ages = new object[]  { 12,34,56,75,332};
-            private int index=-1;
+            public object[] ages = new object[] { 12, 34, 56, 75, 332 };
+            private int index = -1;
             public object Current
             {
                 get
@@ -41,7 +41,7 @@ namespace MySelf
 
             public bool MoveNext()
             {
-            index++;
+                index++;
                 return index < ages.Length;
             }
 
