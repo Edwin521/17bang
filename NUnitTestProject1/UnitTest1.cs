@@ -44,22 +44,7 @@ namespace NUnitTestProject1
         }
 
 
-        [Test] //判断一个数是不是质数
-        public void IsPrimeNumTest()
-        {
-
-            Assert.IsTrue(Program.IsPrimeNum(71));
-            Assert.IsFalse(Program.IsPrimeNum(0));
-            Assert.IsTrue(Program.IsPrimeNum(23));
-            Assert.IsTrue(Program.IsPrimeNum(29));
-            Assert.IsFalse(Program.IsPrimeNum(20));
-            Assert.IsFalse(Program.IsPrimeNum(100));
-            Assert.IsFalse(Program.IsPrimeNum(1));
-            Assert.IsFalse(Program.IsPrimeNum(-1));
-            Assert.IsFalse(Program.IsPrimeNum(-8));
-
-        }
-
+      
         [Test]
         public void GuessMeTest() //猜数字游戏
         {

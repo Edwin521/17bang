@@ -7,57 +7,110 @@ namespace LZBC
     public class DLinkNode
     {
 
-        public DLinkNode Previous { set; get; }
+        public int value;
+
         public DLinkNode Next { get; set; }
+        public DLinkNode Previous { get; set; }
 
-
-        public void Delete()//删除一个节点
+        //在节点后插入节点node
+        public void AddAfter(DLinkNode node)
         {
+            //1 2] 3 4
+            if (this.Next != null)
+            {
+                node.Next = this.Next;
+                //  node.Previous = this;
+                this.Next.Previous = node;
+                //  this.Next = node;
+            }
+
+            node.Previous = this;
+            this.Next = node;
 
 
         }
 
-        public void Swap(DLinkNode node)///交换两个节点
+        //在该节点前插入节点node
+        public void InsretBefor(DLinkNode node)
         {
-            ////1.如果两个节点都是处于末端的节点
-            ///2，一个节点是处在末端，另一个节点处在中间
-            ///3，两个节点都处在中间且相邻
-            ///4，两个节点都处在中间不相邻
-
-            ///   1 2 3 4 5    [5] 2 3 4 [1]
-            if ((this.Previous == null || this.Next == null) && (node.Next == null || node.Previous == null))//如果两个节点都是处于末端的节点
+            if (this.Previous != null)
             {
-                //交换之前，this假设相当于1，传入的node是5；
-                this.Next = null;
-                this.Previous = node.Previous;
-                node.Previous = null;
-                node.Next = this.Next;
-                this.Next.Previous = node;
-                node.Previous.Next = this;
+                node.Previous = this.Previous;
+                this.Previous.Next = node;
+            }
+            node.Next = this;
+            this.Previous = node;
+        }
 
-
-
+        //删除当前节点
+        public void Delete()
+        { //  1 2- 【3】
+            DLinkNode oldPre = this.Previous;
+            DLinkNode oldNex = this.Next;
+            if (oldPre != null)
+            {
+                oldPre.Next = oldNex;
 
             }
-            //一个节点在末端，一个节点在中间，且这两个节点是相邻的进行交换
+            if (oldNex != null)
+            {
+                oldNex.Previous = oldPre;
+            }
+            this.Previous = this.Next = null;
 
-            node.Next = node.Previous;
-            node.Previous = null;
-            this.Next = node.Next;
-            this.Previous = this.Next;
-            node.Next.Previous = this;
 
-            //一个节点在末端，一个节点在中间，且这两个节点不相邻
-            node.Previous = null;
-            node.Next = this.Next;
-            this.Previous = this.Next;
-            this.Next = node.Next;
 
+
+            //if (this.Previous != null && this.Next != null)
+            //{
+            //    this.Previous.Next = this;
+            //    this.Next.Previous = this;
+            //}
+            //else if (this.Previous == null)
+            //{
+            //   Next= Previous = null;
+            //}
+            //else
+            //{
+            //    Next = Previous = null;
+            //}
 
 
 
 
         }
+        //交换节点
+        public void Swap(DLinkNode targetNode)
+        {
 
+            DLinkNode prethis = this.Previous;
+            DLinkNode nextthis = this.Next;
+            this.Delete();
+            if (nextthis == targetNode)
+            {
+                targetNode.AddAfter(this);
+            }
+            else if (prethis == targetNode)
+            {
+                targetNode.InsretBefor(this);
+            }
+            else /*if (nextthis != targetNode && prethis != targetNode)*/
+            {
+                targetNode.AddAfter(this);
+                targetNode.Delete();
+                if (prethis == null)
+                {
+                    nextthis.InsretBefor(targetNode);
+                }
+                else
+                {
+                    prethis.AddAfter(targetNode);
+
+                }
+            }
+
+
+
+        }
     }
 }
