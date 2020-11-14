@@ -7,7 +7,7 @@ namespace LZBC
     public class Keyword
     {
         //一个关键字可以对应多篇文章
-        public string Content { get; set; }
+        public string Word { get; set; }
         public IList<Article> Articles { get; set; }
     }
 }

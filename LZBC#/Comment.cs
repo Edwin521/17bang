@@ -20,11 +20,11 @@ namespace LZBC
     public class Comment
     {
         //一个评论必须有一个它所评论的文章
-        public Article Article { get; set; }
+        public Content Content { get; set; }
         //    每个评论都有一个评价
         public Appraise Appraise { get; set; }
-        public int Agree { get; set; }
-        public int Disagree { get; set; }
-        public string Content { get; set; }
+
+        //public Comment comment { get; set; }
+        public string main { get; set; }
     }
 }

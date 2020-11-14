@@ -14,6 +14,14 @@ namespace LZBC
 
     public class Content
     {
+
+        // 一篇文章可以有多个评论
+        public IList<Comment> Comment { get; set; }
+
+        // 每个文章和评论都有一个评价
+        public Appraise Appraise { get; set; }
+        //    一篇文章可以有多个关键字，一个关键字可以对应多篇文章
+        public IList<Keyword> keywords { get; set; }
         //确保文章的标题不能为null值，也不能为一个或多个空字符组成的字符串，而且如果标题前后有空格，也予以删除
         private string _title;
         public string Title

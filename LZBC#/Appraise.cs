@@ -7,10 +7,9 @@ namespace LZBC
 {
     public class Appraise
     {
-        public string Content { get; set; }
-        public Article Article { get; set; }
-        public Comment comment { get; set; }
+
+        public int Disagree { get; set; }
+        public int Agree { get; set; }
     }
-    //public class   lzb<T> where T:IComparer
-    // { }
+
 }

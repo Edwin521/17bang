@@ -64,7 +64,7 @@ namespace test2
         {
             //方法给委托赋值
             ProvideWater provideWater = new ProvideWater(AssignToDlg);
-         
+
             //匿名方法给委托赋值
             ProvideWater provideWater2 = delegate (Person person)
             {
@@ -75,27 +75,44 @@ namespace test2
 
             Console.WriteLine(GetWater(provideWater3));
 
-///////////////////////////////////////////////////////////////////////
-            Appraise nice = new Appraise { Content = "你写的非常好" };
+            ///////////////////////////////////////////////////////////////////////
+            Appraise appraise1 = new Appraise { Agree = 100 };
+            Appraise appraise2 = new Appraise { Disagree = 999 };
 
-            Comment good = new Comment { Content = "很好" };
-            Article idea = new Article { Title = "好的idea如何产生" };
+            Comment comment1 = new Comment { main = "你写的真不错" };
+            Comment comment2 = new Comment { main = "你的文笔真不错" };
+            Comment comment3 = new Comment { main = "写的不是很好，不符合我的价值观" };
 
-            idea.Comment = new List<Comment> { good };
-            good.Article = idea;
+            Keyword java = new Keyword { Word = "java的应用" };
+            Keyword c = new Keyword { Word = "c的应用" };
+            Keyword css = new Keyword { Word = "css的应用" };
+            Keyword jquery = new Keyword { Word = "jquery的应用" };
+            Keyword it = new Keyword { Word = "编程语言" };
 
-            //一个文章有多个关键字，一个关键字也可以对应多个文章
+            Article Article1 = new Article { Title = "it学习入门", Main = "it入门需要做些什么准备呢，咱们。。。" };
+            Article Article2 = new Article { Title = "高效的学习效率", Main = "怎样提高我们的学习效率呢。。。" };
+            Article Article3 = new Article { Title = "怎样选择编程语言", Main = "编程语言需要结合。。。。" };
+            //一个文章有多个关键字
+            Article1.keywords = new List<Keyword> { java, c, css };
+            Article2.keywords = new List<Keyword> { jquery, css };
 
-            Keyword java = new Keyword { Content = "java的应用" };
-            Keyword c = new Keyword { Content = "c的应用" };
-            Keyword css = new Keyword { Content = "css的应用" };
-            Keyword jquery = new Keyword { Content = "jquery的应用" };
-
-            Article it = new Article { Title = "it学习" };
-            it.keywords = new List<Keyword> { java, c, css };
-            idea.keywords = new List<Keyword> { jquery, css };
             //一个关键字也可以对应多个文章
-            css.Articles = new List<Article> { it, idea };
+            it.Articles = new List<Article> { Article1, Article2, Article3 };
+            //文章可以有多个评论
+            Article1.Comment = new List<Comment> { comment1,comment2 };
+            //每个评论必须有一个对应的文章
+            comment3.Content = Article3;
+            //每个文章和评论都有一个评价
+            Article1.Appraise = appraise1;
+            Article2.Appraise = appraise1;
+            Article3.Appraise = appraise2;
+
+            comment1.Appraise = new Appraise { Agree=20 ,Disagree=10};
+            comment2.Appraise = new Appraise { Agree=42,Disagree=34 };
+            comment3.Appraise = new Appraise { Agree=2,Disagree=99 };
+
+
+
             //Console.WriteLine(HomeWork<int>.BinarySeek(new System.Collections.Generic.List<int> { 1, 5, 76, 8, 9, 0, 43, 6, 3, 5 }, 0));
 
             ///字符串
