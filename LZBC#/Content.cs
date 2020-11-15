@@ -12,7 +12,7 @@ namespace LZBC
     //4其他方法和属性请自行考虑，尽量贴近一起帮的功能实现。
 
 
-    public class Content
+    public class Content :Entity<int>
     {
 
         // 一篇文章可以有多个评论
