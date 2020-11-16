@@ -52,7 +52,7 @@ namespace LZBC
         public User Author { get; set; }
         public DateTime CreateTime { get; private set; }
 
-        public DateTime PublishTime { get; protected set; }
+        public DateTime PublishTime { get;  set; }
 
         public virtual void Publish() { }
 

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
  //定义一个仓库（Repoistory）类，用于存取对象，其中包含：
 

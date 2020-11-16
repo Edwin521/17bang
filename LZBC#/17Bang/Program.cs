@@ -99,16 +99,16 @@ namespace test2
             Keyword it = new Keyword { Word = "编程语言" };
             IEnumerable<Keyword> keywords = new List<Keyword> { java, c, css, jquery, it };
 
-            Article Article1 = new Article { Title = "it学习入门", Main = "it入门需要做些什么准备呢，咱们。。。" , Author = fg };
-            Article Article2 = new Article { Title = "高效的学习效率", Main = "怎样提高我们的学习效率呢。。。", Author = fg };
-            Article Article3 = new Article { Title = "怎样选择编程语言", Main = "编程语言需要结合。。。。" ,Author=fg};
+            Article Article1 = new Article { Title = "it学习入门", Main = "it入门需要做些什么准备呢，咱们。。。", Author = fg, PublishTime = new DateTime(2020, 10, 1) };
+            Article Article2 = new Article { Title = "高效的学习效率", Main = "怎样提高我们的学习效率呢。。。", Author = fg, PublishTime = new DateTime(2019, 10, 1) };
+            Article Article3 = new Article { Title = "怎样选择编程语言", Main = "编程语言需要结合。。。。", Author = fg, PublishTime = new DateTime(2019, 6, 1) };
             Article article4 = new Article
             {
                 Title = "编程语言的魅力",
                 Author = xy,
                 keywords = { css, jquery, c, java },
                 Comment = { comment1, comment2 },
-               
+                PublishTime = new DateTime(2020, 11, 1)
 
             };
             IEnumerable<Article> Articles = new List<Article> { Article1, Article2, Article3 };
@@ -143,9 +143,9 @@ namespace test2
 
             //在之前“文章 / 评价 / 评论 / 用户 / 关键字”对象模型的基础上，添加相应的数据，然后完成以下操作：
 
+
             
-            //按发布时间升序 / 降序排列显示文章
-           
+
             //找出包含关键字“C#”或“.NET”的文章
             //找出评论数量最多的文章
             //找出每个作者评论数最多的文章
@@ -156,24 +156,31 @@ namespace test2
                           select a;
             //找出2019年1月1日以后“小鱼”发布的文章
             var result2 = from a in Articles
-                          where a.PublishTime> Convert.ToDateTime("2019.1.1") && a.Author.Name == "小鱼"
+                          where a.PublishTime > Convert.ToDateTime("2019.1.1") && a.Author.Name == "小鱼"
                           select a;
             //按发布时间升序 / 降序排列显示文章
             var result3_1 = from a in Articles
-                          orderby  a.PublishTime descending
-                          select a;
+                            orderby a.PublishTime descending
+                            select a;
             var result3_2 = from a in Articles
-                          orderby a.PublishTime ascending
-                          select a;
+                            orderby a.PublishTime ascending
+                            select a;
 
 
             //统计每个用户各发布了多少篇文章
-            var result4 =from a in Articles
-                        group a by a.Author.name
+            var result4 = from a in Articles
+                          group a by a.Author.name
+                            into gm
+                          select new
+                          {
+                              name = gm.Key,
+                              count = gm.Count()
+                          };
 
-            foreach (var item in result1)
+
+            foreach (var item in result4)
             {
-                Console.WriteLine($"{item.Author.name}: {item.Title}");
+                Console.WriteLine($"{item.name}: {item.count}");
             }
 
 
