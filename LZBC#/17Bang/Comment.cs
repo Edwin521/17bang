@@ -17,12 +17,18 @@ namespace LZBC
     //    每个文章和评论都有一个评价
     //    一篇文章可以有多个关键字，一个关键字可以对应多篇文章
 
-    public class Comment
+    public class Comment:Content
     {
-        //一个评论必须有一个它所评论的文章
-        public Content Content { get; set; }
+        public Comment() : base("评论")///构造函数加上基类的构造函数实现new一个对象的时候他的属性自动赋值
+        {
+
+        }
+
+            
+       
         //    每个评论都有一个评价
-        public Appraise Appraise { get; set; }
+        public  IList<Appraise<Comment>> Appraises { get; set; }
+        public Article Article { get; set; }
 
         //public Comment comment { get; set; }
         public string main { get; set; }

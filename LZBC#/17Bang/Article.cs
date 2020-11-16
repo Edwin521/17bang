@@ -5,7 +5,7 @@ using System.Text;
 namespace LZBC
 {
 
-    public class Article : Content, IEstimate
+    public class Article : Content/*, IEstimate*/
     {
       
 
@@ -13,7 +13,11 @@ namespace LZBC
         {
 
         }
-
+        // 一篇文章可以有多个评论
+        public IList<Comment> Comment { get; set; }
+        
+        //    一篇文章可以有多个关键字，一个关键字可以对应多篇文章
+        public IList<Keyword> keywords { get; set; }
         public int AgreeAmount { get; set; }
         public int DisagreeAmount { get; set; }
        

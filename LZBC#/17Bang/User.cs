@@ -150,22 +150,7 @@ namespace LZBC
             }
         }
 
-        //public void Register(User user)
-        //{
-        //    if (user._Name == "lzb")
-        //    {
-        //        return true;
-        //    }
-        //    if (user._InvitedBy._Name == "lls")
-        //    {
-
-        //    }
-        //}
-
-        //public  void login()
-        //{
-
-        //}
+      
 
 
         void ISendMessage.Send(User receiver) { }

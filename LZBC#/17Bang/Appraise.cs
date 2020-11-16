@@ -5,11 +5,23 @@ using System.Text;
 
 namespace LZBC
 {
-    public class Appraise:Content
+    public class Appraise<T> : IAppraise<T>
     {
+        public AppraiseDirection Direction { get; set; }
+        public T Article { get; set; }
+        public User Voter { get; set; }
+      
+     
+        public void Agree() { }
+        public void Disagree() { }
+       
 
-        public int Disagree { get; set; }
-        public int Agree { get; set; }
+
+    }
+    public enum AppraiseDirection
+    {
+        Up,
+        Down
     }
 
 }
