@@ -56,18 +56,13 @@ namespace LZBC
         {
             set
             {
-                string UsableList1 = "1234567890",
-                       UsableList2 = "abcdefghrjklmnopqrstuvwxyz",
-                       UsableList3 = "ABCDEFGHRJKLMNOPQRSTUVWXYZ",
-                       UsableList4 = "~!@#$%^&*()_+";
-
-
+                
                 if (value.Length < 6)
                 {
                     Console.WriteLine("输入的密码长度不能小于6");
                     return;
                 }
-                else if (IsPassword(value))
+                else if (PasswordIsSatisfy(value))
                 {
                     _password = value;
 
@@ -79,12 +74,11 @@ namespace LZBC
             }
 
         }
-        public bool IsPassword1(string Password)
+        public bool PwdCondition(string password,string required)
         {
-            string UsableList1 = "1234567890";
-            for (int i = 0; i < Password.Length; i++)
+            for (int i = 0; i < password.Length; i++)
             {
-                if (UsableList1.Contains(Password[i]))
+                if (required.Contains(password[i]))
                 {
                     return true;
                 }
@@ -92,44 +86,9 @@ namespace LZBC
             return false;
         }
   
-        public bool IsPassword2(string Password)
-        {
-            string UsableList2 = "abcdefghrjklmnopqrstuvwxyz";
-            for (int i = 0; i < Password.Length; i++)
-            {
-                if (UsableList2.Contains(Password[i]))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-        public bool IsPassword3(string Password)
-        {
-            string UsableList3 = "ABCDEFGHRJKLMNOPQRSTUVWXYZ";
-            for (int i = 0; i < Password.Length; i++)
-            {
-                if (UsableList3.Contains(Password[i]))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-        public bool IsPassword4(string Password)
-        {
-            string UsableList4 = "~!@#$%^&*()_+";
-            for (int i = 0; i < Password.Length; i++)
-            {
-                if (UsableList4.Contains(Password[i]))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+        
 
-        public bool IsPassword(string Password)
+        public bool PasswordIsSatisfy(string Password)
         {
             if (Password.Length < 6)
             {
@@ -137,7 +96,10 @@ namespace LZBC
                 return false;
             }
 
-            if (IsPassword1(Password) && IsPassword2(Password) && IsPassword3(Password) && IsPassword4(Password))
+            if (PwdCondition(Password, "1234567890") && 
+                PwdCondition(Password, "abcdefghrjklmnopqrstuvwxyz") &&
+                PwdCondition(Password, "ABCDEFGHRJKLMNOPQRSTUVWXYZ") &&
+                PwdCondition(Password, "~!@#$%^&*()_+"))
 
             {
                 return true;
@@ -147,11 +109,6 @@ namespace LZBC
                 return false;
 
             }
-
-
-
-
-
         }
 
 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LZBC
 {
-    public class Appraise
+    public class Appraise:Content
     {
 
         public int Disagree { get; set; }
