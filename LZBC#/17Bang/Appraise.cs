@@ -5,9 +5,9 @@ using System.Text;
 
 namespace LZBC
 {
-    public class Appraise<T> : IAppraise<T>
+    public class Appraise<T> : IAppraise<T> where T:Content
     {
-        public AppraiseDirection Direction { get; set; }
+        public AppraiseDirection Direction { get; private set; }
         public T Article { get; set; }
         public User Voter { get; set; }
       

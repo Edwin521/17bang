@@ -17,9 +17,11 @@ namespace LZBC
         public IList<Comment> Comment { get; set; }
         
         //    一篇文章可以有多个关键字，一个关键字可以对应多篇文章
-        public IList<Keyword> keywords { get; set; }
-        public int AgreeAmount { get; set; }
+        public IList<Keyword<Article>> keywords { get; set; }
+        public IList<Appraise<Article>> appraises { get; set; }
+
         public int DisagreeAmount { get; set; }
+        public int AgreeAmount { get; set; }
        
         public void AgreedBy(User voter) //赞和踩都会增减作者及评价者的帮帮点。
         {

@@ -59,10 +59,7 @@ namespace test2
             return person.weight--;
         }
 
-
-
-
-        static void Main(string[] args)
+        static  void Main(string[] args)
         {
             //方法给委托赋值
             ProvideWater provideWater = new ProvideWater(AssignToDlg);
@@ -84,57 +81,84 @@ namespace test2
             User fg = new User("飞哥", "4399");
             IEnumerable<User> users = new List<User> { lzb, xy, fg };
 
-            Appraise appraise1 = new Appraise { Agree = 100 };
-            Appraise appraise2 = new Appraise { Disagree = 999 };
+
 
             Comment comment1 = new Comment { main = "你写的真不错" };
             Comment comment2 = new Comment { main = "你的文笔真不错" };
             Comment comment3 = new Comment { main = "写的不是很好，不符合我的价值观" };
+            Comment comment4 = new Comment { main = "写的不错，给你100分" };
+            Comment comment5 = new Comment { main = "你是我见过写的最差的" };
+            Comment comment6 = new Comment { main = "写的不是很符合我的逻辑，感觉很凌乱，继续加油哦" };
             IEnumerable<Comment> Comments = new List<Comment> { comment1, comment2, comment3 };
 
-            Keyword java = new Keyword { Word = "java的应用" };
-            Keyword c = new Keyword { Word = "c的应用" };
-            Keyword css = new Keyword { Word = "css的应用" };
-            Keyword jquery = new Keyword { Word = "jquery的应用" };
-            Keyword it = new Keyword { Word = "编程语言" };
-            IEnumerable<Keyword> keywords = new List<Keyword> { java, c, css, jquery, it };
+            Keyword<Article> java = new Keyword<Article> { Word = "java的应用" };
+            Keyword<Article> c = new Keyword<Article> { Word = "c应用" };
+            Keyword<Article> css = new Keyword<Article> { Word = "css的应用" };
+            Keyword<Article> jquery = new Keyword<Article> { Word = "jquery的应用" };
+            Keyword<Article> it = new Keyword<Article> { Word = "编程语言" };
+            IEnumerable<Keyword<Article>> keywords = new List<Keyword<Article>> { java, c, css, jquery, it };
 
-            Article Article1 = new Article { Title = "it学习入门", Main = "it入门需要做些什么准备呢，咱们。。。", Author = fg, PublishTime = new DateTime(2020, 10, 1) };
-            Article Article2 = new Article { Title = "高效的学习效率", Main = "怎样提高我们的学习效率呢。。。", Author = fg, PublishTime = new DateTime(2019, 10, 1) };
-            Article Article3 = new Article { Title = "怎样选择编程语言", Main = "编程语言需要结合。。。。", Author = fg, PublishTime = new DateTime(2019, 6, 1) };
+            Article Article1 = new Article()
+            {
+                Title = "it学习入门",
+                Main = "it入门需要做些什么准备呢，咱们。。。",
+                Author = fg,
+                PublishTime = new DateTime(2020, 10, 1),
+                keywords = new List<Keyword<Article>> { it},
+                Comment = new List<Comment> { comment3 }
+
+            };
+
+
+
+            Article Article2 = new Article
+            {
+                Title = "高效的学习效率",
+                Main = "怎样提高我们的学习效率呢。。。",
+                Author = fg,
+                PublishTime = new DateTime(2019, 10, 1),
+                keywords = new List<Keyword<Article>>() { it ,java ,c},
+                Comment = new List<Comment> { comment4 }
+            };
+            Article Article3 = new Article
+            {
+                Title = "怎样选择编程语言",
+                Main = "编程语言需要结合。。。。",
+                Author = fg,
+                PublishTime = new DateTime(2019, 6, 1),
+                keywords = new List<Keyword<Article>>() { it, },
+                Comment = new List<Comment>() { comment5 }
+            };
             Article article4 = new Article
             {
                 Title = "编程语言的魅力",
                 Author = xy,
-                keywords = { css, jquery, c, java },
-                Comment = { comment1, comment2 },
+                keywords = new List<Keyword<Article>>() { it ,css,jquery},
+                Comment = new List<Comment>() { comment1, comment2 },
                 PublishTime = new DateTime(2020, 11, 1)
-
+                
             };
-            IEnumerable<Article> Articles = new List<Article> { Article1, Article2, Article3 };
+         
+
+            IEnumerable<Article> Articles = new List<Article> { Article1, Article2, Article3,article4};
             //一个文章有多个关键字
-            Article1.keywords = new List<Keyword> { java, c, css };
-            Article2.keywords = new List<Keyword> { jquery, css };
+            Article1.keywords = new List<Keyword<Article>> { java, c, css };
+            Article2.keywords = new List<Keyword<Article>> { jquery, css };
 
             //一个关键字也可以对应多个文章
             it.Articles = new List<Article> { Article1, Article2, Article3 };
             //文章可以有多个评论
             Article1.Comment = new List<Comment> { comment1, comment2 };
             //每个评论必须有一个对应的文章
-            comment3.Content = Article3;
-            //每个文章和评论都有一个评价
-            Article1.Appraise = appraise1;
-            Article2.Appraise = appraise1;
-            Article3.Appraise = appraise2;
+            comment3.Article = Article3;
 
-            comment1.Appraise = new Appraise { Agree = 20, Disagree = 10 };
-            comment2.Appraise = new Appraise { Agree = 42, Disagree = 34 };
-            comment3.Appraise = new Appraise { Agree = 2, Disagree = 99 };
+
             ////每篇文章都对应着它的作者
 
             Article1.Author = fg;
             Article2.Author = fg;
-            Article3.Author = xy;
+            Article3.Author = fg;
+            article4.Author = xy;
 
 
             ContentService kk = new ContentService();
@@ -144,11 +168,10 @@ namespace test2
             //在之前“文章 / 评价 / 评论 / 用户 / 关键字”对象模型的基础上，添加相应的数据，然后完成以下操作：
 
 
-            
 
-            //找出包含关键字“C#”或“.NET”的文章
-            //找出评论数量最多的文章
-            //找出每个作者评论数最多的文章
+           
+            
+         
 
             //找出“飞哥”发布的文章
             var result1 = from a in Articles
@@ -169,20 +192,39 @@ namespace test2
 
             //统计每个用户各发布了多少篇文章
             var result4 = from a in Articles
-                          group a by a.Author.name
+                          group a by a.Author
                             into gm
                           select new
                           {
                               name = gm.Key,
                               count = gm.Count()
                           };
-
-
-            foreach (var item in result4)
+            //找出包含关键字“C#”或“.NET”的文章
+            var result5 = from a in Articles
+                          where a.KeyWord.Contains("c#")
+                          where a.KeyWord.Contains(".NET")
+                          select a;
+            foreach (var item in result5)
             {
-                Console.WriteLine($"{item.name}: {item.count}");
+                Console.WriteLine($"{item.KeyWord}: {item.keywords.Count}");
             }
 
+            //找出评论数量最多的文章
+            var result6 = Articles.OrderByDescending(a => a.Comment.Count());
+            //foreach (var item in result6)
+            //{
+            //    Console.WriteLine("评论数量最多的文章是"+ item.Title);
+            //}
+            //找出每个作者评论数最多的文章
+            var result7 = Articles.OrderByDescending(a => a.Comment.Count());
+            foreach (var item in result7)
+            {
+                if (item.Author==fg)
+                {
+                    Console.WriteLine(item.Title);
+                }
+              
+            }
 
             //Console.WriteLine(HomeWork<int>.BinarySeek(new System.Collections.Generic.List<int> { 1, 5, 76, 8, 9, 0, 43, 6, 3, 5 }, 0));
 
