@@ -10,7 +10,7 @@ namespace test2
 {
     public class Program
     {
-       
+
 
         //封装一个方法，可以修改Content的CreateTime和PublishTime
         public void AlterCreateTime(Content content, DateTime dateTime)
@@ -69,7 +69,7 @@ namespace test2
             dLinkNode1.AddAfter(dLinkNode2);
             dLinkNode2.AddAfter(dLinkNode3);
             dLinkNode3.AddAfter(dLinkNode4);
-            
+
             foreach (DLinkNode item in dLinkNode1)
             {
                 Console.WriteLine(item);
@@ -94,7 +94,7 @@ namespace test2
             User lzb = new User("李智博", "5210");
             User xy = new User("小鱼", "8888");
             User fg = new User("飞哥", "4399");
-            IEnumerable<User> users = new List<User> { lzb, xy, fg };
+            IList<User> users = new List<User> { lzb, xy, fg };
 
 
 
@@ -104,7 +104,7 @@ namespace test2
             Comment comment4 = new Comment { main = "写的不错，给你100分" };
             Comment comment5 = new Comment { main = "你是我见过写的最差的" };
             Comment comment6 = new Comment { main = "写的不是很符合我的逻辑，感觉很凌乱，继续加油哦" };
-            IEnumerable<Comment> Comments = new List<Comment> { comment1, comment2, comment3 };
+            IList<Comment> Comments = new List<Comment> { comment1, comment2, comment3,comment4,comment5,comment6 };
 
             Keyword<Article> java = new Keyword<Article> { Word = "java的应用" };
             Keyword<Article> c = new Keyword<Article> { Word = "c应用" };
@@ -113,7 +113,7 @@ namespace test2
             Keyword<Article> it = new Keyword<Article> { Word = "编程语言" };
             Keyword<Article> csharp = new Keyword<Article> { Word = "编程语言之csharp" };
             Keyword<Article> net = new Keyword<Article> { Word = "编程世界之-.net" };
-            IEnumerable<Keyword<Article>> keywords = new List<Keyword<Article>> { java, c, css, jquery, it };
+            IList<Keyword<Article>> keywords = new List<Keyword<Article>> { java, c, css, jquery, it };
 
             Article Article1 = new Article()
             {
@@ -143,7 +143,7 @@ namespace test2
                 Main = "编程语言需要结合。。。。",
                 Author = fg,
                 PublishTime = new DateTime(2019, 6, 1),
-                keywords = new List<Keyword<Article>>() { it },
+                keywords = new List<Keyword<Article>>() { it ,css},
                 Comment = new List<Comment>() { comment5 }
             };
             Article article4 = new Article
@@ -155,7 +155,7 @@ namespace test2
                 PublishTime = new DateTime(2020, 11, 1)
 
             };
-            IEnumerable<Article> Articles = new List<Article> { Article1, Article2, Article3, article4 };
+            List<Article> Articles = new List<Article> { Article1, Article2, Article3, article4 };
 
             Problem problem1 = new Problem
             {
@@ -164,12 +164,12 @@ namespace test2
                 PublishTime = new DateTime(2020, 1, 20),
                 Main = "求助大佬关于c#委托方面的知识",
                 Title = "c#方面的求助",
-                comments = new List<Comment> { comment1, comment2 },
-          
-                
+                comments = new List<Comment> { comment6 },
+
+
             };
 
-            IEnumerable<Problem> problems = new List<Problem> { problem1 };
+            IList<Problem> problems = new List<Problem> { problem1 };
 
 
             //文章文章添加评价
@@ -180,18 +180,12 @@ namespace test2
             Appraise appraise2 = new Appraise { Voter = xy };
             appraise2.Disagree();
             Article1.appraises.Add(appraise2);
-
-
-            //一个文章有多个关键字
-            Article1.keywords = new List<Keyword<Article>> { java, c, css };
-            Article2.keywords = new List<Keyword<Article>> { jquery, css };
-
             //一个关键字也可以对应多个文章
             it.Articles = new List<Article> { Article1, Article2, Article3 };
             //文章可以有多个评论
             Article1.Comment = new List<Comment> { comment1, comment2 };
             //每个评论必须有一个对应的文章
-            comment3.Article = Article3;
+            comment3.Article = Article1;
 
 
             ////每篇文章都对应着它的作者
@@ -202,9 +196,10 @@ namespace test2
             article4.Author = xy;
 
 
-            ContentService kk = new ContentService();
-            kk.Publish(Article1);
-            Console.WriteLine(Article1.PublishTime);
+            //ContentService kk = new ContentService();
+            //Article news = new Article();
+            //kk.Publish(news);
+            //Console.WriteLine(news.PublishTime);
 
             //在之前“文章 / 评价 / 评论 / 用户 / 关键字”对象模型的基础上，添加相应的数据，然后完成以下操作：
 
