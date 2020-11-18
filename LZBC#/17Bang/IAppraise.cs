@@ -3,9 +3,9 @@ using System.Text;
 
 namespace LZBC
 {
-   public interface IAppraise<T> ///赞和踩的接口
+   public interface IAppraise ///赞和踩的接口
     {
-        void Agree();
-        void Disagree();
+        void Agree(User voter);
+        void Disagree(User voter );
     }
 }

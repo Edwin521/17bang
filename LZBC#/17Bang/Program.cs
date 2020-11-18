@@ -138,9 +138,17 @@ namespace test2
                 PublishTime = new DateTime(2020, 11, 1)
                 
             };
-         
+            IEnumerable<Article> Articles = new List<Article> { Article1, Article2, Article3, article4 };
+            //文章文章添加评价
+            Appraise appraise1 = new Appraise { Voter = lzb };
+            appraise1.Agree();
+            Article1.appraises.Add(appraise1);
 
-            IEnumerable<Article> Articles = new List<Article> { Article1, Article2, Article3,article4};
+            Appraise appraise2 = new Appraise { Voter = xy };
+            appraise2.Disagree();
+            Article1.appraises.Add(appraise2);
+
+           
             //一个文章有多个关键字
             Article1.keywords = new List<Keyword<Article>> { java, c, css };
             Article2.keywords = new List<Keyword<Article>> { jquery, css };

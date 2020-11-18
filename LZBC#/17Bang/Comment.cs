@@ -27,7 +27,7 @@ namespace LZBC
             
        
         //    每个评论都有一个评价
-        public  IList<Appraise<Comment>> Appraises { get; set; }
+        public  IList<Appraise> Appraises { get; set; }
         public Article Article { get; set; }
 
         //public Comment comment { get; set; }
