@@ -10,6 +10,7 @@ namespace test2
 {
     public class Program
     {
+       
 
         //封装一个方法，可以修改Content的CreateTime和PublishTime
         public void AlterCreateTime(Content content, DateTime dateTime)
@@ -61,6 +62,18 @@ namespace test2
 
         static void Main(string[] args)
         {
+            DLinkNode dLinkNode1 = new DLinkNode();
+            DLinkNode dLinkNode2 = new DLinkNode();
+            DLinkNode dLinkNode3 = new DLinkNode();
+            DLinkNode dLinkNode4 = new DLinkNode();
+            dLinkNode1.AddAfter(dLinkNode2);
+            dLinkNode2.AddAfter(dLinkNode3);
+            dLinkNode3.AddAfter(dLinkNode4);
+            
+            foreach (DLinkNode item in dLinkNode1)
+            {
+                Console.WriteLine(item);
+            }
 
 
             //方法给委托赋值
@@ -151,10 +164,12 @@ namespace test2
                 PublishTime = new DateTime(2020, 1, 20),
                 Main = "求助大佬关于c#委托方面的知识",
                 Title = "c#方面的求助",
-                comments = new List<Comment> { comment1, comment2 }
+                comments = new List<Comment> { comment1, comment2 },
+          
+                
             };
 
-            IEnumerable<Problem> problems = new List<Problem> { problem1};
+            IEnumerable<Problem> problems = new List<Problem> { problem1 };
 
 
             //文章文章添加评价
@@ -208,7 +223,7 @@ namespace test2
             var Fg_article = Articles.Where(a => a.Author == fg).GroupBy(a => a.Author);
             var Xy_article = Articles.Where(a => a.Author == xy).GroupBy(a => a.Author);
             //找出包含关键字“C#”或“NET”的文章
-            var Csharp_kw = Articles.Where(a => a.keywords.Any(k=>k.Word=="c#"));
+            var Csharp_kw = Articles.Where(a => a.keywords.Any(k => k.Word == "c#"));
             var Net_kw = Articles.Where(a => a.keywords.Any(k => k.Word == ".NET"));
 
             //找出评论数量最多的文章

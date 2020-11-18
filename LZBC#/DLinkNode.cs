@@ -8,11 +8,13 @@ namespace LZBC
     public class DLinkNode : IEnumerable
     {
 
-        public int value;
+
 
         public DLinkNode Next { get; set; }
         public DLinkNode Previous { get; set; }
-
+        public int value;
+        public bool IsEnd { get { return Next == null; } }
+        public bool IsFirst { get { return Previous == null; } }
         //在节点后插入节点node
         public void AddAfter(DLinkNode node)
         {
@@ -96,7 +98,7 @@ namespace LZBC
 
         public IEnumerator GetEnumerator()
         {
-            return  new NodeIEnumerator();
+            return new NodeIEnumerator(this.Previous);
         }
 
     }
@@ -104,15 +106,26 @@ namespace LZBC
     public class NodeIEnumerator : IEnumerator
     {
         private DLinkNode node;
-        public object Current =>node ;
-        public NodeIEnumerator(DLinkNode node )
+        private bool end;
+        public object Current{get{return node.Previous;} }
+        public NodeIEnumerator(DLinkNode node)
         {
             this.node = node;
         }
         public bool MoveNext()
         {
+            if (end)
+            {
+                return false;
+            }
+            if (node.IsEnd)
+            {
+                DLinkNode FackTail = new DLinkNode();
+                FackTail.AddAfter(node);
+                end = true;
+            }
             node = node.Next;
-            return node.
+            return true;
         }
 
         public void Reset()
