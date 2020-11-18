@@ -96,6 +96,8 @@ namespace test2
             Keyword<Article> css = new Keyword<Article> { Word = "css的应用" };
             Keyword<Article> jquery = new Keyword<Article> { Word = "jquery的应用" };
             Keyword<Article> it = new Keyword<Article> { Word = "编程语言" };
+            Keyword<Article> csharp = new Keyword<Article> { Word = "编程语言之csharp" };
+            Keyword<Article> net = new Keyword<Article> { Word = "编程世界之-.net" };
             IEnumerable<Keyword<Article>> keywords = new List<Keyword<Article>> { java, c, css, jquery, it };
 
             Article Article1 = new Article()
@@ -104,7 +106,7 @@ namespace test2
                 Main = "it入门需要做些什么准备呢，咱们。。。",
                 Author = fg,
                 PublishTime = new DateTime(2020, 10, 1),
-                keywords = new List<Keyword<Article>> { it},
+                keywords = new List<Keyword<Article>> { it,csharp},
                 Comment = new List<Comment> { comment3 }
 
             };
@@ -175,65 +177,30 @@ namespace test2
 
             //在之前“文章 / 评价 / 评论 / 用户 / 关键字”对象模型的基础上，添加相应的数据，然后完成以下操作：
 
-
-
-           
-            
-         
+            //用linq方法改写以前的表达式
 
             //找出“飞哥”发布的文章
-            var result1 = from a in Articles
-                          where a.Author.name == "飞哥"
-                          select a;
+            var Find_dfg = Articles.Where(a => a.Author == fg);
             //找出2019年1月1日以后“小鱼”发布的文章
-            var result2 = from a in Articles
-                          where a.PublishTime > Convert.ToDateTime("2019.1.1") && a.Author.Name == "小鱼"
-                          select a;
+            var Find_xy = Articles.Where(a => a.Author == xy && a.PublishTime > new DateTime(2019, 1, 1));
             //按发布时间升序 / 降序排列显示文章
-            var result3_1 = from a in Articles
-                            orderby a.PublishTime descending
-                            select a;
-            var result3_2 = from a in Articles
-                            orderby a.PublishTime ascending
-                            select a;
+            var Ascd = Articles.OrderBy(a => a.PublishTime);
+            var Desc = Articles.OrderByDescending(a => a.PublishTime);
 
 
             //统计每个用户各发布了多少篇文章
-            var result4 = from a in Articles
-                          group a by a.Author
-                            into gm
-                          select new
-                          {
-                              name = gm.Key,
-                              count = gm.Count()
-                          };
-            //找出包含关键字“C#”或“.NET”的文章
-            var result5 = from a in Articles
-                          where a.KeyWord.Contains("c#")
-                          where a.KeyWord.Contains(".NET")
-                          select a;
-            foreach (var item in result5)
-            {
-                Console.WriteLine($"{item.KeyWord}: {item.keywords.Count}");
-            }
+            var Fg_article = Articles.Where(a => a.Author == fg).GroupBy(a => a.Author);
+            var Xy_article = Articles.Where(a => a.Author == xy).GroupBy(a => a.Author);
+            //找出包含关键字“C#”或“NET”的文章
+            var Csharp_kw = Articles.Where(a => a.keywords.Contains(csharp));
+            var Net_kw = Articles.Where(a => a.keywords.Contains(net));
 
             //找出评论数量最多的文章
-            var result6 = Articles.OrderByDescending(a => a.Comment.Count());
-            //foreach (var item in result6)
-            //{
-            //    Console.WriteLine("评论数量最多的文章是"+ item.Title);
-            //}
-            //找出每个作者评论数最多的文章
-            var result7 = Articles.OrderByDescending(a => a.Comment.Count());
-            foreach (var item in result7)
-            {
-                if (item.Author==fg)
-                {
-                    Console.WriteLine(item.Title);
-                }
-              
-            }
+            var Article_Comment_Max = Articles.OrderByDescending(a => a.Comment.Count()).First();
 
+            //找出每个作者评论数最多的文章
+            var Fg_Comment_Max = Articles.Where(a => a.Author == fg).OrderByDescending(a => a.Comment.Count()).First();
+            var Xy_Comment_Max = Articles.Where(a => a.Author == xy).OrderByDescending(a => a.Comment.Count()).First();
             //Console.WriteLine(HomeWork<int>.BinarySeek(new System.Collections.Generic.List<int> { 1, 5, 76, 8, 9, 0, 43, 6, 3, 5 }, 0));
 
             ///字符串
