@@ -59,8 +59,10 @@ namespace test2
             return person.weight--;
         }
 
-        static  void Main(string[] args)
+        static void Main(string[] args)
         {
+
+
             //方法给委托赋值
             ProvideWater provideWater = new ProvideWater(AssignToDlg);
 
@@ -106,7 +108,7 @@ namespace test2
                 Main = "it入门需要做些什么准备呢，咱们。。。",
                 Author = fg,
                 PublishTime = new DateTime(2020, 10, 1),
-                keywords = new List<Keyword<Article>> { it,csharp},
+                keywords = new List<Keyword<Article>> { it, csharp },
                 Comment = new List<Comment> { comment3 }
 
             };
@@ -119,7 +121,7 @@ namespace test2
                 Main = "怎样提高我们的学习效率呢。。。",
                 Author = fg,
                 PublishTime = new DateTime(2019, 10, 1),
-                keywords = new List<Keyword<Article>>() { it ,java ,c},
+                keywords = new List<Keyword<Article>>() { it, java, c },
                 Comment = new List<Comment> { comment4 }
             };
             Article Article3 = new Article
@@ -128,19 +130,33 @@ namespace test2
                 Main = "编程语言需要结合。。。。",
                 Author = fg,
                 PublishTime = new DateTime(2019, 6, 1),
-                keywords = new List<Keyword<Article>>() { it, },
+                keywords = new List<Keyword<Article>>() { it },
                 Comment = new List<Comment>() { comment5 }
             };
             Article article4 = new Article
             {
                 Title = "编程语言的魅力",
                 Author = xy,
-                keywords = new List<Keyword<Article>>() { it ,css,jquery},
+                keywords = new List<Keyword<Article>>() { it, css, jquery },
                 Comment = new List<Comment>() { comment1, comment2 },
                 PublishTime = new DateTime(2020, 11, 1)
-                
+
             };
             IEnumerable<Article> Articles = new List<Article> { Article1, Article2, Article3, article4 };
+
+            Problem problem1 = new Problem
+            {
+                Author = lzb,
+                Reward = 13,
+                PublishTime = new DateTime(2020, 1, 20),
+                Main = "求助大佬关于c#委托方面的知识",
+                Title = "c#方面的求助",
+                comments = new List<Comment> { comment1, comment2 }
+            };
+
+            IEnumerable<Problem> problems = new List<Problem> { problem1};
+
+
             //文章文章添加评价
             Appraise appraise1 = new Appraise { Voter = lzb };
             appraise1.Agree();
@@ -150,7 +166,7 @@ namespace test2
             appraise2.Disagree();
             Article1.appraises.Add(appraise2);
 
-           
+
             //一个文章有多个关键字
             Article1.keywords = new List<Keyword<Article>> { java, c, css };
             Article2.keywords = new List<Keyword<Article>> { jquery, css };
@@ -192,8 +208,8 @@ namespace test2
             var Fg_article = Articles.Where(a => a.Author == fg).GroupBy(a => a.Author);
             var Xy_article = Articles.Where(a => a.Author == xy).GroupBy(a => a.Author);
             //找出包含关键字“C#”或“NET”的文章
-            var Csharp_kw = Articles.Where(a => a.keywords.Contains(csharp));
-            var Net_kw = Articles.Where(a => a.keywords.Contains(net));
+            var Csharp_kw = Articles.Where(a => a.keywords.Any(k=>k.Word=="c#"));
+            var Net_kw = Articles.Where(a => a.keywords.Any(k => k.Word == ".NET"));
 
             //找出评论数量最多的文章
             var Article_Comment_Max = Articles.OrderByDescending(a => a.Comment.Count()).First();
@@ -201,6 +217,16 @@ namespace test2
             //找出每个作者评论数最多的文章
             var Fg_Comment_Max = Articles.Where(a => a.Author == fg).OrderByDescending(a => a.Comment.Count()).First();
             var Xy_Comment_Max = Articles.Where(a => a.Author == xy).OrderByDescending(a => a.Comment.Count()).First();
+
+            //找出每个作者最近发布的文章
+            var Fg_Article_Rec = Articles.Where(a => a.Author == fg).OrderByDescending(a => a.PublishTime).First();
+            var Xy_Article_Rce = Articles.Where(a => a.Author == xy).OrderByDescending(a => a.PublishTime).First();
+
+
+            //找出每一篇求助的悬赏都大于5个帮帮币的求助作者
+            var resualt = problems.Where(p => p.Reward > 5).GroupBy(p => p.Author);
+
+
             //Console.WriteLine(HomeWork<int>.BinarySeek(new System.Collections.Generic.List<int> { 1, 5, 76, 8, 9, 0, 43, 6, 3, 5 }, 0));
 
             ///字符串

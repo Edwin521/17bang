@@ -14,6 +14,9 @@ namespace LZBC
         {
 
         }
+        public List<Comment> comments { get; set; }
+        public List<Keyword<Problem>> keywords { get; set; }
+
         private int _reward; 
       
         public int Reward     //problem.Reward不能为负数

@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace LZBC
 {
-    public class DLinkNode
+    public class DLinkNode : IEnumerable
     {
 
         public int value;
@@ -58,26 +59,6 @@ namespace LZBC
             }
             this.Previous = this.Next = null;
 
-
-
-
-            //if (this.Previous != null && this.Next != null)
-            //{
-            //    this.Previous.Next = this;
-            //    this.Next.Previous = this;
-            //}
-            //else if (this.Previous == null)
-            //{
-            //   Next= Previous = null;
-            //}
-            //else
-            //{
-            //    Next = Previous = null;
-            //}
-
-
-
-
         }
         //交换节点
         public void Swap(DLinkNode targetNode)
@@ -111,6 +92,32 @@ namespace LZBC
 
 
 
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return  new NodeIEnumerator();
+        }
+
+    }
+
+    public class NodeIEnumerator : IEnumerator
+    {
+        private DLinkNode node;
+        public object Current =>node ;
+        public NodeIEnumerator(DLinkNode node )
+        {
+            this.node = node;
+        }
+        public bool MoveNext()
+        {
+            node = node.Next;
+            return node.
+        }
+
+        public void Reset()
+        {
+            throw new NotImplementedException();
         }
     }
 }
