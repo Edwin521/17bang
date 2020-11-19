@@ -12,13 +12,13 @@ namespace LZBC
     //4其他方法和属性请自行考虑，尽量贴近一起帮的功能实现。
 
 
-    public abstract class Content :Entity<int>
+    public abstract class Content : Entity<int>
     {
 
-      
 
-       
-     
+
+
+
         //确保文章的标题不能为null值，也不能为一个或多个空字符组成的字符串，而且如果标题前后有空格，也予以删除
         private string _title;
         public string Title
@@ -49,9 +49,15 @@ namespace LZBC
         public User Author { get; set; }
         public DateTime CreateTime { get; private set; }
 
-        public DateTime PublishTime { get;  set; }
+        public DateTime PublishTime { get; set; }
 
-        public virtual void Publish() { }
+        public virtual void Publish()
+        {
+            if (Author==null)
+            {
+                throw new ArgumentNullException();
+            }
+        }
 
 
     }

@@ -26,8 +26,9 @@ namespace LZBC
             {
                 if (value < 0)
                 {
-                    throw new IndexOutOfRangeException();
-                }//else nothing
+                    throw new ArgumentOutOfRangeException("参数不可以为负数");
+                }
+                _reward = value;
             }
         }
 

@@ -62,6 +62,13 @@ namespace test2
 
         static void Main(string[] args)
         {
+            User user = new User();
+            Article art = new Article();
+            art.Publish();
+
+            Console.WriteLine(DateTime.Now.ToString());
+
+
             DLinkNode dLinkNode1 = new DLinkNode();
             DLinkNode dLinkNode2 = new DLinkNode();
             DLinkNode dLinkNode3 = new DLinkNode();
@@ -91,9 +98,9 @@ namespace test2
 
             ///////////////////////////////////////////////////////////////////////
             ///构建文章，评论，评价，关键字的关系。
-            User lzb = new User("李智博", "5210");
-            User xy = new User("小鱼", "8888");
-            User fg = new User("飞哥", "4399");
+            User lzb = new User { Name="李智博",Password= "5210" };
+            User xy = new User { Name= "小鱼",Password= "8888" };
+            User fg = new User {Name= "飞哥",Password= "4399" };
             IList<User> users = new List<User> { lzb, xy, fg };
 
 

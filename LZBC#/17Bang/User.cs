@@ -121,15 +121,15 @@ namespace LZBC
         public int HelpDot { get; set; }
         public int HelpBean { get; set; }
 
-        private User()
-        {
+        //private User()
+        //{
 
-        }
-        public User(string name, string password)//每一个User对象一定有Name和Password赋值
-        {
-            _name = name;
-            _password = password;
-        }
+        //}
+        //public User(string name, string password)//每一个User对象一定有Name和Password赋值
+        //{
+        //    _name = name;
+        //    _password = password;
+        //}
         public string Name
         {
             set       //如果user.Name为“admin”，输入时修改为“系统管理员”
