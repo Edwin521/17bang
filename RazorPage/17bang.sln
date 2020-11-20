@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTestProject1", "..\NUn
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LZBC#", "..\LZBC#\LZBC#.csproj", "{E645E33A-2468-44BD-B239-3F56875B343E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Captcha", "..\Captcha\Captcha.csproj", "{A78A7FF6-2C9C-4305-82AC-C8C374EB881B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E645E33A-2468-44BD-B239-3F56875B343E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E645E33A-2468-44BD-B239-3F56875B343E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E645E33A-2468-44BD-B239-3F56875B343E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A78A7FF6-2C9C-4305-82AC-C8C374EB881B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A78A7FF6-2C9C-4305-82AC-C8C374EB881B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A78A7FF6-2C9C-4305-82AC-C8C374EB881B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A78A7FF6-2C9C-4305-82AC-C8C374EB881B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
