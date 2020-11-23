@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Think\\Source\\Repos\\17bang2\\MySelf\\MySelf.csproj": {}
+    "D:\\E17bang\\MySelf\\MySelf.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Think\\Source\\Repos\\17bang2\\LZBC#\\LZBC#.csproj": {
+    "D:\\E17bang\\LZBC#\\LZBC#.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Think\\Source\\Repos\\17bang2\\LZBC#\\LZBC#.csproj",
+        "projectUniqueName": "D:\\E17bang\\LZBC#\\LZBC#.csproj",
         "projectName": "LZBC#",
-        "projectPath": "C:\\Users\\Think\\Source\\Repos\\17bang2\\LZBC#\\LZBC#.csproj",
+        "projectPath": "D:\\E17bang\\LZBC#\\LZBC#.csproj",
         "packagesPath": "C:\\Users\\Think\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Think\\Source\\Repos\\17bang2\\LZBC#\\obj\\",
+        "outputPath": "D:\\E17bang\\LZBC#\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Think\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -62,14 +62,14 @@
         }
       }
     },
-    "C:\\Users\\Think\\Source\\Repos\\17bang2\\MySelf\\MySelf.csproj": {
+    "D:\\E17bang\\MySelf\\MySelf.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Think\\Source\\Repos\\17bang2\\MySelf\\MySelf.csproj",
+        "projectUniqueName": "D:\\E17bang\\MySelf\\MySelf.csproj",
         "projectName": "MySelf",
-        "projectPath": "C:\\Users\\Think\\Source\\Repos\\17bang2\\MySelf\\MySelf.csproj",
+        "projectPath": "D:\\E17bang\\MySelf\\MySelf.csproj",
         "packagesPath": "C:\\Users\\Think\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Think\\Source\\Repos\\17bang2\\MySelf\\obj\\",
+        "outputPath": "D:\\E17bang\\MySelf\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Think\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -85,8 +85,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Think\\Source\\Repos\\17bang2\\LZBC#\\LZBC#.csproj": {
-                "projectPath": "C:\\Users\\Think\\Source\\Repos\\17bang2\\LZBC#\\LZBC#.csproj"
+              "D:\\E17bang\\LZBC#\\LZBC#.csproj": {
+                "projectPath": "D:\\E17bang\\LZBC#\\LZBC#.csproj"
               }
             }
           }
