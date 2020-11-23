@@ -45,7 +45,7 @@ namespace Captcha
             string captch = sb.ToString();
             g.DrawString( captch,       //绘制字符串
                 new Font("Tahoma", 55),                //指定字体
-                new SolidBrush(Color.BurlyWood),      //绘制时使用的刷子
+                new SolidBrush(Color.FromArgb(random1.Next(200),random2.Next(200),random3.Next(200))),      //绘制时使用的刷子
                 new PointF(1, 0)                    //左上角定位
             );
 
@@ -61,7 +61,7 @@ namespace Captcha
             image.SetResolution(72,92 );
          
 
-            image.Save(@"D:hello.jpg", ImageFormat.Jpeg);   //保存到文件
+            image.Save(@"E:hello.jpg", ImageFormat.Jpeg);   //保存到文件
 
         }
     }
