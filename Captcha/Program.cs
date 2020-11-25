@@ -15,7 +15,7 @@ namespace Captcha
       
         static void Main(string[] args)
         {
-
+            //验证码作业
 
 
             Bitmap image = new Bitmap(200, 80);  //生成一个像素图“画板”

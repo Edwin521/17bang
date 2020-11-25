@@ -38,21 +38,54 @@
 
 @*新建 /Task/History/Month 页面，利用表格，输出按月按周组织的任意一个月份的日历。可参考：一起帮·任务历史月表*@
 
-<table>
+@{
+    int year = 2020, month = 11;
+    DateTime date = new DateTime(year, month, 1);
+    int skip = (int)date.DayOfWeek - 1;//周日的枚举底层数据为0
+    if (skip < 0)
+    {
+        skip += 7;
+    }
+}
+<div style="width:210px">
+
+    @for (int i = 1; i <= skip; i++)
+    {
+        <div style="width:30px;float:left;">&nbsp;</div>
+    }
+    @while (date.Month == month)
+    {
+        <div title="@(date.ToString("yyyy年MM月dd日"))" style="width:30px;float:left">
+            @date.Day
+        </div>
+        date = date.AddDays(1);
+
+    }
+</div>
+<hr />
+
+
+<div style="text-align:center">
+    @date.ToString("yyyy年MM月")
+</div>
+<table border="1" cellpadding="15" style="text-align:center">
     <tr>
-        <th>1</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>一</th>
+        <th>二</th>
+        <th>三</th>
+        <th>四</th>
+        <th>五</th>
+        <th>六</th>
+        <th>日</th>
     </tr>
-   <tr>
-       <td></td>
-       <td></td>
-       <td></td>
-       <td></td>
-   </tr>
-    
+    @while (date.Month == month)
+    {
+        <td title="@(date.ToString("yyyy年MM月dd日"))" style="width:30px;float:left">
+            @date.Day
+        </td>
+        date = date.AddDays(1);
+
+    }
+
+
 </table>
