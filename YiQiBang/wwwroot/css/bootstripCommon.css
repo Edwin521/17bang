@@ -1,0 +1,29 @@
+﻿
+body {
+}
+
+.dot {
+    color: mediumblue
+}
+
+.money {
+    color: gold;
+}
+
+.bean {
+    color: lightgreen;
+}
+
+.text-bold {
+    font-weight: 800;
+    color: royalblue;
+}
+
+.page-header {
+    margin-left: 75px;
+}
+
+ol > li {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}

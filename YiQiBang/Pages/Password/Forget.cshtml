@@ -1,0 +1,89 @@
+﻿@page
+@model YiQiBang.Pages.Password.ForgetModel
+@{
+    ViewData["Title"] = "Forget";
+}
+
+<div class="container">
+    <h2>😭忘了</h2>
+    <hr />
+    <div class="row">
+
+        <form class=" col-md-4 " style="border:1px solid;height:400px">
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><i class="fa fa-lock"></i>密码</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-user"></i>用户名</a>
+                </li>
+
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="form-group">
+                        <label><strong>email：（* 必填）</strong></label>
+                        <input class="form-control" placeholder="注册时填写的email地址">
+                        <span ></span>
+                    </div>
+
+                    <label><strong>通过用户名查找email：</strong></label>
+                    <div class="input-group ">
+
+                        <input  class="form-control" placeholder="必须全称，且不要忘了点击 搜索 按钮" aria-label="recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-outline-secondary text-primary"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label><strong>验证码：（* 必填）</strong> </label>
+                        <div>
+                            <input  class="form-control" style="width:30%;display:inline;">
+                            <a href="#">看不清楚</a>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">发送邮件</button>
+                    <button type="reset" class="btn btn-light border border-secondary">重置</button>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <label><strong>QQ:</strong> </label>
+                    <div class="input-group ">
+
+                        <input  class="form-control" placeholder="支持从头开始的模糊查询" aria-label="recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-outline-secondary"><i class="fa fa-search"></i>查找</button>
+                        </div>
+                    </div>
+                    <label><strong>Email:</strong> </label>
+                    <div class="input-group ">
+
+                        <input  class="form-control" placeholder="支持从头开始的模糊查询" aria-label="recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-outline-secondary"><i class="fa fa-search"></i>查找</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </form>
+
+
+        <aside class="col-md-5 offset-md-2 " style="margin-top:20px;margin-bottom:20px;">
+            <h2 style="color:darkblue"><i class="fa fa-question"></i>   说明</h2>
+            <ol>
+                <li>重置密码的邮件会发送到你填写的Email中。</li>
+                <li>输入用户名之后，还要点击旁边的🔎按钮，以完成Email地址的填写。</li>
+                <li>现目前，还没有针对未激活Email做特殊提示，请务必确保Email正确。</li>
+            </ol>
+        </aside>
+    </div>
+</div>
+
