@@ -11,7 +11,7 @@ namespace YiQiBang.Repositories
         private static IList<Article> articles;
         static ArticleRepository()
         {
-            //articles = new List<Article>();
+            articles = new List<Article>() {
 
             new Article
             {
@@ -23,8 +23,11 @@ namespace YiQiBang.Repositories
                     Id = 10,
                     Name = @"马保国"
                 },
-                PublishTime = new DateTime(2020, 10, 2, 4, 35, 56)
-            };
+                PublishTime = new DateTime(2020, 10, 2, 4, 35, 56),
+              
+                    
+               
+            },
             new Article
             {
                 Id = 2,
@@ -32,14 +35,15 @@ namespace YiQiBang.Repositories
                 Body = @"类和对象 类文件后缀：.java包（namespace）：项目上右键创建package _17bang.CD.Yz;引入（using）import _17bang.YZ.Student;没有partial类访问修饰符：没有关键字internal（不能显式声明，默认即可，package中可见）static：可以由对象调用（只warning不报错)引用类型和值类",
                 Author = new User
                 {
-                    Id = 10,
+                    Id = 20,
                     Name = @"李大钊"
                 },
                 PublishTime = new DateTime(2019, 10, 3, 12, 35, 26)
-            };
+            }
+        };
         }
 
-        internal IList<Article> Get( int ID)
+        internal IList<Article> Get(int ID)
         {
             return articles;
         }

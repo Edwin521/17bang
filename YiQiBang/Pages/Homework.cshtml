@@ -1,0 +1,13 @@
+﻿@page
+@model YiQiBang.Pages.HomeworkModel
+@{
+    ViewData["Title"] = "Homework";
+    Layout = "";
+}
+
+<h1>Homework</h1>
+@*声明一个自定义的TagHelper：DateTimeTagHelper，在Razor中使用*@
+@*生成HTML标签：
+<small>2019年7月8日 14点59分</small>*@
+
+<datetime>@DateTime.Now</datetime>

@@ -17,6 +17,11 @@ namespace YiQiBang.Pages.Article
             articleRepository = new ArticleRepository();
         }
         public IList<E.Article> Articles { get; set; }
+
+
+
+
+
         public void OnGet()
         {
             Articles = articleRepository.Get(1);
