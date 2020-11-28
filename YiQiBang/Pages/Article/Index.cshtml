@@ -1,37 +1,44 @@
 ﻿@page
 @model YiQiBang.Pages.Article.IndexModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "一起帮·精品文章";
 }
-
+@foreach (var item in Model.Articles)
+	{
+    <small class="text-secondary">  @item.PublishTime.ToString("yyyy年MM月dd日 hh点mm分")</small>
+	}
 <body>
     <div class="container">
         <div class="row">
             <article class="col-8">
-                <div>
-                    <i class="fa fa-calendar" aria-hidden="true"></i><small class="text-secondary">  2020年08月20日 21点02分</small> <span style="float:right">作者：<a href="#">  叶飞</a></span>
-                    <h5><a href="#">VS中第一个Html页面</a></h5>
-                    <p>
-                        学习HTML，其实就是学习一系列的标记（markup），而标记的核心就是元素（element）HTML标记语言的核心就是元素。元素由标签、属性和文本内容组成，比如：&lt;h1 style="color:red"&gt;一起帮·源栈欢迎您！&lt;/h1&gt;其中：元素（element）：整个这一行就是一个标签（tag）：h1，又分为开始标签（&lt;h1&gt;）和结束 （&lt;/h1&gt;）标签文本（text）：一起帮·源栈欢迎您！，放置在开始标签和结束标签之间 属性（<a href="#" title="全文">……</a>
-                    </p>
+                @*@foreach (var item in Model.Articles)
+                {
                     <div>
-                        <span class="font-weight-bold"><i class="fa fa-tags"></i>关键字：</span>
-                        <span class="badge badge-pill badge-secondary">VS</span>
-                        <span class="badge badge-pill badge-secondary">html</span>
-                        <span class="badge badge-pill badge-secondary">入门</span>
-                    </div>
-                    <div style="text-align:right">
-                        <a href="#" class="ml-3"><i class="fa fa-commenting" aria-hidden="true"></i>评论:<span>  0</span></a>
-                        <a href="#" class="text-success ml-3"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>赞:<span>  0</span></a>
-                        <a href="#" class="text-secondary ml-3">
-                            <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>踩:<span>
-                                0
-                            </span>
-                        </a>
+                        <i class="fa fa-calendar" aria-hidden="true"></i><small class="text-secondary"> @item.PublishTime.ToString("yyyy年MM月dd日 hh点mm分")</small> <span style="float:right">作者：<a href="#">  @item.Author.Name</a></span>
+                        <h5><a href="">@item.Title</a></h5>
+                        <p>
+                          @item.Body <a href="#" title="@item.Title">……</a>
+                        </p>
+                        <div>
+                            <span class="font-weight-bold"><i class="fa fa-tags"></i>关键字：</span>
+                            <span class="badge badge-pill badge-secondary">VS</span>
+                            <span class="badge badge-pill badge-secondary">html</span>
+                            <span class="badge badge-pill badge-secondary">入门</span>
+                        </div>
+                        <div style="text-align:right">
+                            <a href="#" class="ml-3"><i class="fa fa-commenting" aria-hidden="true"></i>评论:<span>  0</span></a>
+                            <a href="#" class="text-success ml-3"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>赞:<span>  0</span></a>
+                            <a href="#" class="text-secondary ml-3">
+                                <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>踩:<span>
+                                    0
+                                </span>
+                            </a>
 
+                        </div>
                     </div>
-                </div>
-                <hr />
+                    <hr />
+                }*@
+
 
                 <div>
                     <i class="fa fa-calendar" aria-hidden="true"></i><small class="text-secondary">  2020年08月20日 21点02分</small> <span style="float:right">作者：<a href="#">  叶飞</a></span>
