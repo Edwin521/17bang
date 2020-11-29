@@ -17,12 +17,13 @@ namespace YiQiBang.Pages.Article
             articleRepository = new ArticleRepository();
         }
         public IList<E.Article> Articles { get; set; }
-        public int ArticlePage { get; set; }
+        public int PageCount { get; set; }
+        public const int PageSize = 2;
         public void OnGet()
         {
             int pageIndex =Convert.ToInt32(Request.Query["pageIndex"][0]);//后台拿到数据
 
-            ArticlePage = articleRepository.ArticleCount;
+            PageCount = articleRepository.ArticleCount/PageSize;
             Articles = articleRepository.Get(pageIndex,2);
         }
     }

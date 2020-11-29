@@ -20,16 +20,18 @@
                         </p>
                         <div>
                             <span class="font-weight-bold"><i class="fa fa-tags"></i>关键字：</span>
-                            <span class="badge badge-pill badge-secondary">VS</span>
-                            <span class="badge badge-pill badge-secondary">html</span>
-                            <span class="badge badge-pill badge-secondary">入门</span>
+                            @for (int i = 0; i <item.keywords.Count; i++)
+                            {
+                                <span class="badge badge-pill badge-secondary">@item.keywords[i].Word</span>
+                            }
+
                         </div>
                         <div style="text-align:right">
-                            <a href="#" class="ml-3"><i class="fa fa-commenting" aria-hidden="true"></i>评论:<span>  0</span></a>
-                            <a href="#" class="text-success ml-3"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>赞:<span>  0</span></a>
+                            <a href="#" class="ml-3"><i class="fa fa-commenting" aria-hidden="true"></i>评论:<span> @item.Commonts.Count</span></a>
+                            <a href="#" class="text-success ml-3"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>赞:<span>  @item.AgreeAmount</span></a>
                             <a href="#" class="text-secondary ml-3">
                                 <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>踩:<span>
-                                    0
+                                    @item.DisagreeAmount
                                 </span>
                             </a>
 
@@ -42,7 +44,7 @@
                         <li class="page-item disabled">
                             <a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一页</a>
                         </li>
-                        @for (int i = 0; i <= Model.ArticlePage / 2; i++)
+                        @for (int i = 0; i <= Model.PageCount; i++)
                         {
                             <li class="page-item"><a class="page-link" href="/Article?pageIndex=@(i+1)">@(i+1)</a></li>
                         }

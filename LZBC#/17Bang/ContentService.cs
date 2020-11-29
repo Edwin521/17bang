@@ -18,7 +18,7 @@ namespace LZBC
                 content.Publish();
                 Console.WriteLine("存入数据库");
             }
-            catch (ArgumentNullException a)
+            catch (ArgumentNullException )
             {
 
                 Console.WriteLine("内容的作者不能为空");

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace YiQiBang.Entities
 {
-    public class Keyword<T>
+    public class Keyword
     {
-        public  IList<T> Word { get; set; }
-        public List<T> Articles { get; set; }
+        public string  Word { get; set; }
+       
     }
 }

@@ -26,6 +26,11 @@ namespace YiQiBang.Repositories
                 },
                 PublishTime = new DateTime(2020, 10, 2, 4, 35, 56),
 
+               keywords =  new List<Keyword> { new Keyword { Word="异步"},new Keyword {Word="it"},new Keyword { Word="c#"} } ,
+                 Commonts=new List<Comment>{ new Comment { content="我会闪电五连鞭"},new Comment { content="我觉的你写的不是那么好，个人的见解"},
+                          new Comment { content="你是我见过最会写文章的"} },
+                 DisagreeAmount=20,
+                 AgreeAmount=10
 
 
             },
@@ -39,7 +44,13 @@ namespace YiQiBang.Repositories
                     Id = 20,
                     Name = @"李大钊"
                 },
-                PublishTime = new DateTime(2019, 10, 3, 12, 35, 26)
+                PublishTime = new DateTime(2019, 10, 3, 12, 35, 26),
+                keywords =  new List<Keyword> { new Keyword { Word="对象"},new Keyword {Word="类文件"},new Keyword { Word="反射"} } ,
+                 Commonts=new List<Comment>{ new Comment { content="写的很好，我很喜欢"},new Comment { content="我觉的你写的不是那么好，个人的见解"},
+                 new Comment{ content="加油哦,要继续努力"} },
+                 DisagreeAmount=20,
+                 AgreeAmount=1
+
             },
             new Article
             {
@@ -51,7 +62,11 @@ namespace YiQiBang.Repositories
                     Id = 25,
                     Name = @"李智博"
                 },
-                PublishTime = new DateTime(2019, 11, 3, 12, 23, 26)
+                PublishTime = new DateTime(2019, 11, 3, 12, 23, 26),
+                keywords =  new List<Keyword> { new Keyword { Word="分层"},new Keyword {Word="分层架构"},new Keyword { Word="微服务"} } ,
+                 Commonts=new List<Comment>{ new Comment { content="写的很好，我很喜欢"},new Comment { content="我觉的你写的不是那么好，个人的见解"} },
+                 DisagreeAmount=202,
+                 AgreeAmount=101
             },
              new Article
             {
@@ -63,7 +78,11 @@ namespace YiQiBang.Repositories
                     Id = 26,
                     Name = @"周丁浩"
                 },
-                PublishTime = new DateTime(2020, 11, 3, 12, 23, 26)
+                PublishTime = new DateTime(2020, 11, 3, 12, 23, 26),
+                keywords =  new List<Keyword> { new Keyword { Word="传值"},new Keyword {Word="action"},new Keyword { Word="model"} } ,
+                 Commonts=new List<Comment>{ new Comment { content="写的很好，我很喜欢"} },
+                 DisagreeAmount=120,
+                 AgreeAmount=123
             },
              new Article
             {
@@ -75,7 +94,12 @@ namespace YiQiBang.Repositories
                     Id = 27,
                     Name = @"特朗普"
                 },
-                PublishTime = new DateTime(2020, 12, 13, 12, 23, 26)
+                PublishTime = new DateTime(2020, 12, 13, 12, 23, 26),
+                keywords =  new List<Keyword> { new Keyword { Word="复杂查询"},new Keyword {Word="继承"},new Keyword { Word="sql"} } ,
+                 Commonts=new List<Comment>{ new Comment { content="写的很好，我很喜欢"},new Comment { content="我觉的你写的不是那么好，个人的见解"} },
+                 DisagreeAmount=30,
+                 AgreeAmount=145
+
             },
               new Article
             {
@@ -87,7 +111,12 @@ namespace YiQiBang.Repositories
                     Id = 28,
                     Name = @"赵日天"
                 },
-                PublishTime = new DateTime(2019, 2, 13, 12, 2, 26)
+                PublishTime = new DateTime(2019, 2, 13, 12, 2, 26),
+                keywords =  new List<Keyword> { new Keyword { Word="5ef"},new Keyword {Word="关联"},new Keyword { Word="Entity"} } ,
+                 Commonts=new List<Comment>{ new Comment { content="写的很好，我很喜欢"},new Comment { content="我觉的你写的不是那么好，个人的见解"} },
+                 DisagreeAmount=1220,
+                 AgreeAmount=123
+
             },
               new Article
             {
@@ -99,7 +128,12 @@ namespace YiQiBang.Repositories
                     Id = 29,
                     Name = @"赵铁路"
                 },
-                PublishTime = new DateTime(2017, 2, 13, 12, 2, 26)
+                PublishTime = new DateTime(2017, 2, 13, 12, 2, 26),
+                 keywords =  new List<Keyword> { new Keyword { Word="entity"},new Keyword {Word="对象"},new Keyword { Word="属性"} } ,
+                 Commonts=new List<Comment>{ new Comment { content="写的很好，我很喜欢"},new Comment { content="我觉的你写的不是那么好，个人的见解"} },
+                 DisagreeAmount=210,
+                 AgreeAmount=1022
+
             },
               
         };
