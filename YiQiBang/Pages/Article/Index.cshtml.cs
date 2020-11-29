@@ -24,7 +24,7 @@ namespace YiQiBang.Pages.Article
             int pageIndex =Convert.ToInt32(Request.Query["pageIndex"][0]);//后台拿到数据
 
             PageCount = articleRepository.ArticleCount/PageSize;
-            Articles = articleRepository.Get(pageIndex,2);
+            Articles = articleRepository.Get(pageIndex,PageSize);
         }
     }
 }
