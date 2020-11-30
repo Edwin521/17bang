@@ -27,8 +27,8 @@ namespace YiQiBang.Repositories
                 PublishTime = new DateTime(2020, 10, 2, 4, 35, 56),
 
                keywords =  new List<Keyword> { new Keyword { Word="异步"},new Keyword {Word="it"},new Keyword { Word="c#"} } ,
-                 Commonts=new List<Comment>{ new Comment { content="我会闪电五连鞭"},new Comment { content="我觉的你写的不是那么好，个人的见解"},
-                          new Comment { content="你是我见过最会写文章的"} },
+                 Commonts=new List<Comment>{ new Comment { content="我会闪电五连鞭",PublishTime = new DateTime(2019, 1, 21, 1, 1, 1), DisagreeAmount = 1120, AgreeAmount = 10, Author = new User { Id = 6,Name="我才是真的马宝国" }},
+                          new Comment { content="你是我见过最会写文章的",PublishTime = new DateTime(2019, 1, 21, 1, 1, 1), DisagreeAmount = 1120, AgreeAmount = 10, Author = new User { Id = 6,Name="马宝国7" }} },
                  DisagreeAmount=20,
                  AgreeAmount=10
 
@@ -46,8 +46,8 @@ namespace YiQiBang.Repositories
                 },
                 PublishTime = new DateTime(2019, 10, 3, 12, 35, 26),
                 keywords =  new List<Keyword> { new Keyword { Word="对象"},new Keyword {Word="类文件"},new Keyword { Word="反射"} } ,
-                 Commonts=new List<Comment>{ new Comment { content="写的很好，我很喜欢"},new Comment { content="我觉的你写的不是那么好，个人的见解"},
-                 new Comment{ content="加油哦,要继续努力"} },
+                 Commonts=new List<Comment>{ 
+                 new Comment{ content="加油哦,要继续努力",PublishTime = new DateTime(2021, 11, 11, 1, 1, 1), DisagreeAmount = 220, AgreeAmount = 10, Author = new User { Id = 5,Name="马宝国6" }} },
                  DisagreeAmount=20,
                  AgreeAmount=1
 
@@ -64,7 +64,7 @@ namespace YiQiBang.Repositories
                 },
                 PublishTime = new DateTime(2019, 11, 3, 12, 23, 26),
                 keywords =  new List<Keyword> { new Keyword { Word="分层"},new Keyword {Word="分层架构"},new Keyword { Word="微服务"} } ,
-                 Commonts=new List<Comment>{ new Comment { content="写的很好，我很喜欢"},new Comment { content="我觉的你写的不是那么好，个人的见解"} },
+                 Commonts=new List<Comment>{ new Comment { content="我觉的你写的不是那么好，个人的见解", PublishTime = new DateTime(2020, 11, 11, 1, 1, 1), DisagreeAmount = 1120, AgreeAmount = 10, Author = new User { Id = 4 , Name = "马宝国5" } } },
                  DisagreeAmount=202,
                  AgreeAmount=101
             },
@@ -80,7 +80,7 @@ namespace YiQiBang.Repositories
                 },
                 PublishTime = new DateTime(2020, 11, 3, 12, 23, 26),
                 keywords =  new List<Keyword> { new Keyword { Word="传值"},new Keyword {Word="action"},new Keyword { Word="model"} } ,
-                 Commonts=new List<Comment>{ new Comment { content="写的很好，我很喜欢"} },
+                 Commonts=new List<Comment>{ new Comment { content="写的好，我喜欢", PublishTime = new DateTime(2020, 3, 21, 1, 1, 1), DisagreeAmount = 40, AgreeAmount = 10, Author = new User { Id = 3, Name = "马宝国4" } } },
                  DisagreeAmount=120,
                  AgreeAmount=123
             },
@@ -96,7 +96,7 @@ namespace YiQiBang.Repositories
                 },
                 PublishTime = new DateTime(2020, 12, 13, 12, 23, 26),
                 keywords =  new List<Keyword> { new Keyword { Word="复杂查询"},new Keyword {Word="继承"},new Keyword { Word="sql"} } ,
-                 Commonts=new List<Comment>{ new Comment { content="写的很好，我很喜欢"},new Comment { content="我觉的你写的不是那么好，个人的见解"} },
+                 Commonts=new List<Comment>{new Comment { content="我觉的你写的不是那么好，个人的见解", PublishTime = new DateTime(2020, 3, 1, 1, 1, 1), DisagreeAmount = 120, AgreeAmount = 30, Author = new User { Id = 2,Name="马宝国3" } } },
                  DisagreeAmount=30,
                  AgreeAmount=145
 
@@ -113,7 +113,7 @@ namespace YiQiBang.Repositories
                 },
                 PublishTime = new DateTime(2019, 2, 13, 12, 2, 26),
                 keywords =  new List<Keyword> { new Keyword { Word="5ef"},new Keyword {Word="关联"},new Keyword { Word="Entity"} } ,
-                 Commonts=new List<Comment>{ new Comment { content="写的很好，我很喜欢"},new Comment { content="我觉的你写的不是那么好，个人的见解"} },
+                 Commonts=new List<Comment>{ new Comment { content="写的很好，我很喜欢", PublishTime = new DateTime(2020, 2, 1, 1, 1, 1), DisagreeAmount = 20, AgreeAmount = 20, Author = new User { Id = 1, Name = "马宝国2" } } },
                  DisagreeAmount=1220,
                  AgreeAmount=123
 
@@ -130,7 +130,7 @@ namespace YiQiBang.Repositories
                 },
                 PublishTime = new DateTime(2017, 2, 13, 12, 2, 26),
                  keywords =  new List<Keyword> { new Keyword { Word="entity"},new Keyword {Word="对象"},new Keyword { Word="属性"} } ,
-                 Commonts=new List<Comment>{ new Comment { content="写的很好，我很喜欢"},new Comment { content="我觉的你写的不是那么好，个人的见解"} },
+                 Commonts=new List<Comment>{ new Comment { content="写的很好，我很喜欢",PublishTime=new DateTime(2020,1,1,1,1,1),DisagreeAmount=10,AgreeAmount=10,Author=new User { Id=0,Name = "马宝国1" } } },
                  DisagreeAmount=210,
                  AgreeAmount=1022
 

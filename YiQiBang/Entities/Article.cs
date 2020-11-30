@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace YiQiBang.Entities
 {
-    public class Article : Entity
+    public class Article : Content
     {
+        public int Id { get; set; }
         public DateTime PublishTime { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }

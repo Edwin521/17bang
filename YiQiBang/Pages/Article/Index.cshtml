@@ -17,9 +17,9 @@
                 <div>
                     <a href=""></a>
                     <i class="fa fa-calendar" aria-hidden="true"></i><small class="text-secondary"> @item.PublishTime.ToString("yyyy年MM月dd日 hh点mm分")</small> <span style="float:right">作者：<a href="#">  @item.Author.Name</a></span>
-                    <h5><a href="#">@item.Title</a></h5>
+                    <h5><a href="Article/Single?Id=@item.Id">@item.Title</a></h5>
                     <p>
-                        @item.Body <a href="#" title="@item.Title">……</a>
+                        @item.Body <a href="Article/Single?Id=@item.Id" title="@item.Title">……</a>
                     </p>
                     <div>
                         <span class="font-weight-bold"><i class="fa fa-tags"></i>关键字：</span>
