@@ -138,9 +138,12 @@ namespace YiQiBang.Repositories
               
         };
         }
-        
-        
- 
+
+        internal int GetMaxId()
+        {
+            var excellent = articles.OrderByDescending(a => a.Id).First();
+            return excellent.Id;
+        }
 
         internal IList<Article> Get(int pageIndex, int pageSize)
         {
@@ -149,9 +152,9 @@ namespace YiQiBang.Repositories
                             .ToList();
         }
 
-        public ArticleRepository()
+        public  ArticleRepository()
         {
-
+         
         }
 
         public Article find(int id)

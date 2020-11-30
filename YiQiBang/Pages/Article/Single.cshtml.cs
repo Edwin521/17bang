@@ -4,14 +4,29 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using YiQiBang.Repositories;
+using E = YiQiBang.Entities;
 
 namespace YiQiBang.Pages.Article
 {
     public class SingleModel : PageModel
     {
+        private ArticleRepository articleRepository;
+        public SingleModel()//在构造函数里给art..实例化
+        {
+            articleRepository = new ArticleRepository();
+        }
+        public E.Article Article { get; set; }
+        public E.Article PreviousPage { get; set; }
+        public E.Article NextPage { get; set; }
+        public int MaxPageId;
         public void OnGet()
         {
-
+            int id = Convert.ToInt32(Request.Query["Id"]);
+            Article = articleRepository.find(id);
+            PreviousPage= articleRepository.find(id-1);
+            NextPage= articleRepository.find(id + 1);
+            MaxPageId= articleRepository.GetMaxId();
         }
     }
 }
