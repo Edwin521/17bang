@@ -1,0 +1,21 @@
+﻿
+@{ 
+    Layout = "_Layout";
+ }
+
+    <div class="container" >
+        <h2><i class="fa fa-registered"></i>@RenderSection("PageTitle")</h2>
+        <a href="" style="float:right;margin-top:-25px; background-color:#a6ffe1;border-radius:5px;"><i class="fa fa-reply" aria-hidden="true"></i> 返回</a>
+        <hr />
+        <div class="row">
+            <div class="col-5">
+                @RenderBody()
+            </div>
+            <aside class="col-5 offset-2">
+            <h3><i class="fa fa-question-circle" aria-hidden="true"></i>说明</h3>
+                @RenderSection("aside")
+            </aside>
+        </div>
+
+    </div>
+

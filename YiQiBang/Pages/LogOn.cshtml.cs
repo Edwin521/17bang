@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace YiQiBang.Pages.Index
+namespace YiQiBang.Pages
 {
-    public class IndexModel : PageModel
+    public class LogOnModel : PageModel
     {
         public void OnGet()
         {

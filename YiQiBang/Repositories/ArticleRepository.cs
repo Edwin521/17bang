@@ -118,24 +118,24 @@ namespace YiQiBang.Repositories
                  AgreeAmount=123
 
             },
-              new Article
-            {
-                Id = 7,
-                Title = @"6C#进阶：Entity和Repository",
-                Body = @"对象引用面向对象的世界里，万物皆对象。对象和对象之间的关系除了“继承”，就是“组合”（复习）。 这些关系通过对象的属性体现。比如：clablic DbSet<RssBlog> RssBlogs。但仅仅是[HttpPost]/[HttpGet]不能形成“重载”的效果（即不能用[HttpPost]/[HttpGet]等特性来区分方法）ViewResult 通过 return View() 返回，是最最常见的内容酒”（横向组织） 过犹不及 职责分离（单一职责），方便项目组织维护，甚至是重用。典型的就是目前流行的“前后端分离”：前端不需要懂C#/.NET/SQ没有partial类访问修饰符：没有关键字internal（不能显式声明，默认即可，package中可见）static：可以由对象调用（只warning不报错)引用类型和值类",
-                Author = new User
-                {
-                    Id = 29,
-                    Name = @"赵铁路"
-                },
-                PublishTime = new DateTime(2017, 2, 13, 12, 2, 26),
-                 keywords =  new List<Keyword> { new Keyword { Word="entity"},new Keyword {Word="对象"},new Keyword { Word="属性"} } ,
-                 Commonts=new List<Comment>{ new Comment { content="写的很好，我很喜欢",PublishTime=new DateTime(2020,1,1,1,1,1),DisagreeAmount=10,AgreeAmount=10,Author=new User { Id=0,Name = "马宝国1" } } },
-                 DisagreeAmount=210,
-                 AgreeAmount=1022
+            //  new Article
+            //{
+            //    Id = 7,
+            //    Title = @"6C#进阶：Entity和Repository",
+            //    Body = @"对象引用面向对象的世界里，万物皆对象。对象和对象之间的关系除了“继承”，就是“组合”（复习）。 这些关系通过对象的属性体现。比如：clablic DbSet<RssBlog> RssBlogs。但仅仅是[HttpPost]/[HttpGet]不能形成“重载”的效果（即不能用[HttpPost]/[HttpGet]等特性来区分方法）ViewResult 通过 return View() 返回，是最最常见的内容酒”（横向组织） 过犹不及 职责分离（单一职责），方便项目组织维护，甚至是重用。典型的就是目前流行的“前后端分离”：前端不需要懂C#/.NET/SQ没有partial类访问修饰符：没有关键字internal（不能显式声明，默认即可，package中可见）static：可以由对象调用（只warning不报错)引用类型和值类",
+            //    Author = new User
+            //    {
+            //        Id = 29,
+            //        Name = @"赵铁路"
+            //    },
+            //    PublishTime = new DateTime(2017, 2, 13, 12, 2, 26),
+            //     keywords =  new List<Keyword> { new Keyword { Word="entity"},new Keyword {Word="对象"},new Keyword { Word="属性"} } ,
+            //     Commonts=new List<Comment>{ new Comment { content="写的很好，我很喜欢",PublishTime=new DateTime(2020,1,1,1,1,1),DisagreeAmount=10,AgreeAmount=10,Author=new User { Id=0,Name = "马宝国1" } } },
+            //     DisagreeAmount=210,
+            //     AgreeAmount=1022
 
-            },
-              
+            //},
+
         };
         }
 
