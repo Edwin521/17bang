@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -17,14 +18,26 @@ namespace YiQiBang.Pages
             userRepository = new UserRepository();
         }
         public Entities.User NewUser { set; get; }
+
+        [Required(ErrorMessage = "*确认密码不能为空")]
         public string ConfirmPassword { get; set; }
+
+        [Required(ErrorMessage = "*验证码不能为空")]
+        [StringLength(4,MinimumLength =4,ErrorMessage ="*验证码的长度只能等于4")]
         public string Captcha { get; set; }
+
         public void OnGet()
         {
 
         }
         public void OnPost()
         {
+            if (!ModelState.IsValid)
+            {
+                return;
+            }
+
+
             Entities.User invitedBy = userRepository.GetByName(NewUser.InvitedBy.Name);
             //if (invitedBy==null)
             //{

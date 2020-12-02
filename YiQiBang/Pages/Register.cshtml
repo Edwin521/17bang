@@ -4,7 +4,12 @@
     ViewData["Title"] = "Register";
     Layout = "_Dual";
 }
-
+<style>
+    .field-validation-error {
+        color: red;
+        font-size: 12px;
+    }
+</style>
 
 @section PageTitle{注册}
 <form  method="post" asp-page="~/Register">
@@ -13,27 +18,38 @@
         <div class="form-group">
             <label for="exampleInputEmail1">邀请人：（* 必填，<a href="#">没有邀请人</a>） </label>
             <input asp-for="NewUser.InvitedBy.Name"  class="form-control" placeholder="他的用户名，模糊查询只能从头开始">
+            <span asp-validation-for="NewUser.InvitedBy.Name"></span>
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">邀请码：（* 必填） </label>
             <input asp-for="NewUser.InvitedBy.InviteCode" class="form-control" placeholder="4位数字">
+            <span asp-validation-for="NewUser.InvitedBy.InviteCode"></span>
+
         </div>
     </section>
     <div class="form-group">
         <label for="exampleInputEmail1">用户名：（* 必填） </label>
         <input asp-for="NewUser.Name" class="form-control" placeholder="登录用户名，可修改，不能重复">
+        <span asp-validation-for="NewUser.Name"></span>
+
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">密码：（* 必填） </label>
         <input asp-for="NewUser.Password" class="form-control" placeholder="不少于4个字符">
+        <span asp-validation-for="NewUser.Password"></span>
+
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">验证密码：（* 必填） </label>
-        <input  asp-for="ConfirmPassword" class="form-control" placeholder="和密码相同">
+        <input asp-for="ConfirmPassword" class="form-control" placeholder="和密码相同">
+        <span asp-validation-for="ConfirmPassword"></span>
+
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">验证码：（* 必填） </label>
-        <input asp-for="Captcha"  class="form-control" style="width:100px"><span style="display:inline-block">点击输入框显示</span>
+        <input asp-for="Captcha" class="form-control" style="width:100px"><span style="display:inline-block">点击输入框显示</span>
+        <span asp-validation-for="Captcha"></span>
+
     </div>
     <button class="btn btn-primary" type="submit">提交</button>
     <button class="btn btn-light" type="reset">重置</button>
