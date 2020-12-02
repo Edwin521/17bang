@@ -21,16 +21,12 @@ namespace YiQiBang.Repositories
                 Password="521521",
                 Introduction="我会闪电五连鞭，谁与争锋",
                 IsMale=true,
-
-         
-
             },
        
-           
-              
         };
         }
 
+  
         internal int GetMaxId()
         {
             var excellent = Users.OrderByDescending(a => a.Id).First();

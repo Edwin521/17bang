@@ -20,6 +20,7 @@ namespace YiQiBang.Pages
         public Entities.User NewUser { set; get; }
 
         [Required(ErrorMessage = "*确认密码不能为空")]
+        [Compare(nameof(Password),ErrorMessage ="*两次密码输入的不一致，请重新输入")]
         public string ConfirmPassword { get; set; }
 
         [Required(ErrorMessage = "*验证码不能为空")]
