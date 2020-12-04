@@ -23,9 +23,9 @@ namespace YiQiBang.Pages.Article
         public void OnGet()
         {
             int id = Convert.ToInt32(Request.Query["Id"]);
-            Article = articleRepository.find(id);
-            PreviousPage= articleRepository.find(id-1);
-            NextPage= articleRepository.find(id + 1);
+            Article = articleRepository.Find(id);
+            PreviousPage= articleRepository.Find(id-1);
+            NextPage= articleRepository.Find(id + 1);
             MaxPageId= articleRepository.GetMaxId();
         }
     }

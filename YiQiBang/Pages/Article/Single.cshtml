@@ -78,7 +78,7 @@
                 <div style=" border:2px dashed #eee; border-radius: 4px 5px;margin-top:20px">
 
                     <div>
-                        上一篇：@if (CurrentPageId > 1)
+                        上一篇：@if (Model.PreviousPage==null)
                         {
 
                             <a href="Single?Id=@Model.PreviousPage.Id">@Model.PreviousPage.Title</a>
@@ -89,7 +89,7 @@
                         }
                     </div>
                     <div>
-                        下一篇：@if (CurrentPageId != Model.MaxPageId)
+                        下一篇：@if (Model.NextPage==null)
                         {
                             <a href="Single?Id=@Model.NextPage.Id">@Model.NextPage.Title</a>
                         }

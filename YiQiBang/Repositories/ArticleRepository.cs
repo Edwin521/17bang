@@ -157,7 +157,7 @@ namespace YiQiBang.Repositories
          
         }
 
-        public Article find(int id)
+        public Article Find(int id)
         {
 
 
