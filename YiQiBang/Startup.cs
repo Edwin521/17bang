@@ -22,11 +22,25 @@ namespace YiQiBang
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+           
+
+            services.AddRazorPages()
+                      .AddRazorPagesOptions(opt =>
+                      {
+                          opt.Conventions.AddPageRoute("/Log/On", "/LogOn");
+                          opt.Conventions.AddPageRoute("/Article/Single", "/Article/{id:int}");
+                          opt.Conventions.AddPageRoute("/Article/Index", "/Article/Category-{id:int}");
+
+
+
+
+
+                      });
+                     
         }
-      
-        
-       
+
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

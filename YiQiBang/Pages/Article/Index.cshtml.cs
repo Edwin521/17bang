@@ -21,7 +21,9 @@ namespace YiQiBang.Pages.Article
         public const int PageSize = 2;
         public void OnGet()
         {
-            int pageIndex =Convert.ToInt32(Request.Query["pageIndex"][0]);//后台拿到数据
+           
+            //int pageIndex =Convert.ToInt32(Request.Query["pageIndex"][0]);//后台拿到数据
+            int pageIndex = Convert.ToInt32( RouteData.Values["pageIndex"]);
 
             PageCount = articleRepository.ArticleCount/PageSize;
             Articles = articleRepository.Get(pageIndex,PageSize);

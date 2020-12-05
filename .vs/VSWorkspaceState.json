@@ -3,8 +3,13 @@
     "",
     "\\LZBC#",
     "\\LZBC#\\homework",
-    "\\RazorPage\\wwwroot"
+    "\\YiQiBang",
+    "\\YiQiBang\\Entities",
+    "\\YiQiBang\\Pages",
+    "\\YiQiBang\\Pages\\Article",
+    "\\YiQiBang\\Pages\\Shared",
+    "\\YiQiBang\\Repositories"
   ],
-  "SelectedNode": "\\LZBC#\\LZBC#.csproj",
+  "SelectedNode": "\\YiQiBang\\Repositories\\ArticleRepository.cs",
   "PreviewInSolutionExplorer": false
 }

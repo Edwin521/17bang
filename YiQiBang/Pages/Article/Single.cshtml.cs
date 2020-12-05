@@ -22,7 +22,10 @@ namespace YiQiBang.Pages.Article
   
         public void OnGet()
         {
-            int id = Convert.ToInt32(Request.Query["Id"]);
+            //int id = Convert.ToInt32(Request.Query["Id"]);
+            int id = Convert.ToInt32( RouteData.Values["id"]);
+
+
             Article = articleRepository.Find(id);
             PreviousPage= articleRepository.Find(id-1);
             NextPage= articleRepository.Find(id + 1);
