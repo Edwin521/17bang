@@ -22,7 +22,39 @@ namespace YiQiBang.Repositories
                 Introduction="我会闪电五连鞭，谁与争锋",
                 IsMale=true,
             },
-       
+              new User
+            {
+                Id = 2,
+                Name="马保国2",
+                Password="5215212",
+                Introduction="我会闪电五连鞭，谁与争锋",
+                IsMale=true,
+            },
+                new User
+            {
+                Id = 3,
+                Name="特朗普",
+                Password="521521",
+                Introduction="没有人比我更懂法律",
+                IsMale=true,
+            },
+                  new User
+            {
+                Id = 4,
+                Name="赵铁路",
+                Password="521521",
+                Introduction="我会闪电五连鞭，谁与争锋",
+                IsMale=true,
+            },
+                    new User
+            {
+                Id = 5,
+                Name="杰瑞",
+                Password="521521",
+                Introduction="我会闪电五连鞭，谁与争锋",
+                IsMale=true,
+            },
+
         };
         }
 
@@ -55,7 +87,7 @@ namespace YiQiBang.Repositories
          
         }
 
-        public User find(int id)
+        public User Find(int id)
         {
             return Users.Where(u => u.Id == id).SingleOrDefault();
 

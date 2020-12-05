@@ -5,9 +5,18 @@ using System.Threading.Tasks;
 
 namespace YiQiBang.Entities
 {
-    public class Keyword
+    public class Keyword 
     {
-        public string  Word { get; set; }
-       
+        public int Id { get; set; }
+        public string Word { get; set; }
+      
+        public int Used { get; set; }
+        public IList<Article> articles { set; get; }
+        public IList<Keyword> SelfDefined { set; get; }
+        public IList<SecendKeyword> SecendKeyword { get; set; }
+    }
+    public class SecendKeyword:Keyword
+    {
+
     }
 }

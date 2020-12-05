@@ -19,14 +19,14 @@ namespace YiQiBang.Pages.Article
         public E.Article Article { get; set; }
         public E.Article PreviousPage { get; set; }
         public E.Article NextPage { get; set; }
-        public int MaxPageId;
+  
         public void OnGet()
         {
             int id = Convert.ToInt32(Request.Query["Id"]);
             Article = articleRepository.Find(id);
             PreviousPage= articleRepository.Find(id-1);
             NextPage= articleRepository.Find(id + 1);
-            MaxPageId= articleRepository.GetMaxId();
+           
         }
     }
 }

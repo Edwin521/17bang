@@ -24,11 +24,13 @@ namespace YiQiBang.Entities
         [Required(ErrorMessage = "*邀请码不能为空")]
         [StringLength(4,MinimumLength =4,ErrorMessage ="*邀请码只能是4位数字")]
         public string InviteCode { get; set; }
-        public int BCredit { get;  set; }
-
+    
+        public int HelpMoney { get; set; }
+        public int HelpDot { get; set; }
+        public int HelpBean { get; set; }
         public void Register()
         {
-            InvitedBy.BCredit += 10;
+            InvitedBy.HelpBean += 10;
         }
 
     }
