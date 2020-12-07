@@ -20,15 +20,16 @@ namespace YiQiBang.Pages
         public Entities.User NewUser { set; get; }
 
         [Required(ErrorMessage = "*确认密码不能为空")]
-        [Compare(nameof(Password),ErrorMessage ="*两次密码输入的不一致，请重新输入")]
+        [Compare(nameof(Password), ErrorMessage = "*两次密码输入的不一致，请重新输入")]
         public string ConfirmPassword { get; set; }
 
         [Required(ErrorMessage = "*验证码不能为空")]
-        [StringLength(4,MinimumLength =4,ErrorMessage ="*验证码的长度只能等于4")]
+        [StringLength(4, MinimumLength = 4, ErrorMessage = "*验证码的长度只能等于4")]
         public string Captcha { get; set; }
 
         public void OnGet()
         {
+
 
         }
         public void OnPost()
@@ -37,8 +38,6 @@ namespace YiQiBang.Pages
             {
                 return;
             }
-
-
             Entities.User invitedBy = userRepository.GetByName(NewUser.InvitedBy.Name);
             //if (invitedBy==null)
             //{
@@ -51,7 +50,6 @@ namespace YiQiBang.Pages
             NewUser.InvitedBy = invitedBy;
             NewUser.Register();
             userRepository.Save(NewUser);
-
         }
     }
 }
