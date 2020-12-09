@@ -95,10 +95,7 @@
                 <a href="#">
                     <img src="/image/log.jpg" alt="一起帮logo" style="margin-bottom:4px;" />
                 </a>
-                <span style="font-size:18px; font-weight:600;color:#777777">一起帮</span>
-                <span class="text-muted">·网络互助平台</span>
-
-
+                <span style="font-size:18px; font-weight:600;color:#777777">一起帮</span><span class="text-muted">·网络互助平台</span>
             </section>
             <nav style="margin-left:600px;">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -147,17 +144,46 @@
 
                             </div>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                未登录
-                            </a>
-                            <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> 登录</a>
-                                <a class="dropdown-item" href="#"> <i class="fa fa-registered" aria-hidden="true"></i> 注册</a>
-                                <a class="dropdown-item" href="#"> <i class="fa fa-lock" aria-hidden="true"></i>忘记密码</a>
-                            </div>
-                        </li>
+                        @if (ViewData[keys.HasLogOn] != null)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                    EDWIN
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#"> <i class="fa fa-list fa-fw" aria-hidden="true"></i>新手任务</a>
+                                    <a class="dropdown-item" href="#"> <i class="fa fa-home fa-fw" aria-hidden="true"></i>我的主页</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item " href="#"><span class="text-success"><i class="fa fa-eercast fa-fw   " aria-hidden="true"></i>帮帮豆:</span> <span>  4</span>  颗</a>
+                                    <a class="dropdown-item " href="#"><span class="text-primary"><i class="fa fa-tint fa-fw   " aria-hidden="true"></i>:</span> <span>  21</span>  点</a>
+                                    <a class="dropdown-item " href="#"><span class="text-warning"><i class="fa fa-usd fa-fw   " aria-hidden="true"></i>帮帮豆:</span> <span>  4</span>  枚</a>
+
+                                    <div class="dropdown-divider"></div>
+                                    <small class="text-secondary ml-4"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>修改</small>
+                                    <a class="dropdown-item" href="#"> <i class="fa fa-lock" aria-hidden="true"></i>我的密码</a>
+                                    <a class="dropdown-item" href="#"> <i class="fa fa-envelope" aria-hidden="true"></i>联系方式</a>
+                                    <a class="dropdown-item" href="#"> <i class="fa fa-camera" aria-hidden="true"></i>个人资料</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/Log/Off"> <i class="fa fa-camera" aria-hidden="true"></i>退出登录</a>
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    未登录
+                                </a>
+                                <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="/Log/On"><i class="fa fa-sign-in" aria-hidden="true"></i> 登录</a>
+                                    <a class="dropdown-item" href="/Register"> <i class="fa fa-registered" aria-hidden="true"></i> 注册</a>
+                                    <a class="dropdown-item" href="/Password/Forget"> <i class="fa fa-lock" aria-hidden="true"></i>忘记密码</a>
+                                </div>
+                            </li>
+                        }
+
                     </ul>
                 </div>
             </nav>
