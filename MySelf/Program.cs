@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace MySelf
 {
@@ -11,24 +13,23 @@ namespace MySelf
 
         static void Main(string[] args)
         {
-            Console.WriteLine(DateTime.Now.ToString("yyyy年MM月dd日hh时mm分ss秒"));
+            string connectionString =
+            @"Data Source=(localdb)\MSSQLLocalDB;
+                    Initial Catalog=18bang;Integrated Security=True;";
+            //IDbConnection connection = new SqlConnection(connectionString);//生成一个connection对象
+            using (IDbConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                IDbCommand command = new SqlCommand();
+                command.Connection = connection;
+                //command.CommandText = @"Insert [User]([Name],[Password],InviteById,InvitedCode)
+                //Values(@UserName,@Password,@InviteName, @InvitedCode,
+                //(Select Id From[User] Where UserName = @InviteName)) ";
+                command.CommandText = $"INSERT [User]([NAME],[PASSWORD],[InvitedBy])VALUES(N'周丁浩',N'4567',3);";
 
-            int a=30;
+                command.ExecuteNonQuery();
 
-            int b = 20;
-            Console.WriteLine(a%b);
-
-           
-
-
-
-
-
-            //students lzb = new students();
-            //foreach (var item in lzb)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            }
 
         }
     }

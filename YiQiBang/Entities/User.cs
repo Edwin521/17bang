@@ -17,9 +17,8 @@ namespace YiQiBang.Entities
         [Required(ErrorMessage = "*密码不能为空")]
         [StringLength(20,MinimumLength =4,ErrorMessage ="*密码的长度不能小于4，大于20")]
         public string Password { get; set; }
-        public bool? IsMale { get; set; }
+        
         [Required(ErrorMessage = "*邀请人不能为空")]
-
         public User InvitedBy { get; set; }
         [Required(ErrorMessage = "*邀请码不能为空")]
         [StringLength(4,MinimumLength =4,ErrorMessage ="*邀请码只能是4位数字")]
