@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using YiQiBang.DbHelp;
 using YiQiBang.Entities;
 
 namespace YiQiBang.Repositories
@@ -12,6 +13,9 @@ namespace YiQiBang.Repositories
     {
         private static IList<User> Users;
         public int UserCount { get; set; } = Users.Count;
+        private string connectionString =
+           @"Data Source=(localdb)\MSSQLLocalDB;
+                    Initial Catalog=18bang;Integrated Security=True;";
         static UserRepository()
         {
             Users = new List<User>() {
@@ -22,7 +26,7 @@ namespace YiQiBang.Repositories
                 Name="马保国",
                 Password="521521",
                 Introduction="我会闪电五连鞭，谁与争锋",
-              
+
             },
               new User
             {
@@ -56,67 +60,78 @@ namespace YiQiBang.Repositories
         };
         }
 
-  
+
         internal int GetMaxId()
         {
             var excellent = Users.OrderByDescending(a => a.Id).First();
             return excellent.Id;
         }
 
-        internal User GetByName(string name)
+        //internal User GetByName(string name)
+        //{
+        //    return Users.Where(u => u.Name == name).SingleOrDefault();
+        //}
+
+        public User GetByName(string name)
         {
-            return Users.Where(u => u.Name == name).SingleOrDefault();
+            User user = new User();
+            user.InvitedBy = new User();
+            using (IDbConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                IDbCommand command = new SqlCommand();
+
+                command.Connection = connection;
+                command.CommandText = $"SELECT * FROM [USER] WHERE NAME ='{name}';";
+                IDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    user.Name = reader["NAME"].ToString();
+                    user.Password = reader["PASSWORD"].ToString();
+                    user.Id = Convert.ToInt32(reader["ID"]);
+                    user.InvitedBy.Id = Convert.ToInt32(reader["InvitedBy"]);
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+
+            return user;
+
         }
+
+
+
 
         //internal void Save(User newUser)
         //{
         //    Users.Add(newUser);
         //}
-        public void Save(User user)
-        {
-            /// <summary>
-            /// 1，连接数据库
-            /// 2，生成数据库命令，增删改查，command
-            /// 3，执行，返回结果
-            /// 4，关闭数据库
-            /// </summary>
-            string connectionString =
-            @"Data Source=(localdb)\MSSQLLocalDB;
-                    Initial Catalog=18bang;Integrated Security=True;";
-            //IDbConnection connection = new SqlConnection(connectionString);//生成一个connection对象
-            using (IDbConnection connection = new SqlConnection(connectionString))
+     
+
+            public bool Save(User user)
             {
-                connection.Open();
-                IDbCommand command = new SqlCommand();
-                command.Connection = connection;
-                //command.CommandText = @"Insert [User]([Name],[Password],InviteById,InvitedCode)
-                //Values(@UserName,@Password,@InviteName, @InvitedCode,
-                //(Select Id From[User] Where UserName = @InviteName)) ";
-                command.CommandText = $"INSERT [User]([NAME],[PASSWORD],[InvitedBy])" +
-                    $"VALUES('{user.Name}','{user.Password}','{user.InvitedBy.Id}');";
-
-                command.ExecuteNonQuery();
-               
-                  
-                    
-                   
-                   
-              
-                //     int NewRegisterId = helper.Insert(cmd, new SqlParameter[]
-                //{
-                //     new SqlParameter("@InviteName",user.Inviter),
-                //     new SqlParameter("@InvitedCode",user.InviterNumber),
-                //     new SqlParameter("@UserName",user.UserName),
-                //     new SqlParameter("@Password",user.Password)
-                //}
-
+                DbHelper helper = new DbHelper();
+                #region Insert Register
+                string cmd =
+                    @"Insert [User](InviteName,InvitedCode,UserName,[Password],InviteById,[Level])
+                Values(@InviteName, @InvitedCode, @UserName, @Password,(Select Id From[User] Where UserName = @InviteName),1) ";
+                int newRegisterId = helper.Insert(cmd, new SqlParameter[]
+                {
+                new SqlParameter("@InviteName",user.InvitedBy),
+                new SqlParameter("@InvitedCode",user.InviteCode),
+                new SqlParameter("@UserName",user.Name),
+                new SqlParameter("@Password",user.Password)
+                });
+             
+                return true;
             }
 
-            
-      
-      
 
-            
+
+
         }
 
         internal IList<User> Get(int pageIndex, int pageSize)
@@ -128,18 +143,54 @@ namespace YiQiBang.Repositories
 
         public UserRepository()
         {
-         
+
         }
+
+        //public User Find(int id)
+        //{
+        //    return Users.Where(u => u.Id == id).SingleOrDefault();
+        //}
+
+
+
 
         public User Find(int id)
         {
-            return Users.Where(u => u.Id == id).SingleOrDefault();
+            User user = new User();
+            user.InvitedBy = new User();
 
+            using (IDbConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                IDbCommand command = new SqlCommand();
+
+                command.Connection = connection;
+                command.CommandText = $"SELECT * FROM [USER] WHERE ID = {id}";
+                IDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    user.Name = reader["NAME"].ToString();
+                    user.Password = reader["PASSWORD"].ToString();
+                    user.InvitedBy.Id = Convert.ToInt32(reader["InvitedBy"]);
+                }
+                else
+                {
+                    user = null;
+                }
+
+
+            }
+
+            return user;
         }
+
+
+
         void Delete()
         {
 
         }
-     
+
     }
 }

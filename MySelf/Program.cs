@@ -25,10 +25,19 @@ namespace MySelf
                 //command.CommandText = @"Insert [User]([Name],[Password],InviteById,InvitedCode)
                 //Values(@UserName,@Password,@InviteName, @InvitedCode,
                 //(Select Id From[User] Where UserName = @InviteName)) ";
-                command.CommandText = $"INSERT [User]([NAME],[PASSWORD],[InvitedBy])VALUES(N'周丁浩',N'4567',3);";
+                command.CommandText = "SELECT * FROM [USER]";
 
-                command.ExecuteNonQuery();
+                IDataReader reader=command.ExecuteReader();
 
+   
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        Console.Write(reader[i]+"    ");
+                    }
+                    Console.WriteLine();
+                }
             }
 
         }
