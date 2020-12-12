@@ -13,9 +13,9 @@ namespace YiQiBang.Repositories
 
         static ArticleRepository()
         {
-            UserRepository userRepository = new UserRepository();
+            UserRepepository userRepository = new UserRepepository();
             KeywordRepository keywordRepository = new KeywordRepository();
-            CommentRository commentRository = new CommentRository();
+            CommentRepository commentRository = new CommentRepository();
             articles = new List<Article>() {
 
             new Article

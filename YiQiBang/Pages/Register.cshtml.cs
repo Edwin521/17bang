@@ -12,10 +12,10 @@ namespace YiQiBang.Pages
     [BindProperties]
     public class RegisterModel : PageModel
     {
-        private UserRepository userRepository;
+        private UserRepepository userRepository;
         public RegisterModel()
         {
-            userRepository = new UserRepository();
+            userRepository = new UserRepepository();
         }
         public Entities.User NewUser { set; get; }
 

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace YiQiBang.Repositories
 {
-    public class SuggestRository
+    public class SuggestRepository
     {
     }
 }

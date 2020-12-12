@@ -7,13 +7,13 @@ using YiQiBang.Entities;
 namespace YiQiBang.Repositories
 {
 
-    public class CommentRository
+    public class CommentRepository
     {
         private static IList<Comment> comments;
 
-        static CommentRository()
+        static CommentRepository()
         {
-            UserRepository userRepository = new UserRepository();
+            UserRepepository userRepository = new UserRepepository();
             comments = new List<Comment>()
             {
                 new Comment{

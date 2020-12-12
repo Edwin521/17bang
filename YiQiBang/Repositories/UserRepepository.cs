@@ -9,56 +9,56 @@ using YiQiBang.Entities;
 
 namespace YiQiBang.Repositories
 {
-    public class UserRepository
+    public class UserRepepository
     {
         private static IList<User> Users;
         public int UserCount { get; set; } = Users.Count;
         private string connectionString =
            @"Data Source=(localdb)\MSSQLLocalDB;
                     Initial Catalog=18bang;Integrated Security=True;";
-        static UserRepository()
-        {
-            Users = new List<User>() {
+        //static UserRepository()
+        //{
+        //    Users = new List<User>() {
 
-            new User
-            {
-                Id = 1,
-                Name="马保国",
-                Password="521521",
-                Introduction="我会闪电五连鞭，谁与争锋",
+        //    new User
+        //    {
+        //        Id = 1,
+        //        Name="马保国",
+        //        Password="521521",
+        //        Introduction="我会闪电五连鞭，谁与争锋",
 
-            },
-              new User
-            {
-                Id = 2,
-                Name="马保国2",
-                Password="5215212",
-                Introduction="我会闪电五连鞭，谁与争锋",
-            },
-                new User
-            {
-                Id = 3,
-                Name="特朗普",
-                Password="521521",
-                Introduction="没有人比我更懂法律",
-            },
-                  new User
-            {
-                Id = 4,
-                Name="赵铁路",
-                Password="521521",
-                Introduction="我会闪电五连鞭，谁与争锋",
-            },
-                    new User
-            {
-                Id = 5,
-                Name="杰瑞",
-                Password="521521",
-                Introduction="我会闪电五连鞭，谁与争锋",
-            },
+        //    },
+        //      new User
+        //    {
+        //        Id = 2,
+        //        Name="马保国2",
+        //        Password="5215212",
+        //        Introduction="我会闪电五连鞭，谁与争锋",
+        //    },
+        //        new User
+        //    {
+        //        Id = 3,
+        //        Name="特朗普",
+        //        Password="521521",
+        //        Introduction="没有人比我更懂法律",
+        //    },
+        //          new User
+        //    {
+        //        Id = 4,
+        //        Name="赵铁路",
+        //        Password="521521",
+        //        Introduction="我会闪电五连鞭，谁与争锋",
+        //    },
+        //            new User
+        //    {
+        //        Id = 5,
+        //        Name="杰瑞",
+        //        Password="521521",
+        //        Introduction="我会闪电五连鞭，谁与争锋",
+        //    },
 
-        };
-        }
+        //};
+        //} 
 
 
         internal int GetMaxId()
@@ -67,10 +67,6 @@ namespace YiQiBang.Repositories
             return excellent.Id;
         }
 
-        //internal User GetByName(string name)
-        //{
-        //    return Users.Where(u => u.Name == name).SingleOrDefault();
-        //}
 
         public User GetByName(string name)
         {
@@ -102,36 +98,23 @@ namespace YiQiBang.Repositories
 
         }
 
+        public bool Save(User user)
+        {
+            //DbHelper helper = new DbHelper();
+            //#region Insert Register
+            //string cmd =
+            //    @"Insert [User](InviteName,InvitedCode,UserName,[Password],InviteById,[Level])
+            //    Values(@InviteName, @InvitedCode, @UserName, @Password,(Select Id From[User] Where UserName = @InviteName),1) ";
+            //int newRegisterId = helper.Insert(cmd, new SqlParameter[]
+            //{
+            //    new SqlParameter("@InviteName",user.InvitedBy),
+            //    new SqlParameter("@InvitedCode",user.InviteCode),
+            //    new SqlParameter("@UserName",user.Name),
+            //    new SqlParameter("@Password",user.Password)
+            //});
 
 
-
-        //internal void Save(User newUser)
-        //{
-        //    Users.Add(newUser);
-        //}
-     
-
-            public bool Save(User user)
-            {
-                DbHelper helper = new DbHelper();
-                #region Insert Register
-                string cmd =
-                    @"Insert [User](InviteName,InvitedCode,UserName,[Password],InviteById,[Level])
-                Values(@InviteName, @InvitedCode, @UserName, @Password,(Select Id From[User] Where UserName = @InviteName),1) ";
-                int newRegisterId = helper.Insert(cmd, new SqlParameter[]
-                {
-                new SqlParameter("@InviteName",user.InvitedBy),
-                new SqlParameter("@InvitedCode",user.InviteCode),
-                new SqlParameter("@UserName",user.Name),
-                new SqlParameter("@Password",user.Password)
-                });
-             
-                return true;
-            }
-
-
-
-
+            return true;
         }
 
         internal IList<User> Get(int pageIndex, int pageSize)
@@ -141,16 +124,10 @@ namespace YiQiBang.Repositories
                             .ToList();
         }
 
-        public UserRepository()
+        public UserRepepository()
         {
 
         }
-
-        //public User Find(int id)
-        //{
-        //    return Users.Where(u => u.Id == id).SingleOrDefault();
-        //}
-
 
 
 
@@ -158,7 +135,6 @@ namespace YiQiBang.Repositories
         {
             User user = new User();
             user.InvitedBy = new User();
-
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -179,18 +155,11 @@ namespace YiQiBang.Repositories
                     user = null;
                 }
 
-
             }
 
             return user;
         }
 
-
-
-        void Delete()
-        {
-
-        }
 
     }
 }

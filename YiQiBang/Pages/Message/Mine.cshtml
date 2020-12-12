@@ -1,0 +1,104 @@
+﻿@page
+@model YiQiBang.Pages.Message.MineModel
+@{
+    ViewData["Title"] = "Mine";
+    Layout = "_HaveSelfIntroduction";
+}
+
+<h1>Mine</h1>
+
+@section PageTitle{我的消息}
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6">
+        <label><input type="checkbox" />全选</label>
+        <button type="submit" asp-page="/Message/Mine" asp-route-opt="read" class="btn btn-primary rounded fa fa-check-circle">已读</button>
+        <button type="submit" asp-page="/Message/Mine" asp-route-opt="delete" class="btn border-secondary rounded fa fa-times-circle">删除</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-2">时间</div>
+    <div class="col-2"><a href="#">订阅种类<i class="fa fa-cog"></i></a></div>
+    <div class="col-7">内容</div>
+    <hr />
+</div>
+
+@for (int i = 0; i < Model.Messages.Count; i++)
+{
+    string fontWeight = Model.Messages[i].HasCheck ? string.Empty : "font-weight:500";
+    <div class="row text-bold" style="@fontWeight">
+        <div class="col-1">
+            <label>
+                <input js-messageHasCheck type="checkbox" asp-for="Messages[i].HasCheck" />
+                <input type="hidden" asp-for="Messages[i].Id" />
+            </label>
+        </div>
+        @if (Model.Messages[i].HasRead)
+        {
+            <div class="col-2"><a class="fa fa-calendar" @Model.Messages[i].PublishTime></a></div>
+            <div class="col-2"><span><a href="#"><i class="fa fa-times-circle"></i></a>@Model.Messages[i].Status.GetDescription()</span></div>
+            <div class="col-7"><span>@Model.Messages[i].Content</span></div>
+        }
+        else
+        {
+            <div class="col-2"><strong><a class="fa fa-calendar" @Model.Messages[i].PublishTime></a></strong></div>
+            <div class="col-2"><span><a href="#"><i class="fa fa-times-circle"></i></a><strong>@Model.Messages[i].Status.GetDescription()</strong></span></div>
+            <div class="col-7"><span><strong>@Model.Messages[i].Content</strong></span></div>
+        }
+
+    </div>
+}
+@{
+    int currentPageIndex;
+    if (Convert.ToInt32(Request.RouteValues["id"]) == 0)
+    {
+        currentPageIndex = 1;
+    }
+    else
+    {
+        currentPageIndex = Convert.ToInt32(Request.RouteValues["id"]);
+    }
+
+}
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+
+        @if (currentPageIndex > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" aria-label="Private" href="/Message/Mine/@(currentPageIndex - 1)">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        }@*/*else nothing*/*@
+
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            if (currentPageIndex == i)
+            {
+                <li class="page-item page-link" style="background-color:rgba(0, 0, 0, 0.72);color:white">@(i)</li>
+            }
+            else
+            {
+                <li class="page-item"><a class="page-link" href="/Message/Mine/@i">@(i)</a></li>
+            }
+        }
+
+        @if (currentPageIndex < Model.PageCount)
+        {
+            <li class="page-item">
+                <a class="page-link" aria-label="Next" href="/Message/Mine/@(currentPageIndex + 1)">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        }@*/*else nothing*/*@
+    </ul>
+</nav>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6">
+        <label><input type="checkbox" />全选</label>
+        <button type="submit" asp-page="/Message/Mine" asp-route-opt="read" class="btn btn-primary rounded fa fa-check-circle">已读</button>
+        <button type="submit" asp-page="/Message/Mine" asp-route-opt="delete" class="btn border-secondary rounded fa fa-times-circle">删除</button>
+    </div>
+</div>
