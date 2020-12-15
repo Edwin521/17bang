@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using YiQiBang.Pages.Message;
 
 namespace YiQiBang.Repositories
 {
+
+
     public class MessageRepository
     {
 
         private static IList<MessageMine> messages;
+        
         static MessageRepository()
         {
             messages = new List<MessageMine>
@@ -24,10 +28,33 @@ namespace YiQiBang.Repositories
                     Status=MessageStatus.Refresh,
                 },
             };
+
+            DataTable dtMessage = new DataTable("Message");
+
+            dtMessage.Columns.Add("Id", typeof(int));
+            dtMessage.Columns.Add("Content", typeof(string));
+            dtMessage.Columns.Add("PublishTime", typeof(DateTime));
+            dtMessage.Columns.Add("HasRead", typeof(bool));
+            dtMessage.Columns.Add("HasCheck", typeof(bool));
+            dtMessage.Columns.Add("Status", typeof(string));
+
+            
         }
+
+
+
+
+
+        //internal void Remove(int id)
+        //{
+        //    messages.Remove(messages.Where(m => m.Id == id).Single());
+        //}
+
         internal void Remove(int id)
         {
-            messages.Remove(messages.Where(m => m.Id == id).Single());
+  
+
+
         }
 
         public MessageMine GetHasRead(int id)
@@ -43,7 +70,7 @@ namespace YiQiBang.Repositories
         {
             messages.Add(value);
         }
-    
+
 
         public int GetSum()
         {

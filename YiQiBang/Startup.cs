@@ -30,6 +30,7 @@ namespace YiQiBang
                           opt.Conventions.AddPageRoute("/Log/On", "/LogOn");
                           opt.Conventions.AddPageRoute("/Article/Single", "/Article/{id:int}");
                           opt.Conventions.AddPageRoute("/Article/Index", "/Article/Category-{id:int}");
+                       
 
 
 
