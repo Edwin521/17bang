@@ -18,6 +18,10 @@ namespace MySelf
             optionsBuilder.UseSqlServer(connStr);
             base.OnConfiguring(optionsBuilder); 
         }
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+           
+        }
     }
 }
