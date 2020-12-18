@@ -55,9 +55,8 @@ namespace MySelf
 
             //使用EF的API直接建库建表删库
             var db = context.Database;
-            db.EnsureCreated();
-            db.EnsureDeleted();
-
+            //db.EnsureDeleted();
+            //db.EnsureCreated();
             //使用Migration工具建库建表
             //Add-Migration AddDatabaseAndUser
             //Update-Database
@@ -97,7 +96,46 @@ namespace MySelf
 
             //User类中的属性FailedTry不用存储到数据库中
             //给CreateTime属性添加一个非聚集唯一索引
+            //默认为非聚集索引，EF core 目前还没办法指定聚集索引，声明索引唯一非唯一在类上声明指定，或者modelBuilder里声明配置。
+
             //CreateTime不能小于2000年1月1日
+
+
+
+            //作业： 单个Entity：基本增删改查和ChangeTracker
+            //利用EF，插入3个User对象
+            //context.AddRange(
+            //    new User { Name = "zdh", Password = "1234" },
+            //    new User { Name = "lw", Password = "5210" },
+            //    new User { Name = "zl", Password = "5555" });
+            //context.SaveChanges();
+
+
+            //通过Id找到其中一个User对象
+            //User findUser = context.Find<User>(1);
+            //Console.WriteLine(findUser.Name);
+            //context.SaveChanges();
+
+
+            //修改该User对象的Name属性，将其同步到数据库
+            //User findUser = context.Find<User>(1);
+            //findUser.Name = "LZBNB";
+            //context.SaveChanges();
+            //Console.WriteLine(findUser.Name);
+
+
+            //不加载User对象，仅凭其Id用一句Update SQL语句完成上题
+            //User user = new User { Id = 1 };
+            //context.Attach<User>(user);
+            //user.Name = "LZBZNB";
+            //context.SaveChanges();
+
+
+            //删除该Id用户
+            //User u1 = context.Find<User>(1);
+            //context.Remove<User>(u1);
+            //context.SaveChanges();
+
 
         }
     }

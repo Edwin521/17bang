@@ -17,11 +17,14 @@ namespace MySelf
             //usesqlserver()需要添加一个引用
             optionsBuilder.UseSqlServer(connStr);
             base.OnConfiguring(optionsBuilder); 
+            
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-           
+           //modelBuilder.Entity<User>()
+           //     .HasIndex(u=>u)
         }
+
     }
 }
