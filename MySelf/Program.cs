@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -136,6 +137,40 @@ namespace MySelf
             //context.Remove<User>(u1);
             //context.SaveChanges();
 
+
+            // ////EF：Logger和条件编译符作业
+
+            //能够在EF core上配置成功Logger到Debug窗口
+            //#if DEBUG
+            //.EnableSensitiveDataLogging(true)
+            //#endif
+
+
+            //能够在EF6上配置成功Logger到控制台
+            //EF6没写
+
+
+            //Linq to IQueryable和Expression作业
+
+            //利用Linq to EntityFramework，实现方法：
+            //GetBy(IList < ProblemStatus > exclude, bool hasReward, bool descByPublishTime)，该方法可以根据输入参数：
+            //IList<ProblemStatus> exclude：不显示（排除）某些状态的求助
+            //bool hasReward：只显示已有酬谢的求助（如果传入值为true的话）
+            //bool descByPublishTime：按发布时间正序还是倒序
+
+            //new ProblemRepository().GetBy(new List<ProblemStatus> { new ProblemStatus { } }, false, false);
+
+            //EF：关联对象：映射和加载作业
+            //观察一起帮的功能，思考并
+            //Email和User有一对一的关系，参照课堂演示，在数据库上建立User外键引用Email的映射
+            //按继承映射：Blog / Article / Suggest以及他们的父类Content
+
+
+
+     // EF core：事务和UoW作业
+            //用事务实现帮帮币出售的过程
+            //卖方帮帮币足够，扣减数额后成功提交。
+            // 卖房帮帮币不够，事务回滚，买卖双方帮帮币不变。
 
         }
     }
