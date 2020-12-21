@@ -21,5 +21,7 @@ namespace MySelf
         public bool? IsFamle { get; set; }
         public int? FailedTry { get; set; }
         public DateTime? CreateTime { get; set; }
+        public Email SendTo { set; get; }
+        public int? SendToId { set; get; }
     }
 }

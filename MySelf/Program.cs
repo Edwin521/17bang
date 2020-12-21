@@ -163,11 +163,21 @@ namespace MySelf
             //EF：关联对象：映射和加载作业
             //观察一起帮的功能，思考并
             //Email和User有一对一的关系，参照课堂演示，在数据库上建立User外键引用Email的映射
+
+
+            User lzb = new User { Name = "lzb", Password = "1234" };
+            Email email = new Email { EmailLocation = "123456@qq.com" };
+            lzb.SendTo = email;
+            email.FromWho = lzb;
+
+            context.Add<User>(lzb);
+            context.Add<Email>(email);
+            context.SaveChanges();
             //按继承映射：Blog / Article / Suggest以及他们的父类Content
 
 
 
-     // EF core：事务和UoW作业
+            // EF core：事务和UoW作业
             //用事务实现帮帮币出售的过程
             //卖方帮帮币足够，扣减数额后成功提交。
             // 卖房帮帮币不够，事务回滚，买卖双方帮帮币不变。

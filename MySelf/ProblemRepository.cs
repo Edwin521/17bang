@@ -20,7 +20,7 @@ namespace MySelf
         }
          public IQueryable<Problem> GetAfterExclude(IList<ProblemStatus> exclude)
         {
-            IQueryable<Problem> SqlDbContext = new SqlDbContext().problems;
+            IQueryable<Problem> SqlDbContext = new SqlDbContext().Problems;
             return SqlDbContext.Where(p => !exclude.Contains(p.Status));
         }
        
