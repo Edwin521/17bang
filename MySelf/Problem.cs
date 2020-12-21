@@ -5,12 +5,9 @@ using System.Text;
 
 namespace MySelf
 {
-   public class Problem :BaceEntity
+   public class Problem :Content
     {
-        public string Title { set; get; }
-        public string Body { set; get; }
-        public string Summary { set; get; }
-        public DateTime PublishTime { set; get; }
+     
         public int Reward { set; get; }
 
         public string AuthorId { set; get; }
