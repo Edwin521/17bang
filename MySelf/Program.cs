@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace MySelf
 {
@@ -55,9 +57,12 @@ namespace MySelf
 
 
             //使用EF的API直接建库建表删库
-            var db = context.Database;
+            #region 
+            //var db = context.Database;
             //db.EnsureDeleted();
             //db.EnsureCreated();
+            #endregion
+
             //使用Migration工具建库建表
             //Add-Migration AddDatabaseAndUser
             //Update-Database
@@ -165,22 +170,115 @@ namespace MySelf
             //Email和User有一对一的关系，参照课堂演示，在数据库上建立User外键引用Email的映射
 
 
-            User lzb = new User { Name = "lzb", Password = "1234" };
-            Email email = new Email { EmailLocation = "123456@qq.com" };
-            lzb.SendTo = email;
-            email.FromWho = lzb;
+            //User lzb = new User { Name = "lzb", Password = "1234" };
+            //Email email = new Email { EmailLocation = "123456@qq.com" };
+            //lzb.SendTo = email;
+            //email.FromWho = lzb;
 
-            context.Add<User>(lzb);
-            context.Add<Email>(email);
-            context.SaveChanges();
+            //context.Add<User>(lzb);
+            //context.Add<Email>(email);
+            //context.SaveChanges();
             //按继承映射：Blog / Article / Suggest以及他们的父类Content
-
+            //所以要使类的关系的构建Blog / Article / Suggest 这三个类都继承自content
 
 
             // EF core：事务和UoW作业
             //用事务实现帮帮币出售的过程
             //卖方帮帮币足够，扣减数额后成功提交。
             // 卖房帮帮币不够，事务回滚，买卖双方帮帮币不变。
+
+
+            //int tranBMoney = 30;
+            ////买家和卖家的信息
+            //User saleUser = context.Users.Where(u => u.Name == "zdh").SingleOrDefault();
+            //BMoney saleUserMoney = context.BMoneys.OrderByDescending(m => m.LatesTime).Where(m => m.Owner == saleUser).FirstOrDefault();
+
+            //User buyUser = context.Users.Where(u => u.Name == "lzb").SingleOrDefault();
+            //BMoney buyUserInfo = context.BMoneys.OrderByDescending(m => m.LatesTime).Where(m => m.Owner == buyUser).FirstOrDefault();
+
+            ////有足够的钱支付
+            //if ((saleUserMoney.LeftBMoney - tranBMoney) < 0)
+            //{
+            //    return;
+            //};
+
+            //BMoney ofSaleUser = new BMoney
+            //{
+            //    Owner = saleUser,
+            //    LeftBMoney = saleUserMoney.LeftBMoney - tranBMoney,
+            //    LeftBPoint = saleUserMoney.LeftBPoint,
+            //    Detail = $"您成功在{DateTime.Now}出售了{tranBMoney}帮帮币 ",
+            //    FreezingMoney = 0,
+            //    LatesTime = DateTime.Now
+            //};
+            //BMoney ofBuyUser = new BMoney
+            //{
+            //    Owner = buyUser,
+            //    LeftBMoney = buyUserInfo.LeftBMoney + tranBMoney,
+            //    LeftBPoint = saleUserMoney.LeftBPoint,
+            //    Detail = $"您成功的在 {DateTime.Now} 从{saleUser.Name}那里购买了 {tranBMoney} 帮帮币 ",
+            //    FreezingMoney = 0,
+            //    LatesTime = DateTime.Now
+            //};
+            //context.BMoneys.AddRange(new BMoney[] { ofSaleUser, ofBuyUser });
+            //context.SaveChanges();
+
+
+            //关联对象：存储 作业
+            //  完成以下entity的创建和ORM映射：
+            //    关键字
+            //    文章分类
+            //    帮帮点 / 帮帮币
+
+
+            //以及相应的增删改查功能：
+
+            //    发布文章和求助时包含关键字（keyword）
+            //多对多关系
+
+            //    可以按关键字筛选求助
+
+            //先插数据
+            Keyword keywords1 = new Keyword { Word = "Keywords1" };
+            Keyword keywords2 = new Keyword { Word = "Keywords2" };
+            Keyword keywords3 = new Keyword { Word = "Keywords3" };
+            Keyword keywords4 = new Keyword { Word = "Keywords4" };
+
+            //----------------------------------------------------------------------------------------------
+
+            Article article1 = new Article { Title = "Insert Article Title 1", Body = "Insert Article Body 1", Summary = "None" };
+            Article article2 = new Article { Title = "Insert Article Title 2", Body = "Insert Article Body 2", Summary = "None" };
+
+            article1.keywords = new List<Keyword> { keywords1, keywords2 };
+
+            article2.keywords = new List<Keyword> { keywords3, keywords2, keywords4 };
+
+            context.AddRange(article1, article2);
+            //----------------------------------------------------------------------------------------------
+
+            Problem problem1 = new Problem { Title = "Insert problem Title -1", Body = "Insert problem Body -1", Reward = 5 };
+            Problem problem2 = new Problem { Title = "Insert problem Title -2", Body = "Insert problem Body -2", Reward = 5 };
+            Problem problem3 = new Problem { Title = "Insert problem Title -3", Body = "Insert problem Body -3", Reward = 5 };
+
+            problem1.keywords = new List<Keyword> { keywords1, keywords2 };
+
+            problem2.keywords = new List<Keyword> { keywords2, keywords3 };
+
+            problem3.keywords = new List<Keyword> { keywords3, keywords4, keywords1 };
+
+            context.AddRange(problem1, problem2, problem3);
+
+            //----------------------------------------------------------------------------------------------
+
+            context.SaveChanges();
+
+
+
+            //    能够按作者（Author）/ 分类（Category）显示文章列表
+            //     能够选择文章列表的排序方向（按发布时间顺序倒序）和每页显示格式（50篇标题 / 10篇标题 + 摘要）
+            //    发布文章会：扣掉作者1枚帮帮币、增加10个帮帮点
+            //    发布求助时可以设置悬赏帮帮币，发布后会被冻结，求助被解决时会划拨给好心人
+            //    帮帮点和帮帮币的每一次变更都会被记录并可以显示
 
         }
     }

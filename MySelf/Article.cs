@@ -8,7 +8,7 @@ namespace MySelf
     {
         public string AuthorId { set; get; }
         public User Author { set; get; }
-
+        public IList<Keyword> keywords { get; set; }
   
     }
 }

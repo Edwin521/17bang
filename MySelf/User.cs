@@ -8,20 +8,24 @@ using System.Text;
 namespace MySelf
 {
     [Table("Register")]
-    [Index("CreateTime",IsUnique =true)]
-   public  class User
+    [Index("CreateTime", IsUnique = true)]
+    public class User:BaceEntity
     {
-        public int Id { get; set; }
+
         [Column("UserName")]
         [MaxLength(256)]
- 
+
         public string Name { get; set; }
         [Required]
         public string Password { get; set; }
         public bool? IsFamle { get; set; }
+        //[NotMapped]
         public int? FailedTry { get; set; }
         public DateTime? CreateTime { get; set; }
         public Email SendTo { set; get; }
         public int? SendToId { set; get; }
+        public IList<Problem> Problems { set; get; }
+        public IList<BMoney> Wallet { set; get; }
+        public IList<Article> articles { set; get; }
     }
 }

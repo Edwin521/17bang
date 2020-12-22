@@ -8,12 +8,14 @@ namespace MySelf
    public class Problem :Content
     {
      
+        public IList<Keyword> keywords { get; set; }
         public int Reward { set; get; }
 
         public string AuthorId { set; get; }
         public User Author { set; get; }
         public int? HaveKindId { set; get; }
         public Kind HaveKind { set; get; }
+
 
         public ProblemStatus Status { set; get; }
     }
