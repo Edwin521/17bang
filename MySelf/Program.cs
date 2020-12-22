@@ -45,7 +45,7 @@ namespace MySelf
 
 
             //将User类映射到数据库：
-            SqlDbContext context = new SqlDbContext();
+            //SqlDbContext context = new SqlDbContext();
             //User user = new User
             //{
             //    Id=1,
@@ -110,6 +110,7 @@ namespace MySelf
 
             //作业： 单个Entity：基本增删改查和ChangeTracker
             //利用EF，插入3个User对象
+            //SqlDbContext context = new SqlDbContext();
             //context.AddRange(
             //    new User { Name = "zdh", Password = "1234" },
             //    new User { Name = "lw", Password = "5210" },
@@ -239,42 +240,143 @@ namespace MySelf
             //    可以按关键字筛选求助
 
             //先插数据
-            Keyword keywords1 = new Keyword { Word = "Keywords1" };
-            Keyword keywords2 = new Keyword { Word = "Keywords2" };
-            Keyword keywords3 = new Keyword { Word = "Keywords3" };
-            Keyword keywords4 = new Keyword { Word = "Keywords4" };
+            //SqlDbContext context = new SqlDbContext();
+            //Keyword keywords1 = new Keyword { Word = "Keywords1" };
+            //Keyword keywords2 = new Keyword { Word = "Keywords2" };
+            //Keyword keywords3 = new Keyword { Word = "Keywords3" };
+            //Keyword keywords4 = new Keyword { Word = "Keywords4" };
 
-            //----------------------------------------------------------------------------------------------
+            ////----------------------------------------------------------------------------------------------
 
-            Article article1 = new Article { Title = "Insert Article Title 1", Body = "Insert Article Body 1", Summary = "None" };
-            Article article2 = new Article { Title = "Insert Article Title 2", Body = "Insert Article Body 2", Summary = "None" };
+            //Article article1 = new Article { Title = "Insert Article Title 1", Body = "Insert Article Body 1", Summary = "None" };
+            //Article article2 = new Article { Title = "Insert Article Title 2", Body = "Insert Article Body 2", Summary = "None" };
 
-            article1.keywords = new List<Keyword> { keywords1, keywords2 };
+            //article1.keywords = new List<Keyword> { keywords1, keywords2 };
 
-            article2.keywords = new List<Keyword> { keywords3, keywords2, keywords4 };
+            //article2.keywords = new List<Keyword> { keywords3, keywords2, keywords4 };
 
-            context.AddRange(article1, article2);
-            //----------------------------------------------------------------------------------------------
+            //context.AddRange(article1, article2);
+            ////----------------------------------------------------------------------------------------------
 
-            Problem problem1 = new Problem { Title = "Insert problem Title -1", Body = "Insert problem Body -1", Reward = 5 };
-            Problem problem2 = new Problem { Title = "Insert problem Title -2", Body = "Insert problem Body -2", Reward = 5 };
-            Problem problem3 = new Problem { Title = "Insert problem Title -3", Body = "Insert problem Body -3", Reward = 5 };
+            //Problem problem1 = new Problem { Title = "Insert problem Title -1", Body = "Insert problem Body -1", Reward = 5 };
+            //Problem problem2 = new Problem { Title = "Insert problem Title -2", Body = "Insert problem Body -2", Reward = 5 };
+            //Problem problem3 = new Problem { Title = "Insert problem Title -3", Body = "Insert problem Body -3", Reward = 5 };
 
-            problem1.keywords = new List<Keyword> { keywords1, keywords2 };
+            //problem1.keywords = new List<Keyword> { keywords1, keywords2 };
 
-            problem2.keywords = new List<Keyword> { keywords2, keywords3 };
+            //problem2.keywords = new List<Keyword> { keywords2, keywords3 };
 
-            problem3.keywords = new List<Keyword> { keywords3, keywords4, keywords1 };
+            //problem3.keywords = new List<Keyword> { keywords3, keywords4, keywords1 };
 
-            context.AddRange(problem1, problem2, problem3);
+            //context.AddRange(problem1, problem2, problem3);
 
-            //----------------------------------------------------------------------------------------------
+            ////----------------------------------------------------------------------------------------------
 
-            context.SaveChanges();
+            //context.SaveChanges();
 
+            SqlDbContext context = new SqlDbContext();
+            Keyword haveProblem = context.Keywords.Where(k => k.Word == "Keywords1").Include(k => k.problems).Single();
+            haveProblem.problems = haveProblem.problems ?? new List<Problem>();
+            haveProblem.problems.Where(p => p.keywords == haveProblem);
+            foreach (var item in haveProblem.problems)
+            {
+                Console.WriteLine(item.Title);
+            }
 
+            //haveProblem.problems.Where(p =>p.keywords.Contains "");
+
+            //foreach (var item in haveProblem.Of_ThisProblem)
+            //{
+            //    Console.WriteLine(item.Problem.Title);
+            //}
 
             //    能够按作者（Author）/ 分类（Category）显示文章列表
+
+            //Kind kind1 = new Kind { Name = "Status-1" };
+            //Kind kind2 = new Kind { Name = "Status-2" };
+            //Kind kind3 = new Kind { Name = "Status-3" };
+            //context.Kinds.AddRange(kind1,kind2,kind3);
+
+            //User lzb = context.Users.Where(u => u.Name == "lzb").FirstOrDefault();
+            //User zdh = context.Users.Where(u => u.Name == "zdh").FirstOrDefault();
+
+
+            //Kind kind1 = context.Kinds.Where(k => k.Name == "Status-1").FirstOrDefault();
+            //Kind kind2 = context.Kinds.Where(k => k.Name == "Status-2").FirstOrDefault();
+            //Kind kind3 = context.Kinds.Where(k => k.Name == "Status-3").FirstOrDefault();
+            //Problem problem = new Problem
+            //{
+            //    Title = "Problem Title",
+            //    Body = "nothing",
+            //    Summary = "nothing",
+            //    PublishTime = DateTime.Now.AddDays(-12),
+            //    Author = lzb,
+            //    HaveKind = kind1,
+            //    Reward = 10,
+            //    Status = ProblemStatus.inprocess
+            //};
+            //Problem problem1 = new Problem
+            //{
+            //    Title = "Problem Title-1",
+            //    Body = "nothing",
+            //    Summary = "nothing",
+            //    PublishTime = DateTime.Now.AddDays(-13),
+            //    Author = lzb,
+            //    HaveKind = kind2,
+            //    Reward = 10,
+            //    Status = ProblemStatus.inprocess
+            //};
+            //Problem problem2 = new Problem
+            //{
+            //    Title = "Problem Title-2",
+            //    Body = "nothing",
+            //    Summary = "nothing",
+            //    PublishTime = DateTime.Now.AddDays(-143),
+            //    Author = zdh,
+            //    HaveKind = kind2,
+            //    Reward = 10,
+            //    Status = ProblemStatus.Rewarded
+            //};
+            //Problem problem3 = new Problem
+            //{
+            //    Title = "Problem Title-3",
+            //    Body = "nothing",
+            //    Summary = "nothing",
+            //    PublishTime = DateTime.Now.AddDays(-143),
+            //    Author = zdh,
+            //    HaveKind = kind3,
+            //    Reward = 10,
+            //    Status = ProblemStatus.Rewarded
+            //};
+
+            //context.Problems.AddRange( problem, problem1, problem2, problem3 );
+
+            //context.SaveChanges();
+
+
+            //----------------------------------------
+
+            //SqlDbContext context = new SqlDbContext();
+            //User userHaveThisProblem = context.Users.Include(u => u.Problems).SingleOrDefault();
+
+            //userHaveThisProblem.Problems = userHaveThisProblem.Problems ?? new List<Problem>();
+            //userHaveThisProblem.Problems.Where(p => p.Author.Name == "lzb");
+            //foreach (var item in userHaveThisProblem.Problems)
+            //{
+            //    Console.WriteLine(item.Title);
+            //}
+
+            //---------------------------------------------
+            //SqlDbContext context = new SqlDbContext();
+            //Kind haveThisKindProblem = context.Kinds.Include(k => k.ThisProblem).FirstOrDefault(k => k.Name == "待协助");
+
+            //haveThisKindProblem.ThisProblem = haveThisKindProblem.ThisProblem ?? new List<Problem>();
+            //haveThisKindProblem.ThisProblem.Where(k => k.HaveKind == haveThisKindProblem);
+            //foreach (var item in haveThisKindProblem.ThisProblem)
+            //{
+            //    Console.WriteLine(item.Title);
+            //}
+
             //     能够选择文章列表的排序方向（按发布时间顺序倒序）和每页显示格式（50篇标题 / 10篇标题 + 摘要）
             //    发布文章会：扣掉作者1枚帮帮币、增加10个帮帮点
             //    发布求助时可以设置悬赏帮帮币，发布后会被冻结，求助被解决时会划拨给好心人
