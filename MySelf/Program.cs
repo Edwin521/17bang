@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGeneration.Design;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Linq;
 
 namespace MySelf
 {
-    public class human
+    public class Program
     {
 
 
@@ -274,14 +275,14 @@ namespace MySelf
 
             //context.SaveChanges();
 
-            SqlDbContext context = new SqlDbContext();
-            Keyword haveProblem = context.Keywords.Where(k => k.Word == "Keywords1").Include(k => k.problems).Single();
-            haveProblem.problems = haveProblem.problems ?? new List<Problem>();
-            haveProblem.problems.Where(p => p.keywords == haveProblem);
-            foreach (var item in haveProblem.problems)
-            {
-                Console.WriteLine(item.Title);
-            }
+            //SqlDbContext context = new SqlDbContext();
+            //Keyword haveProblem = context.Keywords.Where(k => k.Word == "Keywords1").Include(k => k.problems).Single();
+            //haveProblem.problems = haveProblem.problems ?? new List<Problem>();
+            //haveProblem.problems.Where(p => p.keywords == haveProblem);
+            //foreach (var item in haveProblem.problems)
+            //{
+            //    Console.WriteLine(item.Title);
+            //}
 
             //haveProblem.problems.Where(p =>p.keywords.Contains "");
 
@@ -291,11 +292,11 @@ namespace MySelf
             //}
 
             //    能够按作者（Author）/ 分类（Category）显示文章列表
-
+            SqlDbContext context = new SqlDbContext();
             //Kind kind1 = new Kind { Name = "Status-1" };
             //Kind kind2 = new Kind { Name = "Status-2" };
             //Kind kind3 = new Kind { Name = "Status-3" };
-            //context.Kinds.AddRange(kind1,kind2,kind3);
+            //context.Kinds.AddRange(kind1, kind2, kind3);
 
             //User lzb = context.Users.Where(u => u.Name == "lzb").FirstOrDefault();
             //User zdh = context.Users.Where(u => u.Name == "zdh").FirstOrDefault();
@@ -349,7 +350,7 @@ namespace MySelf
             //    Status = ProblemStatus.Rewarded
             //};
 
-            //context.Problems.AddRange( problem, problem1, problem2, problem3 );
+            //context.Problems.AddRange(problem, problem1, problem2, problem3);
 
             //context.SaveChanges();
 
@@ -357,14 +358,14 @@ namespace MySelf
             //----------------------------------------
 
             //SqlDbContext context = new SqlDbContext();
-            //User userHaveThisProblem = context.Users.Include(u => u.Problems).SingleOrDefault();
+            User userHaveThisProblem = context.Users.Where(u=>u.Name=="lzb").Include(u => u.Problems).SingleOrDefault();
 
-            //userHaveThisProblem.Problems = userHaveThisProblem.Problems ?? new List<Problem>();
-            //userHaveThisProblem.Problems.Where(p => p.Author.Name == "lzb");
-            //foreach (var item in userHaveThisProblem.Problems)
-            //{
-            //    Console.WriteLine(item.Title);
-            //}
+            userHaveThisProblem.Problems = userHaveThisProblem.Problems ?? new List<Problem>();
+            userHaveThisProblem.Problems.Where(p => p.Author.Name ==userHaveThisProblem.Name);
+            foreach (var item in userHaveThisProblem.Problems)
+            {
+                Console.WriteLine(item.Title);
+            }
 
             //---------------------------------------------
             //SqlDbContext context = new SqlDbContext();
@@ -378,48 +379,44 @@ namespace MySelf
             //}
 
             //     能够选择文章列表的排序方向（按发布时间顺序倒序）和每页显示格式（50篇标题 / 10篇标题 + 摘要）
+            IList<Problem> tempList = new List<Problem>();
+            tempList = new Program().GetProblemOrderBy(true).GetContextTitleBy(true, 50).ToList();
+            foreach (var item in tempList)
+            {
+                Console.WriteLine(item.Title, item.Summary);
+            }
+
+           
             //    发布文章会：扣掉作者1枚帮帮币、增加10个帮帮点
             //    发布求助时可以设置悬赏帮帮币，发布后会被冻结，求助被解决时会划拨给好心人
             //    帮帮点和帮帮币的每一次变更都会被记录并可以显示
 
         }
+        public IQueryable<Problem> GetProblemOrderBy(bool publishTimeDesc)
+        {
+            SqlDbContext context = new SqlDbContext();
+            if (publishTimeDesc)
+            {
+                return context.Problems.OrderByDescending(p => p.PublishTime);
+            }
+            return context.Problems.OrderBy(p => p.PublishTime);
+        }
+    }
+    public static class Extensions
+    {
+        public static IQueryable<Problem> GetContextTitleBy(this IQueryable queryable, bool show50Title, int takeProblem)
+        {
+            SqlDbContext context = new SqlDbContext();
+            if (show50Title)
+            {
+                return context.Problems.Skip(takeProblem).Take(50);
+            }
+            return context.Problems.Skip(takeProblem).Take(10);
+        }
     }
 
 
 
-    class students /*: IEnumerable*////实现IEnumerable接口就可以躲过编译时检查，不报错，但运行时会报错
-    {                            ///不写后面这个接口名也没事，只要在类中实现了GetEnumerator()方法就可以了
-
-
-        //public class StudentsEnumerator : IEnumerator  ///类中类实现返回一个
-        //{
-        //    public object[] ages = new object[] { 12, 34, 56, 75, 332 };
-        //    private int index = -1;
-        //    public object Current
-        //    {
-        //        get
-        //        {
-        //            return ages[index];
-        //        }
-        //    }
-
-        //    public bool MoveNext()
-        //    {
-        //        index++;
-        //        return index < ages.Length;
-        //    }
-
-        //    public void Reset()
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //}
-
-        //public IEnumerator GetEnumerator()
-        //{
-        //    return new StudentsEnumerator();
-        //}
-    }
 }
 
 
