@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,10 +23,13 @@ namespace MySelf
             string connStr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=19bang;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             //usesqlserver()需要添加一个引用
             optionsBuilder.UseSqlServer(connStr)
+               .EnableSensitiveDataLogging()
+               .LogTo(
+               (id, level) => level == LogLevel.Error,
+               log => Console.WriteLine(log)   //如何记录log
+                );
 
-#if DEBUG
-                            .EnableSensitiveDataLogging(true);
-#endif
+
 
             base.OnConfiguring(optionsBuilder);
 

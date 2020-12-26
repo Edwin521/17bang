@@ -165,7 +165,7 @@ namespace MySelf
             //bool hasReward：只显示已有酬谢的求助（如果传入值为true的话）
             //bool descByPublishTime：按发布时间正序还是倒序
 
-            //new ProblemRepository().GetBy(new List<ProblemStatus> { new ProblemStatus { } }, false, false);
+            new ProblemRepository().GetBy(new List<ProblemStatus> { new ProblemStatus { } }, false, false);
 
             //EF：关联对象：映射和加载作业
             //观察一起帮的功能，思考并
@@ -292,7 +292,7 @@ namespace MySelf
             //}
 
             //    能够按作者（Author）/ 分类（Category）显示文章列表
-            SqlDbContext context = new SqlDbContext();
+            //SqlDbContext context = new SqlDbContext();
             //Kind kind1 = new Kind { Name = "Status-1" };
             //Kind kind2 = new Kind { Name = "Status-2" };
             //Kind kind3 = new Kind { Name = "Status-3" };
@@ -358,14 +358,14 @@ namespace MySelf
             //----------------------------------------
 
             //SqlDbContext context = new SqlDbContext();
-            User userHaveThisProblem = context.Users.Where(u=>u.Name=="lzb").Include(u => u.Problems).SingleOrDefault();
+            //User userHaveThisProblem = context.Users.Where(u=>u.Name=="lzb").Include(u => u.Problems).SingleOrDefault();
 
-            userHaveThisProblem.Problems = userHaveThisProblem.Problems ?? new List<Problem>();
-            userHaveThisProblem.Problems.Where(p => p.Author.Name ==userHaveThisProblem.Name);
-            foreach (var item in userHaveThisProblem.Problems)
-            {
-                Console.WriteLine(item.Title);
-            }
+            //userHaveThisProblem.Problems = userHaveThisProblem.Problems ?? new List<Problem>();
+            //userHaveThisProblem.Problems.Where(p => p.Author.Name ==userHaveThisProblem.Name);
+            //foreach (var item in userHaveThisProblem.Problems)
+            //{
+            //    Console.WriteLine(item.Title);
+            //}
 
             //---------------------------------------------
             //SqlDbContext context = new SqlDbContext();
@@ -379,41 +379,41 @@ namespace MySelf
             //}
 
             //     能够选择文章列表的排序方向（按发布时间顺序倒序）和每页显示格式（50篇标题 / 10篇标题 + 摘要）
-            IList<Problem> tempList = new List<Problem>();
-            tempList = new Program().GetProblemOrderBy(true).GetContextTitleBy(true, 50).ToList();
-            foreach (var item in tempList)
-            {
-                Console.WriteLine(item.Title, item.Summary);
-            }
+            //IList<Problem> tempList = new List<Problem>();
+            //tempList = new Program().GetProblemOrderBy(true).GetContextTitleBy(true, 50).ToList();
+            //foreach (var item in tempList)
+            //{
+            //    Console.WriteLine(item.Title, item.Summary);
+            //}
 
-           
+
             //    发布文章会：扣掉作者1枚帮帮币、增加10个帮帮点
             //    发布求助时可以设置悬赏帮帮币，发布后会被冻结，求助被解决时会划拨给好心人
             //    帮帮点和帮帮币的每一次变更都会被记录并可以显示
 
         }
-        public IQueryable<Problem> GetProblemOrderBy(bool publishTimeDesc)
-        {
-            SqlDbContext context = new SqlDbContext();
-            if (publishTimeDesc)
-            {
-                return context.Problems.OrderByDescending(p => p.PublishTime);
-            }
-            return context.Problems.OrderBy(p => p.PublishTime);
-        }
+        //public IQueryable<Problem> GetProblemOrderBy(bool publishTimeDesc)
+        //{
+        //    SqlDbContext context = new SqlDbContext();
+        //    if (publishTimeDesc)
+        //    {
+        //        return context.Problems.OrderByDescending(p => p.PublishTime);
+        //    }
+        //    return context.Problems.OrderBy(p => p.PublishTime);
+        //}
     }
-    public static class Extensions
-    {
-        public static IQueryable<Problem> GetContextTitleBy(this IQueryable queryable, bool show50Title, int takeProblem)
-        {
-            SqlDbContext context = new SqlDbContext();
-            if (show50Title)
-            {
-                return context.Problems.Skip(takeProblem).Take(50);
-            }
-            return context.Problems.Skip(takeProblem).Take(10);
-        }
-    }
+    //public static class Extensions
+    //{
+    //    public static IQueryable<Problem> GetContextTitleBy(this IQueryable queryable, bool show50Title, int takeProblem)
+    //    {
+    //        SqlDbContext context = new SqlDbContext();
+    //        if (show50Title)
+    //        {
+    //            return context.Problems.Skip(takeProblem).Take(50);
+    //        }
+    //        return context.Problems.Skip(takeProblem).Take(10);
+    //    }
+    //}
 
 
 

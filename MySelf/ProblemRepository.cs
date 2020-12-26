@@ -5,11 +5,11 @@ using System.Text;
 
 namespace MySelf
 {
-    class ProblemRepository
+    public class ProblemRepository
     {
         public IQueryable<Problem> GetBy(IList<ProblemStatus> exclude, bool hasReward, bool descByPublishTime)
         {
-            //GetAfterExclude(exclude).ToList();
+            GetAfterExclude(exclude).ToList();
 
             //if (hasReward)
             //{
@@ -18,21 +18,13 @@ namespace MySelf
             //return GetProblemPublishTimeBy(GetAfterExclude(exclude), descByPublishTime);
             return null;
         }
-         public IQueryable<Problem> GetAfterExclude(IList<ProblemStatus> exclude)
+        public IQueryable<Problem> GetAfterExclude(IList<ProblemStatus> exclude)
         {
             IQueryable<Problem> SqlDbContext = new SqlDbContext().Problems;
-            return SqlDbContext.Where(p =>  !exclude.Contains(p.Status));
+            return SqlDbContext.Where(p => !exclude.Contains(p.Status));
         }
-       
 
-    }
-    public static class Extension
-    {
-        public static IQueryable<Problem> GetProblemWithout(this IQueryable queryable, IQueryable<Problem> problems)
-        {
-            return problems.Where(p => p.Reward > 0);
-        }
-        public static IQueryable<Problem> GetProblemPublishTimeBy(this IQueryable queryable, IQueryable<Problem> problems, bool descByPublishTime)
+        public IQueryable<Problem> GetProblemPublishTimeBy(IQueryable<Problem> problems, bool descByPublishTime)
         {
             if (descByPublishTime)
             {
@@ -40,5 +32,10 @@ namespace MySelf
             }
             return problems.OrderByDescending(p => p.PublishTime);
         }
+        public IQueryable<Problem> GetProblemWithout(IQueryable<Problem> problems)
+        {
+            return problems.Where(p => p.Reward > 0);
+        }
     }
+
 }
