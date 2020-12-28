@@ -15,7 +15,6 @@
   <ItemGroup>
     <ProjectReference Include="..\LZBC#\LZBC#.csproj" />
     <ProjectReference Include="..\MySelf\MySelf.csproj" />
-    <ProjectReference Include="..\RazorPage\17bang.csproj" />
   </ItemGroup>
 
 </Project>

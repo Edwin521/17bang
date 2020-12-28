@@ -1,0 +1,56 @@
+﻿
+.black {
+    background-color:black;
+}
+
+a.badge-dark{
+    font-size: 20px;
+    border-radius: 8px;
+    margin: 10px 10px 2px 10px;
+}
+
+.item-0 {
+    background-color: black;
+}
+
+.item-1 {
+    background-color: #696969
+}
+
+
+.item-2 {
+    background-color: #a9a9a9;
+    width: 24px;
+    height: 25px;
+}
+
+.order-tag {
+    padding: 4px 8px;
+    text-align: center;
+    border-radius: 4px;
+    margin: 4px;
+    color: aliceblue;
+    line-height: 10px;
+}
+
+span.order-tag {
+    margin-top: 4px;
+}
+
+td {
+    text-align: left;
+}
+
+.yellowBg {
+    background-color: #ffffe0;
+    border: 2px dashed #eee;
+    border-radius: 4px 5px;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+
+
+

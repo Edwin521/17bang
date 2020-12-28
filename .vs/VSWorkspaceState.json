@@ -1,15 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\LZBC#",
     "\\LZBC#\\homework",
-    "\\YiQiBang",
     "\\YiQiBang\\Entities",
     "\\YiQiBang\\Pages",
     "\\YiQiBang\\Pages\\Article",
     "\\YiQiBang\\Pages\\Shared",
     "\\YiQiBang\\Repositories"
   ],
-  "SelectedNode": "\\YiQiBang\\Repositories\\ArticleRepository.cs",
+  "SelectedNode": "\\MySelf",
   "PreviewInSolutionExplorer": false
 }
