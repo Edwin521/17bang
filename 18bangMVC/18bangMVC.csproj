@@ -186,6 +186,7 @@
     <Content Include="Views\Task\Fulfil.cshtml" />
     <Content Include="Views\MoneyTrade\Sale.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Shared\_Dual.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
