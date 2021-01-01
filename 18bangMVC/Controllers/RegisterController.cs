@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _18bangMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,5 +14,16 @@ namespace _18bangMVC.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Index(RegisterModel Model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            return View();
+        }
+
     }
 }

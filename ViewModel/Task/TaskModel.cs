@@ -7,5 +7,6 @@ namespace _18bangMVC.Models
 {
     public class TaskModel
     {
+
     }
 }
