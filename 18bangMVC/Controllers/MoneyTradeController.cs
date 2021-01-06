@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace _18bangMVC.Controllers
 {
-    public class MoneyTradeController : Controller
+    public class MoneyTradeController : BaseController
     {
         // GET: MoneyTrade
         public ActionResult Sale()

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace _18bangMVC.Controllers
 {
-    public class PlanController : Controller
+    public class PlanController : BaseController
     {
         // GET: Plan
         public ActionResult Index()

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.Entities
+namespace _18bangServices.ProdServices
 {
-  public class Problem:BaseEntity
+    class MoneyTradeService:BaseService
     {
     }
 }

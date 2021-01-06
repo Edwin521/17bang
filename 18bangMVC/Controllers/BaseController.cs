@@ -6,12 +6,8 @@ using System.Web.Mvc;
 
 namespace _18bangMVC.Controllers
 {
-    public class TaskController : BaseController
+    
+    public class BaseController:Controller
     {
-       
-        public ActionResult Fulfil()
-        {
-            return View();
-        }
     }
 }
