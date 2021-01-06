@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticleRepository.cs" />
     <Compile Include="BaseRepository.cs" />
     <Compile Include="Migrations\202101041340508_init.cs" />
     <Compile Include="Migrations\202101041340508_init.designer.cs">
