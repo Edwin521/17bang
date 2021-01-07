@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _18bangServices.ProdServices
 {
-   public class ArticleService
+   public class ArticleService:BaseService
     {
        
     }
