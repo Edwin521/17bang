@@ -20,16 +20,17 @@
             needRemote: true,
             publishTime: new Date(2021, 1, 6, 19, 21, 13)
         };
-
+       // -----------------------------------
         //用JavaScript变量pBody存储这行Html代码：
         //<a href='http://17bang.ren' target="_blank">源栈·一起帮</a>，助你实现<span style="font-size:16px;">编程</span>梦想！
         //var pBody ="<a href='http://17bang.ren' target='_blank'>源栈·一起帮</a>，助你实现 < span style='font-size:16px;' > 编程</span > 梦想！"
-
+//--------------------------------------------------------------------------------------
         //用一个变量替换“编程”，以便输出更多内容。比如：助你实现{职业}梦想、助你实现{人生}梦想 
         var result = '职业';
         console.log(`助你实现${result}梦想`);
         result = '人生';
         console.log(`助你实现${result}梦想`)
+//--------------------------------------------------------------------------------------
 
         //设计一段代码，实现以下逻辑：
         //某用户有一定数量的帮帮豆（sum）
@@ -40,6 +41,59 @@
         var sum, consume, count, banlance, isAvailable;
         banlance = sum - (consume * count);
         isAvailable = banlance > 0 ? true : false;
+//--------------------------------------------------------------------------------------
+
+        //写一段代码，能根据一起帮用户的帮帮点（bCredit）输出他对应的等级（可适度精简）
+        var bCredit;
+        if (bCredit < 30) {
+            console.log('入门');
+        }
+        else if (bCredit < 100) {
+            console.log('聚气');
+        }
+        else if (bCredit <200) {
+            console.log('凝水');
+        }
+        else if (bCredit < 700) {
+            console.log('萌芽');
+        }
+        else if (bCredit < 1500) {
+            console.log('单叶');
+        }
+        else {
+            console.log('双叶');
+        }
+
+//--------------------------------------------------------------------------------------
+
+        //一起帮用户被分为5种，每种都有一个整数代号：
+        //0：访客
+        //1：注册用户
+        //2：文章发布者
+        //3：管理员
+        //4：超级管理员
+        //写一段代码，用switch...case将代号转换成文字输出，但3和4都统称“管理员”即可
+        var userLever = 1;
+        switch (userLever) {
+            case 0:     
+                console.log('访客');
+                break;  
+            case 1:     
+                console.log('注册用户');
+                break;
+            case 2:
+                console.log('文章发布者');
+                break;
+            case 3:
+                console.log('管理员');
+                break;
+            default:    //兜底的else 
+                console.log('管理员');
+                break;
+        }
+
+//--------------------------------------------------------------------------------------
+
 
     </script>
 </body>
