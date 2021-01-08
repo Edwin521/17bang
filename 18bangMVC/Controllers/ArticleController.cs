@@ -13,6 +13,9 @@ namespace _18bangMVC.Controllers
         {
             return View();
         }
-
+        public ActionResult Single()
+        {
+            return View();
+        }
     }
 }

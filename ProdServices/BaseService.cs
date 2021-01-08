@@ -34,5 +34,6 @@ namespace _18bangServices.ProdServices
         }
 
         protected IMapper Mapper { get => mapper.CreateMapper(); }
+       
     }
 }

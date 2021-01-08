@@ -42,11 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticleItemModel.cs" />
+    <Compile Include="Article\IndexModel.cs" />
+    <Compile Include="Article\SingleModel.cs" />
+    <Compile Include="CommentModel.cs" />
+    <Compile Include="Keyword\KeywordModel.cs" />
     <Compile Include="MoneyTrade\SaleModel.cs" />
     <Compile Include="Plan\PlanModel.cs" />
     <Compile Include="Register\IndexModel.cs" />
     <Compile Include="Task\TaskModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\Repositories\Repositories.csproj">
@@ -54,5 +60,6 @@
       <Name>Repositories</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
