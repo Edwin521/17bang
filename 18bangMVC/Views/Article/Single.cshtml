@@ -1,8 +1,302 @@
-﻿
+﻿@model _18bangServices.ViewModel.Article.SingleModel
 @{
     ViewBag.Title = "文章单页";
 }
 
 
-<h2>Sing</h2>
+    <div class="container">
+        <div class="row">
+            <article class="col-8">
+                <img src="/image/源栈上课啦.jpg" style="width:720px" />
+                <h3 class="text-primary">  @Model.Title</h3>
+                <hr />
+                <i class="fa fa-calendar" aria-hidden="true"></i><small class="text-secondary"> @Model.PublishTime.ToString("yyyy年MM月dd日 hh点mm分")</small> <span style="float:right">作者：<a href="#">  @Model.AuthorName</a></span>
+                <div>
+                  @Model.Body
+                </div>
+
+                <div>
+                    <span class="font-weight-bold"><i class="fa fa-tags"></i>关键字：</span>
+                    @for (int i = 0; i < Model.KeywordList.Count; i++)
+                    {
+                        <span class="badge badge-pill badge-secondary">@Model.KeywordList[i].Name </span>
+                    }
+                </div>
+                <div style="text-align:right">
+                    <a href="#" class="text-success ml-3"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>赞:<span>  @Model.AgreeAmount </span></a>
+                    <a href="#" class="text-secondary ml-3">
+                        <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>踩:<span>
+                            @Model.DisAgreeAmount
+                        </span>
+                    </a>
+                </div>
+                <div style="text-align:center;height:65px; width:62px;margin-left:auto;margin-right:auto;margin-top:20px" class="yellowBg ">
+                    <span title="点击打赏"><i class="fa fa-dollar"></i></span><br />
+                    <span>打赏</span>
+                </div>
+                <div style=" border: 2px dashed #eee; border-radius: 4px 5px;">
+                    <div>
+                        <span>
+                            <i class="fa fa-smile-o fa-2x text-success" aria-hidden="true"></i>已收到打赏的
+                            <i class="fa fa-dollar text-warning">帮帮币:</i>
+                        </span><br />
+                        <small class="text-primary">快来做第一个打赏的好心人吧</small>
+
+                    </div>
+                    <hr />
+                    <div>
+                        <p>你的<span class="text-warning">打赏</span>非常重要！</p>
+                        <p>为了保证文章的质量，每一篇文章的发布，都会消耗作者一枚 <i class="fa fa-dollar text-warning">帮帮币</i></p>
+                        <p>没有“帮帮币”作者无法发布新的文章。</p>
+                    </div>
+                </div>
+
+
+                <div style="margin-top:20px;">
+                    <a title="分享到腾讯微博"></a>
+                    <a title="分享到新浪微博"></a>
+                    <a title="分享到人人网"></a>
+                    <a title="分享到微信"></a>
+
+                </div>
+                <div class="yellowBg" style="margin-top:20px;margin-bottom:20px;">
+                    <p>投稿人推广：<a href="#">学编程，来“源栈”！飞哥精品小班等着你.....</a></p>
+                </div>
+                <h3>我有话说：</h3>
+                <from style="margin-top:20px;">
+                    <textarea name="content" style="width:600rem;height:100rem;">说点啥吧！！！</textarea>
+                    <input class="btn btn-primary" type="submit" value="提交">
+                    <input class="btn btn-light" type="reset" value="重填">
+                </from>
+                <div style="margin-top:20px;">
+
+                    <lable><input type="checkbox" />在系列RazorPage中的：</lable>
+                    <span style=" border: 1px outset #eee; border-radius: 4px 5px;float:right">全系列阅读</span>
+                    @{ 
+                        int id = Convert.ToInt32(ViewContext.RouteData.Values["id"]);
+
+                    }
+                    <div style=" border:2px dashed #eee; border-radius: 4px 5px;margin-top:20px">
+                        
+                        <div>
+                            上一篇：@if (Model.PreviousPage != null)
+                            {
+
+                                <a href="Single?Id=@Model.PreviousPage.Id">@Model.PreviousPage.Title</a>
+                            }
+                            else
+                            {
+                                <a href="#">已经是第一篇了.....</a>
+                            }
+                        </div>
+                        <div>
+                            下一篇：@if (Model.NextPage != null)
+                            {
+                                <a href="Single?Id=@Model.NextPage.Id">@Model.NextPage.Title</a>
+                            }
+                            else
+                            {
+                                <a href="#">已经是最后一篇了，下面没有内容了.....</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <h3 style="margin-top:20px;">评论（@Model.Article.Commonts.Count）</h3>
+                @foreach (var item in Model.Article.Commonts)
+                {
+                    <div>
+                        <i class="fa fa-calendar" aria-hidden="true"></i><small class="text-secondary"> @item.PublishTime.ToString("yyyy年MM月dd日 hh点mm分")</small>
+                        <span style="float:right">作者：<a href="#">  @item.Author.Name </a></span>
+                        <div>@item.Body</div>
+                        <div style="text-align:right">
+                            <a href="#" class="ml-3"><i class="fa fa-commenting" aria-hidden="true"></i>回复</a>
+                            <a href="#" class="text-success ml-3"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>赞:<span>  @item.AgreeAmount</span></a>
+                            <a href="#" class="text-secondary ml-3">
+                                <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>踩:<span>
+                                    @item.DisagreeAmount
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                }
+
+
+            </article>
+            <aside class="col-4">
+
+
+                <div class="media" style="border:1px dashed;">
+                    <div class="media-body ml-2 mt-2">
+                        <h5 class="mt-0"><i class="fa fa-folder text-primary"></i><a href="#">ASP.NET</a></h5>
+                        <hr />
+                        <div class="media mt-3">
+                            <a class="mr-3" href="#">
+                            </a>
+                            <div class="media-body mr-3">
+                                <h5 class="mt-0"><i class="fa fa-folder text-primary"></i><a href="#">RazorPage</a></h5>
+                                微软推荐的、最新的、基于Razor页面和.NET core的新一代Web项目开发技术，包括Razor Tag Helper、Model绑定和Validation、Session/Cookie、内置依赖注入等……
+                            </div>
+                        </div>
+                        <div class="media mt-3">
+                            <a class="mr-3" href="#">
+                            </a>
+                            <div class="media-body mr-3">
+                                <h5 class="mt-0"><i class="fa fa-folder text-primary"></i><a href="#">MVC</a></h5>
+                                过去两年间最流行的、基于.NET Framework和MVC模式的ASP.NET MVC框架，主要用于讲解安全、性能、架构和各种实战功能演示
+                            </div>
+                        </div>
+                        <div class="media mt-3">
+                            <a class="mr-3" href="#">
+                            </a>
+                            <div class="media-body mr-3">
+                                <h5 class="mt-0"><i class="fa fa-folder text-primary"></i><a href="#"> 其他Web项目</a></h5>
+                                包括WebForm和WebApi
+                            </div>
+                        </div>
+                        <a href="#"> <small style="float:right;margin-right:20px;">全部</small></a>
+                    </div>
+                </div>
+                <div style="border:2px dashed #f6f6f6">
+                    <h4><i class="fa fa-tags"></i>  关键字</h4>
+                    <hr />
+                    <a href="#" class="badge badge-dark">编程开发语言</a>
+                    <a href="#" class="badge badge-dark">C#</a>
+                    <a href="#" class="badge badge-dark">JAVA</a>
+                    <a href="#" class="badge badge-dark">工具软件</a>
+                    <a href="#" class="badge badge-dark">Javascript</a>
+                    <a href="#" class="badge badge-dark">顾问咨询</a>
+                    <a href="#" class="badge badge-dark">操作系统</a>
+                    <a href="#" class="badge badge-dark">VisualStudio</a>
+                    <a href="#" class="badge badge-dark">法律</a>
+                    <a href="#" class="badge badge-dark">SQL</a>
+                    <a href="#" class="badge badge-dark">.NET</a>
+                    <a href="#" class="badge badge-dark">CSS</a>
+                    <a href="#" class="badge badge-dark">Python</a>
+                    <a href="#" class="badge badge-dark">Linux</a>
+                    <a href="#" class="badge badge-dark">职场</a>
+                    <a href="#" class="badge badge-dark">法律</a>
+                    <hr />
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i></span>
+                        </div>
+                        <a href="#" type="button" class="btn btn-light ml-4"><i class="fa fa-random"></i>   换一批</a>
+                    </div>
+
+
+                </div>
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active " id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="fa fa-eye"></i>  每日督促</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link text-danger" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><i class="fa fa-heart"></i>  排行榜</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="fa fa-user-circle"></i>  新注测</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent" style="border: 1px solid #dee2e6;border-top-style:none; line-height:30px;">
+
+                    <div class="tab-pane fade show active ml-4" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <h6><i class="fa fa-calendar-check-o" aria-hidden="true"></i>  2020年08月30日</h6>
+                        <table>
+
+                            <tbody>
+
+                                <tr>
+                                    <td class="font-weight-bolder">共扫描目标：</td>
+                                    <td class="font-weight-bolder"><span><i class="fa fa-flag-o">1个</i></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bolder">当天休息：</td>
+                                    <td class="font-weight-bolder"><span><i class="fa fa-flag-o">1个</i></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bolder">已交作业:</td>
+                                    <td class="font-weight-bolder"><span><i class="fa fa-check text-success">0份</i></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bolder">请假：</td>
+                                    <td class="font-weight-bolder"><span><i class="fa fa-coffee">0人</i></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bolder">未交作业：</td>
+                                    <td class="font-weight-bolder"><span><i class="fa fa-remove text-primary">0人</i></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <table style="width:100%;">
+                            <tr>
+                                <td align="center"><span class="order-tag item-0">1</span></td>
+                                <td align="center"><a href="#" class="text-warning">叶飞</a><a href="#"><span>⑩</span></a></td>
+                                <td align="center">652</td>
+                            </tr>
+                            <tr>
+                                <td align="center"><span class="order-tag item-1">2</span></td>
+                                <td align="center"><a href="#" class="text-warning">友人</a><a href="#"><span>⑤</span></a></td>
+                                <td align="center">297</td>
+                            </tr>
+                            <tr>
+                                <td align="center"><span class="order-tag item-1">3</span></td>
+                                <td align="center"><a href="#" class="text-warning">qew123</a><a href="#"><span>③</span></a></td>
+                                <td align="center">30</td>
+                            </tr>
+                            <tr>
+                                <td align="center"><span class="order-tag item-2">4</span></td>
+                                <td align="center"><a href="#" class="text-warning">loveyou</a><a href="#"><span>②</span></a></td>
+                                <td align="center">30</td>
+                            </tr>
+                            <tr>
+                                <td align="center"><span class="order-tag item-2">5</span></td>
+                                <td align="center"><a href="#" class="text-warning">阿泰</a><a href="#"><span>⑩</span></a></td>
+                                <td align="center">30</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                    <div class="tab-pane fade mb-4" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                        <div style="line-height:20px;text-align:left;margin-left:15px;">
+                            <small><i class="fa fa-calendar"></i> 2020年08月30日  16点20分</small><br />
+                            <span><a href="#">zhangxm2</a><span></span>  ①</span>
+                        </div>
+                        <div style="line-height:20px;text-align:left;margin-left:15px;margin-top:20px;">
+                            <small><i class="fa fa-calendar"></i> 2020年08月30日  01点20分</small><br />
+                            <span><a href="#">黄大仙2020</a><span></span>  ①</span>
+                        </div>
+                        <div style="line-height:20px;text-align:left;margin-left:15px;margin-top:20px;">
+                            <small><i class="fa fa-calendar"></i> 2020年08月26日  21点20分</small><br />
+                            <span><a href="#">z8719651 </a><span></span>①</span>
+                        </div>
+                        <div style="line-height:20px;text-align:left;margin-left:15px;margin-top:20px;">
+                            <small><i class="fa fa-calendar"></i> 2020年08月25日  1点20分</small><br />
+                            <span><a href="#">干菜烈火 </a><span></span>①</span>
+                        </div>
+                        <div style="line-height:20px;text-align:left;margin-left:15px;margin-top:20px;">
+                            <small><i class="fa fa-calendar"></i> 2020年08月24日  22点20分</small><br />
+                            <span><a href="#">卖女孩的小火柴 </a><span></span>①</span>
+                        </div>
+                        <span style="float:right;margin-right:20px;"><a href="#"><i class="fa fa-hand-o-right"></i>  更多</a></span>
+                    </div>
+                </div>
+                <div style="line-height:30px;margin-top:50px;">
+                    <div><span class="order-tag item-0">1</span><a href="#"><span class="name">免费广告位，抢到就是赚到！</span></a></div>
+                    <div><span class="order-tag item-1">2</span><a href="#"><span class="name">免费广告位，抢到就是赚到！</span></a></div>
+                    <div><span class="order-tag item-1">3</span><a href="#"><span class="name">免费广告位，抢到就是赚到！</span></a></div>
+                    <div><span class="order-tag item-2">4</span><a href="#"><span class="name">免费广告位，抢到就是赚到！</span></a></div>
+                    <div><span class="order-tag item-2">5</span><a href="#"><span class="name">免费广告位，抢到就是赚到！</span></a></div>
+                    <div><span class="order-tag item-2"> 6</span>本站主机由<a href="#">西部数码</a>提供 </div>
+                    <small style="float:right;"><a href="#"><i class="fa fa-audio-description" aria-hidden="true"></i>广告</a></small>
+
+                </div>
+
+            </aside>
+        </div>
+
+    </div>
 

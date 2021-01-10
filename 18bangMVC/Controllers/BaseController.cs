@@ -6,8 +6,8 @@ using System.Web.Mvc;
 
 namespace _18bangMVC.Controllers
 {
-    
     public class BaseController:Controller
     {
+
     }
 }

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="ArticleItemModel.cs" />
     <Compile Include="Article\IndexModel.cs" />
+    <Compile Include="Article\NewModel.cs" />
     <Compile Include="Article\SingleModel.cs" />
     <Compile Include="CommentModel.cs" />
     <Compile Include="Keyword\KeywordModel.cs" />

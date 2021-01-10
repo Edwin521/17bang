@@ -18,26 +18,26 @@ namespace _18bangMVC.Controllers
         [HttpPost]
         public ActionResult Index(RegisterModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View();
+            //}
 
-            return View(model);
+
             RegisterService registerService = new RegisterService();
             #region 确保登录信息正确
             RegisterModel inviter = registerService.GetByName(model.InviterName);
-            if (inviter==null)
+            if (inviter == null)
             {
                 ModelState.AddModelError(nameof(model.InviterName), "请检查邀请人是不是填错啦");
                 return View(model);
             }
-            if (inviter.InviterCode!=model.InviterCode)
+            if (inviter.InviterCode != model.InviterCode)
             {
                 ModelState.AddModelError(nameof(model.InviterCode), "请检查邀请码填写是否正确");
                 return View(model);
             }
-            if (registerService.GetByName(model.Name)!=null)
+            if (registerService.GetByName(model.Name) != null)
             {
                 ModelState.AddModelError(nameof(model.Name), "这个名字已经被注册，请换个名字");
                 return View(model);
@@ -51,8 +51,8 @@ namespace _18bangMVC.Controllers
                 InviterCode = model.InviterCode,
                 Name = model.Name,
                 Password = model.Password
-            }) ;
-
+            });
+            return Redirect(Request.QueryString["prepage"]);
         }
 
     }

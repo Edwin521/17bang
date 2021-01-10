@@ -2,7 +2,7 @@
 
 namespace BLL.Entities
 {
-    public class Keyword
+    public class Keyword:BaseEntity
     {
         public string Word { get; set; }
         public int Used { get; set; }

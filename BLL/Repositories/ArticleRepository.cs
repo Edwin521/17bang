@@ -32,6 +32,10 @@ namespace BLL.Repositories
                 .Take(pageSize)
                 .ToList();
         }
+        public int GetArticleCount()
+        {
+            return entities.Count();
+        }
         public IList<Article> GetSeriesArticle(int id, bool Asc, int takeArticleNum)
         {
             IList<Article> temp = new List<Article>();

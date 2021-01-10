@@ -1,4 +1,5 @@
-﻿using BLL.Entities;
+﻿using _18bangServices.ViewModel.Article;
+using BLL.Entities;
 using BLL.Repositories;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,18 @@ namespace _18bangServices.ProdServices
         {
             repository = new ArticleRepository(dbContext);
             article = new Article();
+        }
+
+        public SingleModel GetSingleArticle(int id)
+        {
+            article = repository.Find(id);
+            SingleModel temp = Mapper.Map<SingleModel>(article);
+
+            return temp;
+        }
+        public int GetCount()
+        {
+            return repository.GetArticleCount();
         }
     }
 }

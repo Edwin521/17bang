@@ -19,7 +19,8 @@ namespace _18bangServices.ViewModel.Article
         public DateTime PublishTime { get; set; }
 
         public string ChoosSeries { set; get; }
-
+        public int AgreeAmount { get; set; }
+        public int DisAgreeAmount { get; set; }
    
         public IList<KeywordModel> KeywordList { get; set; }
         public IList<CommentModel> Comments { set; get; }
