@@ -4,13 +4,11 @@
     <meta charset="utf-8" />
     <title>javascriptHomework</title>
 </head>
-<script type="text/javascript" src="/js/homework.js">
-   
-</script>
+<script type="text/javascript" src="/js/homework.js"></script>
 <body>
-  
+
     <script>
-        
+
         //观察“一起帮”的求助，定义一个problem对象，其中包含title、body、reward、needRemote等属性
         var problem = {
             id: 1,
@@ -20,17 +18,17 @@
             needRemote: true,
             publishTime: new Date(2021, 1, 6, 19, 21, 13)
         };
-       // -----------------------------------
+        // -----------------------------------
         //用JavaScript变量pBody存储这行Html代码：
         //<a href='http://17bang.ren' target="_blank">源栈·一起帮</a>，助你实现<span style="font-size:16px;">编程</span>梦想！
         //var pBody ="<a href='http://17bang.ren' target='_blank'>源栈·一起帮</a>，助你实现 < span style='font-size:16px;' > 编程</span > 梦想！"
-//--------------------------------------------------------------------------------------
-        //用一个变量替换“编程”，以便输出更多内容。比如：助你实现{职业}梦想、助你实现{人生}梦想 
+        //--------------------------------------------------------------------------------------
+        //用一个变量替换“编程”，以便输出更多内容。比如：助你实现{职业}梦想、助你实现{人生}梦想
         var result = '职业';
         console.log(`助你实现${result}梦想`);
         result = '人生';
         console.log(`助你实现${result}梦想`)
-//--------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------
 
         //设计一段代码，实现以下逻辑：
         //某用户有一定数量的帮帮豆（sum）
@@ -41,30 +39,30 @@
         var sum, consume, count, banlance, isAvailable;
         banlance = sum - (consume * count);
         isAvailable = banlance > 0 ? true : false;
-//--------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------
 
         //写一段代码，能根据一起帮用户的帮帮点（bCredit）输出他对应的等级（可适度精简）
         var bCredit;
-        if (bCredit < 30) {
+        if (bCredit <= 30) {
             console.log('入门');
         }
-        else if (bCredit < 100) {
+        else if (bCredit <= 100) {
             console.log('聚气');
         }
-        else if (bCredit <200) {
+        else if (bCredit <= 200) {
             console.log('凝水');
         }
-        else if (bCredit < 700) {
+        else if (bCredit <= 700) {
             console.log('萌芽');
         }
-        else if (bCredit < 1500) {
+        else if (bCredit <= 1500) {
             console.log('单叶');
         }
         else {
             console.log('双叶');
         }
 
-//--------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------
 
         //一起帮用户被分为5种，每种都有一个整数代号：
         //0：访客
@@ -75,25 +73,151 @@
         //写一段代码，用switch...case将代号转换成文字输出，但3和4都统称“管理员”即可
         var userLever = 1;
         switch (userLever) {
-            case 0:     
+            case 0:
                 console.log('访客');
-                break;  
-            case 1:     
+                break;
+            case 1:
                 console.log('注册用户');
                 break;
             case 2:
                 console.log('文章发布者');
                 break;
             case 3:
+            case 4:
                 console.log('管理员');
                 break;
-            default:    //兜底的else 
-                console.log('管理员');
+            default:    //兜底的else
+                console.log('what hell this');
                 break;
         }
 
-//--------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------
+        //JavaScript：循环和数组
+        //声明一个数组odds，利用循环把100以内的奇数按从小到大的顺序存入其中
+        var odds = [],
+            j = 0;
+        for (var i = 1; i < 100; i += 2) {
+            while (j < 50) {
+                odds[j] = i;
+                j++;
+                break;
+            }
+        }
+        console.log(odds);
 
+
+        //--------------------------------------------------------------------------------------
+
+        //计算从odds数组中所有元素的和
+        var sum = 0;
+        for (var i = 0; i < odds.length; i++) {
+            sum += odds[i];
+        }
+        console.log(sum);
+        //--------------------------------------------------------------------------------------
+
+        //找到数组中的最小值
+        var array = [1, 5, 6, 34, 21, 34, 44, 56, -1, -19],
+            min = 0;
+        for (var i = 0; i < array.length; i++) {
+            if (min > array[i]) {
+                min = array[i];
+            }//else nothing
+        }
+        console.log(min);
+
+        //--------------------------------------------------------------------------------------
+
+        //去除一个数组中重复的值（提示：仔细思考需求）
+        //？？思考需求--找到重复的值后，如果重复的数值有多个，那么最后保留几个，还是全删除。
+
+        //假如重复的值保留一个
+        var Array = [1, 5, 6, 34, 21, 34, 2, 1];
+        for (var i = Array.length - 1; i >= 0; i--) {
+            var targetNode = Array[i];
+            for (var j = 0; j < i; j++) {
+                if (targetNode == Array[j]) {
+                    console.log(Array[i], '删掉的')
+                    console.log(Array[j], '暂时保留的');
+                    Array.splice(i, 1);
+                    break;
+                }
+            }
+        }
+        console.log(Array);
+
+        //--------------------------------------------------------------------------------------
+
+        //输出用空格代替0的杨辉三角形
+
+        var rows = 5,
+            columns = (rows * 2 - 1);   //确定一共多少列
+        var yh = []; 1
+        for (var i = 0; i < rows; i++) {
+            yh[i] = [];             //避免undefined错误
+            var lines = '';         //为按行输出做准备
+            for (var j = 0; j < columns; j++) {
+                if (i == 0) {       //第一行只能手工做
+                    yh[i][j] = (j == rows - 1) ? 1 : 0;
+                } else {
+                    var preRow = i - 1,
+                        //边界值替换
+                        preColumn = j - 1 >= 0 ? yh[preRow][j - 1] : 0,
+                        nextColumn = j + 1 < columns ? yh[preRow][j + 1] : 0;
+                    yh[i][j] = preColumn + nextColumn;
+                }
+                lines += yh[i][j] + ' ';
+            }
+            console.log(lines);
+        }
+
+
+        //--------------------------------------------------------------------------------------
+
+        //输出1000以内的所有“素数 / 质数”（只能被自己和1整除的数）
+        for (var i = 2; i < 100; i++) {
+            var a = true;
+            for (var j = 2; j < i; j++) {
+                //判断i能否被j整除
+                if (i % j == 0) {
+                    //能被整除则说明不是素数，修改布尔值为false
+                    a = false;
+                }
+                //else nothing
+            }
+            //打印素数
+            if (a) {
+                console.log(i);
+            }
+        }
+
+        //--------------------------------------------------------------------------------------
+
+        //完成冒泡排序（必做，参考C#）
+        //var numbers = [1, 3, 5, 23, -1, 34, 23, 0]
+
+        //for (var i = 1; i < numbers.length; i++) {
+        //    for (var j = 0; j < numbers.length - i; j++) {
+        //        if (numbers[j] > numbers[j + 1]) {
+        //            var temp = numbers[j];
+        //            numbers[j] = numbers[j + 1];
+        //            numbers[j + 1] = temp;
+
+        //        }
+        //    }
+        //}
+        //console.log(numbers);
+        //--------------------------------------------------------------------------------------
+
+        //完成：二分查找 / 快速排序（选做，参考C#）
+
+     
+
+
+
+
+
+//--------------------------------------------------------------------------------------
 
     </script>
 </body>
