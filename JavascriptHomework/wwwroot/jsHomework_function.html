@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>javascriptz作业-函数/方法：声明和调用 </title>
+</head>
+<body>
+    <h1>javascriptHomework</h1>
+    <script>
+        //构建一个函数has9(number) ，可以判断number中是否带有数字9；（19 / 98）
+        function has9(number) {
+            var result = (number + "").indexOf('9');
+
+            return result == -1 ? -1 : '找到了且数字对应的下标为' + result;
+
+        }
+        //构建一个函数has8(number) ，可以判断number中是否带有数字8；
+        function has8(number) {
+            var result = (number + "").indexOf('8');
+            return (result == -1) ? -1 : '找到了且数字对应的下标为' + result;
+        }
+        //构建一个函数has6(number) ，可以判断number中是否带有数字6；
+
+        function has6(number) {
+            var result = (number + "").indexOf('6');
+            return (result == -1) ? -1 : '找到了且数字对应的下标为' + result;
+
+        }
+        //使用上述函数，找出10000以内有多少个数字包含：9或者8或者6。
+        var times = 0;
+        for (var i = 0; i < 1000; i++) {
+            if ((has9(i) != -1) || (has8(i) != -1) || (has6(i) != -1)) {
+                times++;
+            }//else nothing
+        }
+        console.log(times);
+        //让get986()通过调用has9() / has8() / has6() ，能找出number以内有多少个数字包含：9或者8或6
+
+
+        function get986(number) {
+            var times = 0;
+            for (var i = 0; i < number; i++) {
+                if ((has9(i) != -1) || (has8(i) != -1) || (has6(i) != -1)) {
+                    times++;
+                }//else nothing
+            }
+            console.log(number + '内有' + times+'个数字包含9或者8或者6');
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>
