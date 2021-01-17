@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>BOM：window对象 / 导航 / 定时器 / 其他 </title>
+</head>
+<body>
+    <script>
+        //完成猜数字的游戏：
+        //弹出游戏玩法说明，等待用户点击“确认”，开始游戏；
+        //浏览器生成一个不大于1000的随机正整数；（Math.floor(Math.random() * 1000) ）
+        //用户输入猜测；
+        //如果用户没有猜对，浏览器比较后告知结果：“大了”或者“小了”。如果用户：
+        //只用了不到6次就猜到，弹出：碉堡了！
+        //只用了不到8次就猜到，弹出：666！
+        //用了8 - 10次猜到，弹出：猜到了。
+        //用了10次都还没猜对，弹出：^ (*￣(oo) ￣)^
+
+
+        confirm("系统会自动生成一个0到1000的自然数，请您在输入框中输入您猜测的数字，系统会提示您大了或者小了，一共有10次机会，猜中所用的次数越少，得分越高，加油");
+        var random = Math.floor(Math.random() * 1000);
+        alert("随机数是" + random);
+
+        for (var i = 1; i < 11; i++) {
+            var input = prompt("请您输入您猜的数字");
+
+            if (input != random) {
+                if (i == 10) {
+                    alert("～￣(OO) ￣");
+                    break;
+                }
+                if (input > random) {
+                    alert("大了吆");
+                    continue;
+                }
+                else {
+                    alert("小了吆");
+                    continue;
+                }
+            }
+            else {
+                if (i < 6) {
+                    alert("碉堡了");
+                }
+                else if (i < 8) {
+                    alert("666");
+                }
+                else {
+                    alert("猜到了");
+                }
+                break;
+
+            }
+
+        }
+
+
+
+                        //-------------------------------------------------------------------
+
+                        //    分别使用setInterval()使用setTimeout()实现：每隔1秒钟依次显示：第n周，源栈同学random人。（n逐次递增，random随机）
+    </script>
+</body>
+</html>
