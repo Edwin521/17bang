@@ -8,43 +8,97 @@
     <script>
 
         //使用JavaScript内置字符串函数，处理 “‘源栈’：飞哥小班教学，线下免费收看” ：将“飞哥”改成“大神”，“线下”改成“线上”。
-        var str = "'源栈'：飞哥小班教学，线下免费收看";
-        var newStr = str.replace("飞哥", "大神");
+        //var str = "'源栈'：飞哥小班教学，线下免费收看";
+        //var newStr = str.replace("飞哥", "大神");
 
-        newStr = str.replace("线下", "线上");
-        console.log(newStr);
+        //newStr = str.replace("线下", "线上");
+        //console.log(newStr);
 
         //将数组['why', 'gIT', 'vs2019', 'community', 'VERSION']规范化，让所有元素：
-        var arr = ['why', 'gIT', 'vs2019', 'community', 'VERSION'],
-            newArr = [];
+        //首字母大写开头，其他字母小写fd vcx
+        //截去超过6个字符的部分，如'community'将变成'Commun'
+        var arr = ['why', 'gIT', 'vs2019', 'community', 'VERSION'];
+
+
+        //for (var i = 0; i < arr.length; i++) {
+        //    newArr[i] = arr[i].toUpperCase();
+
+        //    for (var j = 1; j < newArr[i].length; j++) {
+        //        newArr[i][j] = newArr[i][j].toLowerCase();
+        //    }
+        //}
+
         for (var i = 0; i < arr.length; i++) {
-            newArr[i] = arr[i].toUpperCase();
-   
-            for (var j = 1; j < newArr[i].length; j++) {
-                newArr[i][j] = newArr[i][j].toLowerCase();
-            }
+            arr[i] = arr[i][0].toUpperCase() + arr[i].substring(1, arr[i].length).toLowerCase();
+            arr[i] = arr[i].substring(0, 6);
         }
+        console.log(arr);
 
-      
-        console.log(newArr);
+        
+        //--------------------------------------------
+
+        //使用正则表达式判断某个字符串:
+        //是否是合格的Email格式
+        function isEmail(email) {
+            var regMatch = new RegExp("(\w*@\w*)\.[a-z]*", "gim");
+            return regMatch.exec(email) != null;
+        }
+        //是否是小数（正负小数都可以）
+        function isEmail(number) {
+            var regMatch = new RegExp("((-[0-9]*|[0-9]*)\.[0-9]+");
+            return regMatch.exec(number) != null;
+        }
+        //--------------------------------------------
+
+        //将所有以zyf - 开头的属性去掉zyf - （尽可能多的制造测试用例，比如：<a lzyf-old=''， 或者：<span>zyf---+---fyz</span> ……）
+        function deletePartOfZyf(tag) {
+            var regMatch = new RegExp("", "gim");
+            //<[a-z]+\szyf-\w*\s*>
+            for (var i = 0; i < length; i++) {
+
+            }
+
+        }
+        //利用新学到的Array函数，重新完成之前的数组相关作业
+        //在上述数组头部加上小鱼老师，末尾加上大飞哥
 
 
-            //首字母大写开头，其他字母小写fd vcx
-        var str = "这是一个字符串";
-       str= str.substring(0, 5);
-        console.log(str);
+        //------------------------------------------------------
+        //创建一个函数getRandomArray(length, max) ，能返回一个长度不大于length，每个元素值不大于max的随机整数数组。
+        function getRandomArray(length, max) {
 
+        }
+        ///-----------------------------------------------------
+        //生成一个函数toChinese() ，可将传入的日期参数（如：new Date() ）转换成中文日期格式（如：2019年10月4日 16点54分）
+        function toChinese(date) {
+            if (!date) {
+                return false;
+            }
 
-            //截去超过6个字符的部分，如'community'将变成'Commun'
-            //使用正则表达式判断某个字符串:
-            //是否是合格的Email格式
-            //是否是小数（正负小数都可以）
-            //将所有以zyf - 开头的属性去掉zyf - （尽可能多的制造测试用例，比如：<a lzyf-old=''， 或者：<span>zyf---+---fyz</span> ……）
-            //利用新学到的Array函数，重新完成之前的数组相关作业
-            //在上述数组头部加上小鱼老师，末尾加上大飞哥
-            //创建一个函数getRandomArray(length, max) ，能返回一个长度不大于length，每个元素值不大于max的随机整数数组。
-            //生成一个函数toChinese() ，可将传入的日期参数（如：new Date() ）转换成中文日期格式（如：2019年10月4日 16点54分）
-            //生成一个函数addDays(number) ，可在当前日期的基础上增加number天
+            var year = date.getFullYear().toString(),
+                 mouth = date.getMonth().toString(),
+                 day = date.getDate().toString(),
+                 hour = date.getHours().toString(),
+                 minutes = date.getMinutes().toString(),
+                 seconds = date.getSeconds().toString();
+
+            var result = year + "年" + mouth + "月" + day + "日" + hour + "点" + minutes + "分" + seconds;
+            return result;
+        }
+        //------------------------------------------------------
+        //生成一个函数addDays(number) ，可在当前日期的基础上增加number天
+        function addDays(number) {
+            if (isNaN(number)) {
+                return false;
+            }
+
+            var result = new Date();
+            result.setDate(result.getDate() + number);
+            var month = result.getMonth();
+            var day = result.getDay();
+
+            return result.getFullYear() + '-' + (result.getMonth() + 1) + '-' + result.getDate();
+        }
 
     </script>
 </body>
