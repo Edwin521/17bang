@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>定时器</title>
+    <link href="/Content/Content/font-awesome.css"  rel="stylesheet"/>
+
+</head>
+<body>
+
+    <h1>
+        定时器 铃铛
+    </h1>
+    <div ">
+        <i class="fa fa-bell fa-3x" id="blink"></i>
+
+    </div>
+    <script>
+        function changeColorToRed() {
+            document.getElementById('blink').style = "color:red";
+
+        }
+        function changeColorToBlue() {
+            document.getElementById('blink').style = "color:blue";
+        }
+
+
+        setInterval(changeColorToRed, 1000);
+        setInterval(changeColorToBlue, 2000);
+
+    </script>
+</body>
+</html>
