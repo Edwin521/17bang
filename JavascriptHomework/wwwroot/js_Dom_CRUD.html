@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>
+        JavaScript：DOM元素增删改查
+    </title>
+    <style>
+        .fontLarge {
+            font-size: large
+        }
+
+        .dashed {
+            border: dashed;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .darkseg {
+            background-color:aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>模拟求助页面</h1>
+    <div>
+        <h3><span class="dashed">已撤销</span>想请教一下简历和面试相关事宜</h3>
+        <p>目前准备投简历找工作，但对于简历的撰写没有思绪，也想请教一下面试经验之类，麻烦大家不吝赐教。……</p>
+        <div class="darkseg">
+            <a href="#">职场</a>
+            <a href="#">简历</a>
+            <a href="#">面试</a>
+        </div>
+        <div>
+            <span>悬赏</span><span class="fontLarge">50</span>
+            <span>应答</span><span class="red">2</span>
+            <span>总结</span><span>2</span>
+        </div>
+        <hr />
+    </div>
+    <div>
+        <h3> <span class="dashed">协助中</span>如何使用U盘防护系统的运行</h3>
+        <p>哪位大神有相关经验或者思路，求一个——————……。……</p>
+        <div class="darkseg">
+            <a href="#">加密</a>
+            <a href="#">防护</a>
+        </div>
+        <div>
+            <span>悬赏</span><span class="fontLarge">1</span>
+            <span>应答</span><span class="red">1</span>
+            <span>总结</span><span>0</span>
+        </div>
+        <hr />
+    </div>
+    <div>
+        <h3> <span class="dashed">协助中</span> 为什么在给变量a赋值后，再使a=a++之后，输出a的值没有变</h3>
+        <p>哪位大神有相关经验</p>
+        <div class="darkseg">
+            <a href="#">c</a>
+            <a href="#">编程开发语言</a>
+        </div>
+        <div>
+            <span>悬赏</span><span class="fontLarge">10</span>
+            <span>应答</span><span class="red">0</span>
+            <span>总结</span><span>0</span>
+        </div>
+        <hr />
+    </div>
+
+    <script>
+        //模拟求助首页，并：
+        //统计有多少个悬赏大于1的求助
+        var target1 = document.getElementsByClassName('fontLarge'),
+            sum = 0;
+
+        for (var i = 0; i < target1.length; i++) {
+            if (target1[i].textContent > 1) {
+                sum++;
+            }//else nothing
+        }
+        console.log(sum);
+        //-----------------------------------------------------
+        //将状态为“协助中”的求助背景改成灰黑色
+
+        var target2 = document.getElementsByClassName('dashed');
+        for (var i = 0; i < target2.length; i++) {
+            if (target2[i].textContent == '协助中') {
+                target2[i].parentNode.parentNode.style = 'background-color:dimgrey';
+            }//else nothing
+        }
+        //---------------------------------------------------------
+        //如果总结数为0，将其从DOM树中删除
+
+        var target3 = document.getElementsByClassName('red');
+        for (var i = 0; i < target3.length; i++) {
+            if (target3[i].textContent <= 0) {
+                target3[i].parentNode.removeChild(target3[i].previousSibling);
+                target3[i].parentNode.removeChild(target3[i]);
+                //target3[i].parentNode.parentNode.parentNode.removeChild(target3.parentNode.parentNode)
+            }//else nothing
+        }
+
+        //写一个函数getKeywordsCount() ，可以统计某个求助使用了多少关键字
+        function getKeywordsCount() {
+            var aim = document.getElementsByClassName('darkseg');
+            for (var i = 0; i < aim.length; i++) {
+                return aim[i].childElementCount;
+            }
+            
+        }
+
+    </script>
+</body>
+</html>
