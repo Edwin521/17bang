@@ -19,12 +19,12 @@
         }
 
         .darkseg {
-            background-color:aqua;
+            background-color: aqua;
         }
     </style>
 </head>
 <body>
-    <h1>模拟求助页面</h1>
+    <!--<h1>模拟求助页面</h1>
     <div>
         <h3><span class="dashed">已撤销</span>想请教一下简历和面试相关事宜</h3>
         <p>目前准备投简历找工作，但对于简历的撰写没有思绪，也想请教一下面试经验之类，麻烦大家不吝赐教。……</p>
@@ -67,8 +67,40 @@
             <span>总结</span><span>0</span>
         </div>
         <hr />
-    </div>
+    </div>-->
 
+    <h1>模拟用户注册页面</h1>
+    <form method="post">
+        <lable>
+            用户名
+            <input name="userName" />
+        </lable>
+        <lable>
+            密码
+            <input name="password" />
+        </lable>
+        <lable>
+            确认密码
+            <input name="confirmPassword" />
+        </lable>
+        <button type="submit">提交</button>
+    </form>
+
+    <h1>迷你用户资料页面</h1>
+
+    <div style="padding:10px;line-height:30px;">
+        <label class="font-weight-bold">头像：</label>
+        <i class="fa fa-pencil-square-o text-primary"><a href="#">   修改</a></i><br />
+        <lable class="font-weight-bold">用户：</lable>
+        <a href="#">EDWIN</a><a href="#" class="text-secondary">①</a> <a href="#" class="ml-2"><i class="fa fa-pencil-square-o"></i>  修改</a><br />
+        <lable class="font-weight-bold">性别：</lable>
+        <span>男</span><br />
+        <lable class="font-weight-bold">生日：</lable>
+        <span>1996 年 6 月 巨蟹座</span><br />
+        <lable class="font-weight-bold">关注：</lable><br />
+        <lable class="font-weight-bold">自我介绍：</lable>
+        <span>just do it</span>
+    </div>
     <script>
         //模拟求助首页，并：
         //统计有多少个悬赏大于1的求助
@@ -108,9 +140,33 @@
             for (var i = 0; i < aim.length; i++) {
                 return aim[i].childElementCount;
             }
-            
+
+        }
+        //--------------------------------------------------------------
+        //参考用户注册页面，显示错误提示：
+        //密码的长度不能小于4
+        var aim1 = document.getElementsByName('password')[0];
+        aim1.onmouseout = function () {
+            if (aim1.value.length < 4) {
+                var text1 = document.createTextNode('密码的长度不能小于4')
+                aim1.appendChild(text1);
+                document.getElementsByTagName('label')[1].appendChild(aim1);
+            } //else nothing
         }
 
+
+        //密码和确认密码必须一致
+        var aim2 = document.getElementsByName('confirmPassword')[0];
+        aim2.onmouseout = function () {
+            if (aim2 != aim1) {
+                var text2 = document.createTextNode('密码必须和确认密码一致');
+                aim2.appendChild(text2);
+                document.getElementsByTagName('label')[2].appendChild(aim2);
+            }
+        }
+      
+        //参考用户资料页面，控制台显示出用户的：性别 / 出生年月 / 关注（关键字）/ 自我介绍
+        document.getElementsByTagName();
     </script>
 </body>
 </html>
