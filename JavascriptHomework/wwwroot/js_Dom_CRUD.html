@@ -86,7 +86,7 @@
         <button type="submit">提交</button>
     </form>
 
-    <h1>迷你用户资料页面</h1>
+    <h1>模拟用户资料页面</h1>
 
     <div style="padding:10px;line-height:30px;">
         <label class="font-weight-bold">头像：</label>
@@ -102,6 +102,13 @@
         <span>just do it</span>
     </div>
     <script>
+
+        //参考用户资料页面，控制台显示出用户的：性别 / 出生年月 / 关注（关键字）/ 自我介绍
+   
+        for (var i = 0; i < 4; i++) {
+            console.log(document.getElementsByTagName('label')[i].nodeValue);
+        }
+        
         //模拟求助首页，并：
         //统计有多少个悬赏大于1的求助
         var target1 = document.getElementsByClassName('fontLarge'),
@@ -164,9 +171,9 @@
                 document.getElementsByTagName('label')[2].appendChild(aim2);
             }
         }
+
       
-        //参考用户资料页面，控制台显示出用户的：性别 / 出生年月 / 关注（关键字）/ 自我介绍
-        document.getElementsByTagName();
+      
     </script>
 </body>
 </html>
