@@ -6,6 +6,8 @@
 </head>
 <body>
 
+    <div id="beDragged" draggable="true" style="width:200px;height:200px;background-color:brown">要拖拽的元素</div>
+    <div id="moveTo" style="width:400px;height:400px;background-color:aquamarine"> 目标元素</div>
 
     <canvas id="myCanvas" width="200" height="200"></canvas>
     <script>
@@ -17,7 +19,26 @@
         canvas.beginPath();
         canvas.arc(100, 75, 50, 0, 2 * Math.PI);//圆形圆心的坐标是100，75；半径是50；后面两个参数分别是起始角和弧度角；
         canvas.stroke();
-                    //为文章列表页面添加一个功能，可以通过拖放调整文章的顺序，并确保调整之后的顺序能够被浏览器永久记录，不应页面关闭而消失
+        //为文章列表页面添加一个功能，可以通过拖放调整文章的顺序，并确保调整之后的顺序能够被浏览器永久记录，不应页面关闭而消失
+        //元素拖拽功能
+        //1.设置被拖拽元素可以被拖拽 draggable="true";
+        //2.在目标元素(要移动到的元素)上绑定事件 ondragover,即如果有元素拖拽到它身上要做什么；
+        //3,
+        document.getElementById('beDragged').ondragstart = function (event) {
+            event.dataTransfer.setData('text', this.id);//刚开始拉的时候记住这个被拖拽的元素的id
+        }
+
+        document.getElementById('moveTo').ondragover = function (event) {
+            event.preventDefault();//阻止默认事件，即默认是不能拖拽的
+        }
+        document.getElementById('moveTo').ondrop = function (event) {
+            //拖拽完放开鼠标的时候做的动作
+            var id = event.dataTransfer.getData('text');
+            this.append(document.getElementById(id));
+        }
+
+
+       
     </script>
 </body>
 </html>
