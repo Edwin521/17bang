@@ -45,3 +45,51 @@ console.log(`这里是该同学的身份信息：${getStudentInf()}`)
 //1,第一遍先执行foo(-1)函数，x=-1,tmp=3,y找不到，开始向外找;
 //2,第二遍执行bar(10)函数，由于闭包的影响，x变量的生命周期延长，
 //此时y的值为10,x=-1+1=0,最后输出 0+10+3=13;
+
+
+
+
+//改动以下代码，让其输出如图所示，并说明理由。
+//function buildList(list) {
+//    var result = [];
+//    for (var i = 0; i < list.length; i++) {
+//        result.push(function () {
+//            console.log('item' + i + ': ' + list[i])
+//        });
+//    }
+//    return result;
+//}
+
+//(function () {
+//    var fnlist = buildList([1, 2, 3]);
+//    for (var i = 0; i < fnlist.length; i++) {
+//        fnlist[i]();
+//    }
+//})();
+
+//要得到的效果是    iteam0:1
+//                iteam1:2
+//                iteam2:3 
+
+
+
+function buildList(list) {
+    var result = [];
+    for (let i = 0; i < list.length; i++) {//变量声明var关键字改为let
+        result.push(function () {
+            console.log('item' + i + ': ' + list[i])
+        });
+    }
+    return result;
+}
+
+(function () {
+    var fnlist = buildList([1, 2, 3]);
+    for (var i = 0; i < fnlist.length; i++) {
+        fnlist[i]();
+    }
+})();
+
+
+///下面的匿名函数使用了立即执行函数表达式（IIFE),()会让前面的函数立即执行，使i值固定，形成闭包，
+//使用let声明变量，具有块级作用域，没有var 的变量提升问题。
