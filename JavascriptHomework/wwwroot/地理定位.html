@@ -3,42 +3,113 @@
 <head>
     <meta charset="utf-8" />
     <title>HTML5常用API：地理定位/canvas/多媒体/本地存储/拖放</title>
+    <script src="lib/jquery/dist/jquery.js"></script>
 </head>
 <body>
+    <div>
+        <a id="target1" href="/" draggable="true">元素1</a>
+        <div lzb-js-contaniner style="background-color:aquamarine;width:400px;height:80px;">脱手的地方</div>
+    </div>
+    <div>
+        <a id="target2" href="/" draggable="true"> 元素2</a>
+        <div lzb-js-contaniner style="background-color:aquamarine;width:400px;height:80px;">脱手的地方</div>
+    </div>
+    <div>
+        <a id="target3" href="/" draggable="true"> 元素3</a>
+        <div lzb-js-container style="background-color:aquamarine;width:400px;height:80px;">脱手的地方</div>
+    </div>
 
-    <div id="beDragged" draggable="true" style="width:200px;height:200px;background-color:brown">要拖拽的元素</div>
-    <div id="moveTo" style="width:400px;height:400px;background-color:aquamarine"> 目标元素</div>
+    <canvas id="mycanvas" width="200" height="200"></canvas>
 
-    <canvas id="myCanvas" width="200" height="200"></canvas>
+
+    <div id="beDragged" draggable="true" style="width:200px;height:200px;background-color:aqua"></div>
+    <div id="toContainer" style="width:300px;height:300px;border:1px dashed;"></div>
     <script>
-        //用canvas绘制一枚铜钱（外圆内方）
-        var canvas = document.getElementById('myCanvas').getContext('2d');
-        //canvas.fillStyle = '#FF0000';
-        canvas.fillRect(65, 39, 70, 70);//正方形左上角起点坐标 65，39；边长是70；
+        $(document).ready(function () {
+            $("a")[0].ondragstart = function (event) {
+                event.dataTransfer.setData("Text", this.id)
+            }
 
-        canvas.beginPath();
-        canvas.arc(100, 75, 50, 0, 2 * Math.PI);//圆形圆心的坐标是100，75；半径是50；后面两个参数分别是起始角和弧度角；
-        canvas.stroke();
-        //为文章列表页面添加一个功能，可以通过拖放调整文章的顺序，并确保调整之后的顺序能够被浏览器永久记录，不应页面关闭而消失
-        //元素拖拽功能
-        //1.设置被拖拽元素可以被拖拽 draggable="true";
-        //2.在目标元素(要移动到的元素)上绑定事件 ondragover,即如果有元素拖拽到它身上要做什么；
-        //3,
+            $("[lzb-js-container]").ondragover = function (event) {
+                event.preventDefault();
+            }
+            $("[lzb-js-container]").ondrop = function (event) {
+                var id = event.dataTransfer.getData("Text");
+                this.append($(id));
+            }
+        });
+
+
         document.getElementById('beDragged').ondragstart = function (event) {
-            event.dataTransfer.setData('text', this.id);//刚开始拉的时候记住这个被拖拽的元素的id
+            event.dataTransfer.setData("Text", this.id)
         }
+        document.getElementById('toContainer').ondragover = function (event) {
+            event.preventDefault();
+        }//默认是不允许接收拖拽的，现在阻止默认事件，即可以接收拖拽。
 
-        document.getElementById('moveTo').ondragover = function (event) {
-            event.preventDefault();//阻止默认事件，即默认是不能拖拽的
-        }
-        document.getElementById('moveTo').ondrop = function (event) {
-            //拖拽完放开鼠标的时候做的动作
-            var id = event.dataTransfer.getData('text');
+        document.getElementById('toContainer').ondrop = function (event) {
+            var id = event.dataTransfer.getData("Text");
             this.append(document.getElementById(id));
         }
 
 
-       
+
+
+
+            //用canvas绘制一枚铜钱（外圆内方）
+            //var canvas = document.getElementById('myCanvas').getContext('2d');
+            ////canvas.fillStyle = '#FF0000';
+            //canvas.fillRect(65, 39, 70, 70);//正方形左上角起点坐标 65，39；边长是70；
+
+            //canvas.beginPath();
+            //canvas.arc(100, 75, 50, 0, 2 * Math.PI);//圆形圆心的坐标是100，75；半径是50；后面两个参数分别是起始角和弧度角；
+            //canvas.stroke();
+
+
+
+            //为文章列表页面添加一个功能，可以通过拖放调整文章的顺序，并确保调整之后的顺序能够被浏览器永久记录，不应页面关闭而消失
+            //元素拖拽功能
+
+
+
+
+
+
+
+
+
+
+
+
+                    //$("[lzb-article-drag]").on("dragstart", function (event) {
+                    //    var event = event.originalEvent;
+                    //    event.dataTransfer.setData("text", event.target.id);
+                    //});
+
+                    //var $dropContainer = $('[lzb-article-drop]');
+                    //$dropContainer.on("dragover", function (event) {
+                    //    event.preventDefault();
+                    //    var event = event.originalEvent;
+                    //}).on("drop", function (event) {
+                    //    event.preventDefault();
+                    //    var event = event.originalEvent,
+                    //        currentId = event.dataTransfer.getData("text"),
+                    //        afterId = $(this).data("after-id"),
+                    //        currentElement = $(this).parent(),
+                    //        afterElement = $('#' + currentId).parent();
+                    //    $.ajax({
+                    //        url: "/Article/_Reorder?currentId=" + currentId + "&afterId=" + afterId,
+                    //        success: function () {
+                    //            currentElement.after(afterElement);
+                    //        },
+                    //        error: JqueryAjaxError
+                    //    });
+                    //});
+
+
+
+
+
     </script>
 </body>
 </html>

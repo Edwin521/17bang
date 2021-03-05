@@ -62,11 +62,11 @@
     <Compile Include="RegisterService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL\Entities\Entities.csproj">
+    <ProjectReference Include="..\..\BLL\Entities\Entities.csproj">
       <Project>{eb58c98f-aba3-40d1-a4b0-aae8564fc139}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BLL\Repositories\Repositories.csproj">
+    <ProjectReference Include="..\..\BLL\Repositories\Repositories.csproj">
       <Project>{ea7f28e8-7406-4a89-9b58-b0f2a3566bcf}</Project>
       <Name>Repositories</Name>
     </ProjectReference>

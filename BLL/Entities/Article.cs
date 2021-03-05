@@ -22,7 +22,7 @@ namespace BLL.Entities
 
         }
 
-        ///文章页面只显示单片文章前几行的内容
+        ///文章页面只显示单篇文章前几行的内容
         public string GetSummary(string Articlebody)
         {
             string summary = string.Empty;

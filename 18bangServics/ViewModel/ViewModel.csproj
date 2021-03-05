@@ -56,7 +56,7 @@
     <Compile Include="UserModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL\Repositories\Repositories.csproj">
+    <ProjectReference Include="..\..\BLL\Repositories\Repositories.csproj">
       <Project>{ea7f28e8-7406-4a89-9b58-b0f2a3566bcf}</Project>
       <Name>Repositories</Name>
     </ProjectReference>
