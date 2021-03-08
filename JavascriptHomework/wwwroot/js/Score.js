@@ -4,7 +4,7 @@
 //以及：一个整数值bestOfAll
 class Score {
 
-    constructor( Id, score) {
+    constructor(Id, score) {
         this.datetime = new Date;
         this.Id = Id;
         this.score = score;
@@ -18,19 +18,15 @@ class Score {
             var cur = playName[i].score;
             cur > max ? max = cur : null;
             //arr2.indexOf(max);//相应的对象数组最大值的下标
-           
         }
         ///数组中的是对象，不是一个个数字
         //console.log(arr2);
 
         return playName[arr2.indexOf(max)];//返回的就是成绩最好的对象
-     
-     
-        
     }
     save() {
         console.log(`Id为${this.Id}的账号已经保存`)
-    }       
+    }
 }
 let lzb = new Score(1, 32);
 let zl = new Score(2, 34);
