@@ -1,4 +1,4 @@
-﻿using _18bangServices.ProdServices;
+﻿
 using _18bangServices.ViewModel.Article;
 using System;
 using System.Collections.Generic;
@@ -11,25 +11,25 @@ namespace _18bangMVC.Controllers
     public class ArticleController : Controller
     {
         // GET: Article
-        private ArticleService service;
-        public ArticleController()
-        {
-            service = new ArticleService();
-        }
-        public ActionResult Index()
-        {
-            return View();
-        }
+        //private ArticleService service;
+        //public ArticleController()
+        //{
+        //    service = new ArticleService();
+        //}
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
 
-        public ActionResult Single(int id)
-        {
-            return View(service.GetSingleArticle(id));
-        }
-        public ActionResult New()
-        {
+        //public ActionResult Single(int id)
+        //{
+        //    return View(service.GetSingleArticle(id));
+        //}
+        //public ActionResult New()
+        //{
          
-            return View();
-        }
+        //    return View();
+        //}
 
         [HttpPost]
         public ActionResult New(NewModel model )

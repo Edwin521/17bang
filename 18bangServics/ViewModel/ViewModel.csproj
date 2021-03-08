@@ -48,6 +48,8 @@
     <Compile Include="Article\SingleModel.cs" />
     <Compile Include="CommentModel.cs" />
     <Compile Include="Keyword\KeywordModel.cs" />
+    <Compile Include="Log\OffModel.cs" />
+    <Compile Include="Log\OnModel.cs" />
     <Compile Include="MoneyTrade\SaleModel.cs" />
     <Compile Include="Plan\PlanModel.cs" />
     <Compile Include="Register\IndexModel.cs" />
