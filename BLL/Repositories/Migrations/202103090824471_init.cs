@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CreateTable : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -12,7 +12,7 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        UserName = c.String(),
+                        Name = c.String(),
                         Password = c.String(),
                         Level = c.Int(nullable: false),
                         InviterId = c.Int(),

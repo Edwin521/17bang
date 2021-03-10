@@ -10,23 +10,24 @@ namespace BLL.Repositories
 {
     public class BaseRepository<T> where T : BaseEntity
     {
-        protected DbContext context;
-        public BaseRepository(DbContext context)
+        protected SqlDbContext context;
+        protected DbSet<T> dbSet;
+        public BaseRepository()
         {
-            this.context = context;
+            context = new SqlDbContext();
+            dbSet = context.Set<T>();
         }
-        protected DbSet<T> entities
+
+
+
+        public T find(int? id)
         {
-            get => context.Set<T>();
+            return dbSet.Find(id.Value);
         }
-        public T Find(int? id)
+        public int save(T entity)
         {
-            return entities.Find(id.Value);
-        }
-        public int Save(T entity)
-        {
-            entities.Add(entity);
-            context.SaveChanges(); 
+            dbSet.Add(entity);
+            context.SaveChanges();
             return entity.Id;
         }
     }

@@ -53,9 +53,9 @@
   <ItemGroup>
     <Compile Include="ArticleRepository.cs" />
     <Compile Include="BaseRepository.cs" />
-    <Compile Include="Migrations\202101090953527_CreateTable.cs" />
-    <Compile Include="Migrations\202101090953527_CreateTable.designer.cs">
-      <DependentUpon>202101090953527_CreateTable.cs</DependentUpon>
+    <Compile Include="Migrations\202103090824471_init.cs" />
+    <Compile Include="Migrations\202103090824471_init.designer.cs">
+      <DependentUpon>202103090824471_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,8 +73,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101090953527_CreateTable.resx">
-      <DependentUpon>202101090953527_CreateTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103090824471_init.resx">
+      <DependentUpon>202103090824471_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,8 @@
 ﻿
+using _18bangMVC.Filter;
 using _18bangServices.ViewModel.Article;
+using BLL.Entities;
+using BLL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,16 +30,42 @@ namespace _18bangMVC.Controllers
         //}
         //public ActionResult New()
         //{
-         
+
         //    return View();
         //}
 
+
+
+        private ArticleRepository articleRepository;
+        private UserRepository userRepository;
+        public ArticleController()
+        {
+            articleRepository = new ArticleRepository();
+            userRepository = new UserRepository();
+        }
+
+        [ModelErrorTransferFilter]
+        public ActionResult New( )
+        {
+
+            return View();
+        }
+
+
         [HttpPost]
+        [ModelErrorTransferFilter]
         public ActionResult New(NewModel model )
         {
             int currentUserId = 1;
-          
-
+            Article article = new Article
+            {
+                Title = model.Title,
+                Body = model.Body,
+            };
+            User author = userRepository.find(currentUserId);
+    
+            article.Author = author;
+            articleRepository.Save(article);
             return View();
         }
 

@@ -10,9 +10,9 @@ namespace _18bangMVC.Models
     {
         [Required(ErrorMessage ="*邀请人不能为空")]
         public string InviterName { get; set; }
-
+        [StringLength(4,MinimumLength =4,ErrorMessage ="邀请码只能是4位数字") ]
         [Required(ErrorMessage ="*邀请码不能为空")]
-        public string InviterCode { get; set; }
+        public int InviterCode { get; set; }
 
         [Required(ErrorMessage ="用户名（*必填）")]
         public string Name { get; set; }
@@ -24,6 +24,7 @@ namespace _18bangMVC.Models
         public string ConfirmPassword { get; set; }
 
         [Required(ErrorMessage ="验证码（*必填）")]
+        [StringLength(4,MinimumLength =4,ErrorMessage ="验证码的长度只能是4位") ]
         public string Captcha { get; set; }
     }
 }

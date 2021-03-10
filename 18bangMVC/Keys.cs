@@ -10,5 +10,6 @@ namespace _18bangMVC
         public const String ErrorInModel = "ErrorInModel";
         public const string POST = "POST";
         public const string GET = "GET";
+        public const string CAPTCHA = "CAPTCHA";
     }
 }

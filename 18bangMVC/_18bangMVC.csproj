@@ -223,6 +223,14 @@
       <Project>{F1FB88D8-75A8-4726-9D0C-2D7449E4250F}</Project>
       <Name>ViewModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BLL\Entities\Entities.csproj">
+      <Project>{EB58C98F-ABA3-40D1-A4B0-AAE8564FC139}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\Repositories\Repositories.csproj">
+      <Project>{EA7F28E8-7406-4A89-9B58-B0F2A3566BCF}</Project>
+      <Name>Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
