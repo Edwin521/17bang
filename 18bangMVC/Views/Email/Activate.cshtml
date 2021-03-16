@@ -1,0 +1,49 @@
+﻿
+
+@model _18bangServices.ViewModel.Email.ActivateModel
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<style>
+ 
+</style>
+
+
+@{
+    Layout = null;
+}
+
+<h1> 激活Email</h1>
+<hr />
+<label>
+    <input type="checkbox" checked lzb-edit />修改
+</label>
+@using (Html.BeginForm())
+{
+    <label><strong>Email：(*必填)</strong></label>
+    <div class="input-group">
+        @Html.TextBoxFor(e => e.Email, new { @class = "form-control", placeholder = "能正常接收系统邮件的Email地址" })
+        @Html.ValidationMessageFor(e => e.Email)
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Go!</button>
+        </span>
+    </div>
+    <div class="form-group">
+        <label><strong>验证码：（*必填）</strong></label>
+        @Html.TextBoxFor(p => p.Captcha, new { @class = "form-control", placeholder = "从验证邮箱中获取" })
+        @Html.ValidationMessageFor(p => p.Captcha)
+    </div>
+    <button class="btn btn-default" type="button">提交</button>
+
+}
+<script>
+    $(document).ready(function () {
+        $("[lzb-edit]").click(function () {
+            $("form ").children().toggleClass("disabled");
+            
+        });
+
+      
+    });
+</script>

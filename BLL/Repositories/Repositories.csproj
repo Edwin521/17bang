@@ -53,11 +53,8 @@
   <ItemGroup>
     <Compile Include="ArticleRepository.cs" />
     <Compile Include="BaseRepository.cs" />
-    <Compile Include="Migrations\202103090824471_init.cs" />
-    <Compile Include="Migrations\202103090824471_init.designer.cs">
-      <DependentUpon>202103090824471_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="BMoneyRepository.cs" />
+    <Compile Include="KeywordRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlDbContext.cs" />
     <Compile Include="UserRepository.cs" />
@@ -71,11 +68,6 @@
       <Project>{eb58c98f-aba3-40d1-a4b0-aae8564fc139}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103090824471_init.resx">
-      <DependentUpon>202103090824471_init.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

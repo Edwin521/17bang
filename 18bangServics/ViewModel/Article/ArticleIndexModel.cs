@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _18bangServices.ViewModel.Article
 {
-   public class IndexModel
+   public class ArticleIndexModel
     {
         public IList<ArticleItemModel> Items { get; set; }
         public int SumOfArticle { get; set; }

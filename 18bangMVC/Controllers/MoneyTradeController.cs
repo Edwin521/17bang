@@ -1,4 +1,5 @@
 ﻿using _18bangMVC.Models;
+using _18bangServices.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

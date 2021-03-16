@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace _18bangMVC.Controllers
 {
-    public class KeywordController : Controller
+    public class KeywordController : BaseController
     {
         // GET: Keyword
      

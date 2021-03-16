@@ -53,6 +53,7 @@
     <Compile Include="BaseEntity.cs" />
     <Compile Include="BMoney.cs" />
     <Compile Include="Comment.cs" />
+    <Compile Include="Email.cs" />
     <Compile Include="keyword.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

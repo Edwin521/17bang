@@ -8,6 +8,8 @@ namespace BLL.Entities
         public int Used { get; set; }
         public IList<Article> Articles { get; set; }
         public IList<Problem> Problems { get; set; }
+        public int? LevelId { get; set; }
+        public Keyword Level { get; set; }
 
         #region 取到关键字
         public IList<Keyword> GetKeyWordslist(string keyword)

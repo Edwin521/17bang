@@ -1,51 +1,37 @@
 ﻿
 using _18bangMVC.Filter;
 using _18bangServices.ViewModel.Article;
-using BLL.Entities;
-using BLL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ProdServices;
+using _18bangServices.ViewModel;
 
 namespace _18bangMVC.Controllers
 {
-    public class ArticleController : Controller
+    public class ArticleController : BaseController
     {
-        // GET: Article
-        //private ArticleService service;
-        //public ArticleController()
-        //{
-        //    service = new ArticleService();
-        //}
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
-        //public ActionResult Single(int id)
-        //{
-        //    return View(service.GetSingleArticle(id));
-        //}
-        //public ActionResult New()
-        //{
-
-        //    return View();
-        //}
 
 
-
-        private ArticleRepository articleRepository;
-        private UserRepository userRepository;
+        private ArticleService articleService;
+        private UserService registerService;
         public ArticleController()
         {
-            articleRepository = new ArticleRepository();
-            userRepository = new UserRepository();
+            articleService = new ArticleService();
+            registerService = new UserService();
         }
-
+        public ActionResult Index( int id=1) {
+            ArticleIndexModel model = new ArticleIndexModel { Items = new List<ArticleItemModel>()};
+            model = articleService.GetArticles(2, id);
+            model.SumOfArticle = articleService.GetCount();
+            return View(model);
+        }
+     
+        #region New页面
         [ModelErrorTransferFilter]
-        public ActionResult New( )
+        public ActionResult New()
         {
 
             return View();
@@ -54,20 +40,45 @@ namespace _18bangMVC.Controllers
 
         [HttpPost]
         [ModelErrorTransferFilter]
-        public ActionResult New(NewModel model )
+        public ActionResult New(NewModel model)
         {
-            int currentUserId = 1;
-            Article article = new Article
-            {
-                Title = model.Title,
-                Body = model.Body,
-            };
-            User author = userRepository.find(currentUserId);
-    
-            article.Author = author;
-            articleRepository.Save(article);
+
+            int articleId = articleService.Publish(model);
+            return RedirectToAction(Keys.Single, new { id = articleId });
+        }
+        #endregion
+
+
+        #region Single页面
+        public ActionResult Single(int id)
+        {
+            SingleModel model = articleService.GetById(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Single()
+        {
             return View();
         }
+        #endregion
+
+
+
+
+        #region Edit 修改文章内容页面
+        public ActionResult Edit(int? id)
+        {
+            EditModel model = articleService.GetEdit(id.Value);
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Edit()
+        {
+            return View();
+        }
+        #endregion
+
 
     }
 }

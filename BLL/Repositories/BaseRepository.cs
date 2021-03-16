@@ -8,27 +8,36 @@ using System.Threading.Tasks;
 
 namespace BLL.Repositories
 {
-    public class BaseRepository<T> where T : BaseEntity
+    public class BaseRepository<T> where T : BaseEntity,new()
     {
         protected SqlDbContext context;
         protected DbSet<T> dbSet;
-        public BaseRepository()
+        public BaseRepository(SqlDbContext context)
         {
-            context = new SqlDbContext();
+            this.context = context;
             dbSet = context.Set<T>();
         }
 
 
 
-        public T find(int? id)
+        public T Find(int? id)
         {
-            return dbSet.Find(id.Value);
+            return dbSet.Find(id);
         }
-        public int save(T entity)
+        public int Save(T entity)
         {
             dbSet.Add(entity);
             context.SaveChanges();
             return entity.Id;
         }
+
+        public T Load(int id) {
+            T entity = new T { Id = id };
+            dbSet.Attach(entity);
+            return entity;
+        }
+
+
+
     }
 }

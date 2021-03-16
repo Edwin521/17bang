@@ -13,21 +13,11 @@ namespace BLL.Entities
         public int Level { set; get; }
         public int? InviterId { set; get; }
         public User Inviter { set; get; }
-        public int MyInviterCode { set; get; }
+        public string MyInviterCode { set; get; }
         public IList<BMoney> Wallet { set; get; }
+        public Email Email { get; set; }
 
 
-        //public User Register(User newUser, BMoney award)
-        //{
-        //    award.OwnerId = newUser.Id;
-        //    newUser.Level = 0;
-        //    newUser.Wallet = new List<BMoney>();
-        //    newUser.Wallet.Add(award);
-        //    newUser.MyInviterCode = getRandomCode();
-        //    return newUser;
-          
-                
-        //}
 
         private int getRandomCode()
         {
@@ -35,9 +25,21 @@ namespace BLL.Entities
             return random.Next(1000, 9999);
         }
 
-        public void Register()
+        public User Register(BMoney bMoney)
         {
-           
+            bMoney.OwnerId = this.Id;
+            this.Level = 0;
+            this.Wallet = new List<BMoney>();
+            this.Wallet.Add(bMoney);
+            this.MyInviterCode = getRandomInviterNumber();
+            return this;
+
+        }
+
+        private String getRandomInviterNumber()
+        {
+            Random random = new Random();
+            return random.Next(1000, 9999).ToString();
         }
     }
 }

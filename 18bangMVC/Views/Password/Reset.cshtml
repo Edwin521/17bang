@@ -1,0 +1,49 @@
+﻿@model _18bangServices.ViewModel.Password.ResetModel
+@{
+    Layout = null;
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<div class="container">
+    <h2> <i class="fa fa-lock"></i>重新设置密码</h2>
+    <hr />
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="exampleInputPassword1" class="font-weight-bold">新密码：（* 必填）</label>
+                    @Html.PasswordFor(p => p.NewPassword, new { @class = "form-control", placeholder = "不少于4个字符" })
+                    @Html.ValidationMessageFor(p => p.NewPassword)
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1" class="font-weight-bold">确认密码：（* 必填）</label>
+                    @Html.PasswordFor(p => p.ConfirmPassword, new { @class = "form-control", placeholder = "不少于4个字符" })
+                    @Html.ValidationMessageFor(p => p.ConfirmPassword)
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1" class="font-weight-bold">验证码：（* 必填）</label>
+                    @Html.PasswordFor(p => p.Captcha, new { @class = "form-control", placeholder = "请再输入一次密码" })
+                    @Html.ValidationMessageFor(p => p.Captcha)
+                </div>
+                <input class="btn btn-primary" type="submit" value="提交">
+                <input class="btn btn-light" type="reset" value="重填">
+            </div>
+        }
+
+
+
+        <aside class="col-md-5 col-md-offset-2">
+            <h3 class="text-primary"><i class="fa fa-question-circle"></i>    说明</h3>
+            <ol>
+                <li>
+                    即使在已登录的状态下，也要再输入一次“原密码”，是出于安全性的考虑。
+                </li>
+            </ol>
+        </aside>
+    </div>
+</div>
+
+

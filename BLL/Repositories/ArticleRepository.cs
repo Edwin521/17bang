@@ -10,15 +10,36 @@ namespace BLL.Repositories
 {
     public class ArticleRepository : BaseRepository<Article>
     {
-        public Article Find(int userId)
+        public ArticleRepository(SqlDbContext context) : base(context)
         {
-          return  dbSet.Where(a => a.Author.Id == userId).FirstOrDefault();
+        }
+
+        public Article Find(int articleId)
+        {
+            return dbSet.Where(a => a.Id == articleId).FirstOrDefault();
         }
 
         public int Save(Article article)
         {
-            return dbSet.Add(article).Id;
+             dbSet.Add(article);
+            context.SaveChanges();
+            return article.Id;
         }
-      
+
+        public IList<Article> GetArticles(int pageSize, int pageIndex)
+        {
+            return dbSet.Include(d => d.Author).
+                  Include(a => a.Keywords).
+                  OrderByDescending(a => a.PublishTime).
+                  Skip((pageIndex - 1) * pageSize).
+                  Take(pageSize).
+                  ToList();
+        }
+
+        public int ArticleCount()
+        {
+            return dbSet.Count();
+        }
+
     }
 }

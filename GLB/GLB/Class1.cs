@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProdServices
+namespace ClassLibrary1
 {
-     
-   public class RegisterService
+    public class Class1
     {
-
     }
 }

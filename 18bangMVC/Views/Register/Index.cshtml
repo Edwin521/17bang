@@ -1,4 +1,4 @@
-﻿@model _18bangMVC.Models.RegisterModel
+﻿@model _18bangServices.ViewModel.RegisterModel
 @{
     ViewBag.Title = "注册·一起帮";
     Layout = "~/Views/Shared/_Dual.cshtml";
@@ -49,11 +49,12 @@
         <label for="exampleInputEmail1">验证码：（* 必填） </label>
         @Html.TextBoxFor(m => m.Captcha, new { @class = "form-control", style = "width:100px" })
         @Html.ValidationMessageFor(m => m.Captcha)
+        <img src="~/shared/GetCaptcha" style="visibility: hidden" >
         <span style="display:inline-block">点击输入框显示</span>
     </div>
     <button class="btn btn-primary" type="submit">提交</button>
     <button class="btn btn-light" type="reset">重置</button>
-    <a href="logon.html" class=" btn float-right text-primary"><i class="fa fa-sign-in" aria-hidden="true"></i>登录</a>
+    <a href="/Log/On" class=" btn float-right text-primary"><i class="fa fa-sign-in" aria-hidden="true"></i>登录</a>
 }
 
 

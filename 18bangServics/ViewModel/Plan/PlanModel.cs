@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace _18bangMVC.Models
+namespace _18bangServices.ViewModel
 {
     public class PlanModel
     {

@@ -8,8 +8,9 @@ namespace _18bangServices.ViewModel
 {
    public class UserModel
     {
-        public int AuthorId { set; get; }
-        public string AuthorName { set; get; }
+        public int Id { set; get; }
+        public string Name { set; get; }
+        public string Password { set; get; }
         public int Level { set; get; }
     }
 }

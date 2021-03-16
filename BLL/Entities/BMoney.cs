@@ -31,6 +31,11 @@ namespace BLL.Entities
 
             };
         }
+
+        public BMoney GiveInviterPrize(object v)
+        {
+            throw new NotImplementedException();
+        }
     }
     public enum BMoneyDirection
     {
